@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 # load OpenAI API key
+
 def get_openai_key(env_file=None):
     env_path = Path(
         env_file or r"C:\LabGit\150citations classification\api_keys\OPEN_AI_KEY.env"
@@ -29,17 +30,16 @@ def get_openai_key(env_file=None):
 # instantiate new-style client
 client = OpenAI(api_key=get_openai_key())
 
-
 # Input and output files
 def find_latest_checkpoint():
-    # include both CSV and XLSX checkpoints
+    
     files = glob.glob("checkpoint_*.csv") + glob.glob("checkpoint_*.xlsx")
     if not files:
         return None
-    # extract numeric index from filename
+    
     idxs = []
     for f in files:
-        stem = Path(f).stem  # e.g. 'checkpoint_7000'
+        stem = Path(f).stem  
         parts = stem.split("_")
         if len(parts) == 2 and parts[1].isdigit():
             idxs.append((int(parts[1]), f))
@@ -175,3 +175,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
