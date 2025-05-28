@@ -86,8 +86,12 @@ CATEGORY_STRUCTURE = {
         "Small Molecules & Inhibitors": [
             "Chemical Compounds",
             "Inhibitors",
-            "Solvents",
             "Antibiotics",
+        ],
+        "Solvents & Solutions": [
+            "Organic Solvents",
+            "Aqueous Solutions",
+            "Dilution Buffers",
         ],
     },
     "Proteins & Peptides": {
