@@ -10,9 +10,9 @@ import glob
 from pathlib import Path
 from dotenv import load_dotenv
 
-# ─── CONFIG ─────────────────────────────────────────────────────────────────
-INPUT_CSV = "products_over_150_protocols_list.csv"
-OUTPUT_CSV = "products_with_categories_Claude.csv"
+# ─── CONFIG
+INPUT_CSV = "C:/LabGit/150citations classification/top_50_000_products_in_citations.xlsx - Sheet1.csv"
+OUTPUT_CSV = "products_with_categories_n_confidence.csv"
 CHECKPOINT_DIR = "checkpoints"
 CHECKPOINT_FREQ = 100  # save every N items
 
@@ -33,7 +33,6 @@ def get_openai_key(env_file=None):
     raise FileNotFoundError("OpenAI API key not found")
 
 
-# instantiate new-style client
 client = OpenAI(api_key=get_openai_key())
 
 CATEGORY_STRUCTURE = {
@@ -191,10 +190,9 @@ for top_cat, subcats in CATEGORY_STRUCTURE.items():
 
 FORMATTED_SUBCATS = "\n".join(FORMATTED_STRUCTURE)
 
-# ─── MANUAL OVERRIDES ──────────────────────────────────────────────────────────
+# MANUAL OVERRIDES
 # Keeping only essential overrides for products that are commonly misclassified
 OVERRIDES: List[Tuple[Pattern, Tuple[str, str, str]]] = [
-    # Essential overrides for brand-specific products that might be unclear to LLM
     (
         re.compile(r"lipofectamine", re.I),
         (
@@ -205,7 +203,7 @@ OVERRIDES: List[Tuple[Pattern, Tuple[str, str, str]]] = [
     ),
 ]
 
-# ─── UTILITIES ──────────────────────────────────────────────────────────────────
+# ─── UTILITIES
 
 
 def strip_code_fences(text: str) -> str:
@@ -214,26 +212,31 @@ def strip_code_fences(text: str) -> str:
     return text.strip()
 
 
-# ─── CLASSIFICATION ─────────────────────────────────────────────────────────────
+# ─── CLASSIFICATION
 def classify_product(name: str) -> Dict[str, str]:
-    # 1) Manual overrides (minimal, only for essential cases)
     for pattern, (top, sub, sub_sub) in OVERRIDES:
         if pattern.search(name):
-            return {"category": top, "subcategory": sub, "sub_subcategory": sub_sub}
+            return {
+                "category": top,
+                "subcategory": sub,
+                "sub_subcategory": sub_sub,
+                "confidence": "High",
+            }
 
     # 2) LLM classification
     prompt = (
         "You are a life-science cataloguing assistant.\n"
         "Given a product name, assign ONE category, ONE subcategory, and ONE sub-subcategory from the structure below.\n"
+        "Additionally, provide your confidence in this classification as High, Medium, or Low.\n"
         "If you cannot determine an appropriate sub-subcategory, leave that field empty but still provide category and subcategory.\n"
         "Respond ONLY with raw JSON.\n\n"
         "Examples:\n"
         'Product name: "Anti-human CD3 monoclonal antibody"\n'
-        'Response: {"category":"Antibodies", "subcategory":"Primary Antibodies", "sub_subcategory":"Monoclonal Antibodies"}\n\n'
+        'Response: {"category":"Antibodies", "subcategory":"Primary Antibodies", "sub_subcategory":"Monoclonal Antibodies", "confidence":"High"}\n\n'
         'Product name: "SYBR Green qPCR Master Mix"\n'
-        'Response: {"category":"Nucleic Acid Products", "subcategory":"Oligos, Primers & Genes", "sub_subcategory":"Probes"}\n\n'
+        'Response: {"category":"Nucleic Acid Products", "subcategory":"Oligos, Primers & Genes", "sub_subcategory":"Probes", "confidence":"Medium"}\n\n'
         'Product name: "General Lab Equipment Item"\n'
-        'Response: {"category":"Lab Equipment", "subcategory":"General Lab Equipment", "sub_subcategory":""}\n\n'
+        'Response: {"category":"Lab Equipment", "subcategory":"General Lab Equipment", "sub_subcategory":"", "confidence":"Low"}\n\n'
         f"Valid CATEGORIES:\n{NUMBERED_CATEGORIES}\n\n"
         f"Valid SUBCATEGORIES and SUB-SUBCATEGORIES:\n{FORMATTED_SUBCATS}\n\n"
         f'Product name: "{name}"\n'
@@ -248,56 +251,63 @@ def classify_product(name: str) -> Dict[str, str]:
         text = resp.choices[0].message.content.strip()
         stripped = strip_code_fences(text)
 
-        # 3) JSON parse
         j = json.loads(stripped)
 
         top = j.get("category", "Other")
         sub = j.get("subcategory", "")
         sub_sub = j.get("sub_subcategory", "")
+        confidence = j.get("confidence", "Low")  # Default to Low if not provided
 
-        # Validate classification
         if top not in TOP_CATEGORIES:
-            logger.warning(f"Invalid top category '{top}' for '{name}'. Using 'Other'.")
-            return {"category": "Other", "subcategory": "", "sub_subcategory": ""}
+            confidence = "Low"
+            top, sub, sub_sub = "Other", "", ""
 
         if top == "Other":
-            return {"category": "Other", "subcategory": "", "sub_subcategory": ""}
+            confidence = "Low"
 
-        # If subcategory is invalid, try to find the best match or use first available
         if sub not in CATEGORY_STRUCTURE.get(top, {}):
+            confidence = "Low"
             available_subs = list(CATEGORY_STRUCTURE.get(top, {}).keys())
-            if available_subs:
-                sub = available_subs[0]  # Use first available subcategory
-                logger.warning(
-                    f"Invalid subcategory '{j.get('subcategory', '')}' for category '{top}' and product '{name}'. Using '{sub}'."
-                )
-            else:
-                sub = ""
+            sub = available_subs[0] if available_subs else ""
 
-        # If sub-subcategory is provided but invalid, just leave it empty (don't force a value)
-        if (
-            sub
-            and sub_sub
-            and sub_sub not in CATEGORY_STRUCTURE.get(top, {}).get(sub, [])
-        ):
-            logger.info(
-                f"Invalid sub-subcategory '{sub_sub}' for '{top}' > '{sub}' and product '{name}'. Leaving empty."
-            )
+        if sub_sub and sub_sub not in CATEGORY_STRUCTURE.get(top, {}).get(sub, []):
             sub_sub = ""
+            if confidence == "High":
+                confidence = (
+                    "Medium"  # Downgrade confidence if sub-subcategory incorrect
+                )
 
-        return {"category": top, "subcategory": sub, "sub_subcategory": sub_sub}
+        return {
+            "category": top,
+            "subcategory": sub,
+            "sub_subcategory": sub_sub,
+            "confidence": confidence,
+        }
 
     except json.JSONDecodeError:
         logger.warning(f"JSON parse error for '{name}': {text!r}")
-        return {"category": "Other", "subcategory": "", "sub_subcategory": ""}
+        return {
+            "category": "Other",
+            "subcategory": "",
+            "sub_subcategory": "",
+            "confidence": "Low",
+        }
     except Exception as e:
         logger.error(f"Error classifying '{name}': {e}")
-        return {"category": "Other", "subcategory": "", "sub_subcategory": ""}
+        return {
+            "category": "Other",
+            "subcategory": "",
+            "sub_subcategory": "",
+            "confidence": "Low",
+        }
 
 
-# ─── MAIN ─────────────────────────────────────────────────────────────────────
+# MAIN
 def main():
-    # Ensure checkpoint dir is a directory
+    CHECKPOINT_FILE = (
+        r"C:\LabGit\150citations classification\checkpoints\checkpoint_34500.csv"
+    )
+
     if os.path.exists(CHECKPOINT_DIR) and not os.path.isdir(CHECKPOINT_DIR):
         logger.error(
             f"'{CHECKPOINT_DIR}' exists but is not a directory. Please remove or rename this file."
@@ -305,20 +315,24 @@ def main():
         exit(1)
     os.makedirs(CHECKPOINT_DIR, exist_ok=True)
 
-    # Load or start fresh
-    if os.path.exists(OUTPUT_CSV):
-        df = pd.read_csv(OUTPUT_CSV)
-        start_idx = len(df)
-        logger.info(f"Resuming from index {start_idx}")
+    if os.path.exists(CHECKPOINT_FILE):
+        df = pd.read_csv(CHECKPOINT_FILE)
+        # Find the first row with empty 'category' to resume from there
+        try:
+            start_idx = df[df["category"].isna() | (df["category"] == "")].index[0]
+        except IndexError:
+            logger.info("Checkpoint file is fully processed. Exiting.")
+            return
+        logger.info(f"Resuming from checkpoint at index {start_idx}")
     else:
         df = pd.read_csv(INPUT_CSV)
         df["category"] = ""
         df["subcategory"] = ""
         df["sub_subcategory"] = ""
+        df["confidence"] = ""
         start_idx = 0
-        logger.info(f"Starting classification of {len(df)} products")
+        logger.info(f"No checkpoint found, starting classification from beginning.")
 
-    # Loop and checkpoint
     total = len(df)
     for idx in tqdm(range(start_idx, total), desc="Classifying"):
         name = df.at[idx, "Name"]
@@ -326,13 +340,13 @@ def main():
         df.at[idx, "category"] = result["category"]
         df.at[idx, "subcategory"] = result["subcategory"]
         df.at[idx, "sub_subcategory"] = result["sub_subcategory"]
+        df.at[idx, "confidence"] = result["confidence"]
 
         if (idx + 1) % CHECKPOINT_FREQ == 0 or idx == total - 1:
             cp = os.path.join(CHECKPOINT_DIR, f"checkpoint_{idx+1}.csv")
             df.to_csv(cp, index=False)
             logger.info(f"Saved checkpoint: {cp}")
 
-    # Final output
     df.to_csv(OUTPUT_CSV, index=False)
     logger.info(f"Classification complete. Results in {OUTPUT_CSV}")
 

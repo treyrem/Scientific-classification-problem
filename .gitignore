@@ -2,5 +2,7 @@
 /api_keys
 /.vscode
 /csv results
-/checkpoints
+/checkpoints_Claude
+/checkpints
 
+checkpoints/checkpoint_50000.csv
