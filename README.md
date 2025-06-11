@@ -58,7 +58,10 @@ Honarable Mentions:
 
 Strugglebussers? Practically Gone: Under 1% of names remain mischievous. 
 
-Error Rate: Single-digit misclassifications. Let’s call it “good enough.”
+Error Rate: Single-digit misclassifications 7%. Let’s call it “good enough.”
+
+FINAL VERSION:
+The final version of classification was a glorius success with over 90 lab product categories and hierarchy established, the agent also evaluated the degree of confidence of its answers , which significantly  reduced the number of manual corrections done. From 7% missclassification to less than 1.5% missclassification for a dataset of 50000 Lab products.
 
 🛠️ How to Torture-Test It Yourself if you ever end up in an unfortunate sutiation like mine. 
 
