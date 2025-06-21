@@ -1,6 +1,6 @@
 Lab Product Categorization: A Tale of Trials, Errors, and Occasional Triumphs
 
-Welcome to the cringy chronicles of my attempts to categorize 10,000 hyper-specific in places not specific enough lab product names into "right categories" (or somewhat reasonable). Spoiler alert: it wasn’t pretty—but hey, at least it was educational.
+Welcome to the cringy chronicles of my attempts to categorize 10,000 (that was the first batch, the latest code categorized over 50k products ) hyper-specific in places not specific enough lab product names into "right categories" (or somewhat reasonable). Spoiler alert: it wasn’t pretty—but hey, at least it was educational.
 
 🏁 Chapter 1: The Naïve Debut (main.py)
 
