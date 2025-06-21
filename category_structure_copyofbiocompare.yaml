@@ -1,0 +1,886 @@
+categories:
+  Antibodies:
+    subcategories:
+      Secondary Antibodies:
+        subsubcategories:
+          - Anti-Human Secondary Antibodies
+          - Anti-Mouse Secondary Antibodies
+          - Anti-Rabbit Secondary Antibodies
+          - Anti-Rat Secondary Antibodies
+          - Anti-Sheep Secondary Antibodies
+          - Anti-Guinea Pig Secondary Antibodies
+          - Anti-Hamster Secondary Antibodies
+          - Anti-Bovine Secondary Antibodies
+          - Anti-Horse Secondary Antibodies
+          - Western Blot Secondary Antibodies
+          - Immunofluorescence Secondary Antibodies
+          - ELISA Secondary Antibodies
+          - IHC Secondary Antibodies
+          - Flow Cytometry Secondary Antibodies
+          - HRP Conjugated Secondary Antibodies
+          - AP Conjugated Secondary Antibody
+          - Biotinylated Secondary Antibodies
+          - FITC Secondary Antibodies
+          - R-Phycoerythrin Secondary Antibodies
+          - APC Secondary Antibodies
+          - IgG Secondary Antibodies
+          - IgG1 Secondary Antibodies
+          - IgG2a Secondary Antibodies
+          - IgM Secondary Antibodies
+      Recombinant Antibodies:
+        subsubcategories:
+          - Human Recombinant Antibodies
+          - Mouse Recombinant Antibodies
+          - Rabbit Recombinant Antibodies
+          - Bispecific Recombinant Antibodies
+          - Unconjugated 
+          - Enzymatic Conjugated Recombinant Antibodies
+          - Biotinylated Recombinant Antibodies
+          - Fluorophore Conjugated Recombinant Antibodies:
+              subsubsubcategories:
+                - Blue Emitters (≤499 nm) 
+                - Green Emitters (500–529 nm) 
+                - Yellow Emitters (530–559 nm) 
+                - Orange Emitters (560–589 nm) 
+                - Red Emitters (590–629 nm)
+                - Far-Red Emitters (630–669 nm) 
+                - Near-Infrared (≥670 nm) 
+      Apoptosis Marker Antibodies:
+        subsubcategories:
+          - Bcl-2 Family Antibodies:
+            subsubsubcategories:
+                - BAX Antibodies
+                - Bcl-2 Antibodies
+                - Bid Antibodies
+                - BCLXL Antibodies
+                - BAD Antibodies
+                - Bim Antibodies
+                - Bak Antibodies
+                - MCL1 Antibodies
+                - PUMA Antibodies
+                - BCL2L2 Antibodies
+          - Apoptosome Antibodies:
+            subsubsubcategories:
+                - APAF1 Antibodies
+                - Cytochrome C Antibodies
+          - Caspase Antibodies:
+            subsubsubcategories:
+                - Caspase 3 Antibodies
+                - Caspase 8 Antibodies
+                - Caspase 1 Antibodies
+                - Caspase 9 Antibodies
+                - Caspase 2 Antibodies
+                - Caspase 6 Antibodies
+                - Caspase 14 Antibodies
+                - Caspase 4 Antibodies
+                - Caspase 7 Antibodies
+          - Chaperone Protein Antibodies:
+            subsubsubcategories:
+                - HSP70 Antibodies
+                - Clusterin Antibodies
+                - HSP25 Antibodies
+                - GroEL Antibodies
+          - Cytokine Antibodies:
+            subsubsubcategories:
+                - TNFalpha Antibodies
+                - CD40L Antibodies
+                - Fasl Antibodies
+                - TRAIL Antibodies
+                - TWEAK Antibodies
+          - TNF Receptor Antibodies:
+            subsubsubcategories:
+                - CD40 Antibodies
+                - CD95 Antibodies
+                - TNFR1 Antibodies
+                - DR5 Antibodies
+                - TNFR2 Antibodies
+                - DR3 Antibodies
+                - CD27 Antibodies
+                - Fn14 Antibodies
+                - CD30 Antibodies
+          - Transcription Factor Antibodies:
+            subsubsubcategories:
+                - PARP1 Antibodies
+                - p53 Antibodies
+                - HIF1 alpha Antibodies
+                - ATF6 Antibodies
+          - IAP Antibodies:
+            subsubsubcategories:
+                - XIAP Antibodies
+                - Survivin Antibodies
+                - BIRC7 Antibodies
+                - cIAP1 Antibodies
+                - cIAP2 Antibodies
+          - Other Apoptosis Antibodies:
+            subsubsubcategories:
+                - AKT Antibodies
+                - Beclin 1 Antibodies
+                - IGF1R Antibodies
+                - APC Antibodies
+                - MTOR Antibodies
+                - LAMP1 Antibodies
+                - PD-1 Antibodies
+                - GAPDH Antibodies
+                - BDNF Antibodies
+                - FADD Antibodies
+                - Aif Antibodies
+                - c-FLIP Antibodies
+                - Aven Antibodies
+                - Granzyme B Antibodies
+                - IFI27 Antibodies
+                - BIK Antibodies
+                - NIX Antibodies
+                - Galectin 3 Antibodies
+                - HTRA2 Antibodies
+                - CDKN1 Antibodies
+                - Annexin V Antibodies
+                - CATALASE Antibodies
+                - Cathepsin B Antibodies
+                - HDAC1 Antibodies
+                - IGF1 Antibodies
+                - Smac / Diablo Antibodies
+      Epitope Tag Antibodies:  
+        subsubcategories:
+          - Peptide Tags:
+            subsubsubcategories:
+              - His Tag Antibodies
+              - Myc Tag Antibodies
+              - HA Tag Antibodies
+              - S Tag Antibodies
+              - E Tag Antibodies
+              - AU1 Tag Antibodies
+              - AU5 Tag Antibodies
+              - DYKDDDDK Antibodies
+              - T7 Tag Antibodies
+              - TY1 Tag Antibodies
+              - KT3 Tag Antibodies
+              - HN Tag Antibodies
+          - Fusion Protein Tags:
+            subsubsubcategories:
+              - GST Tag Antibodies
+              - MBP Tag Antibodies
+              - Trx Tag Antibodies
+              - CBP Tag Antibodies
+              - SUMO Tag Antibodies
+              - OLLAS Tag Antibodies
+              - Glu-Glu Tag Antibodies
+          - Functional & Enzymatic Tags:
+            subsubsubcategories:
+              - SNAP Tag Antibodies
+              - TAP Tag Antibodies
+              - SRT Tag Antibodies
+              - AVI Tag Antibodies
+              - Biotin ligase Tag Antibodies
+          - Fluorescent Protein Tags:
+            subsubsubcategories:
+              - RFP Tag Antibodies
+              - AmCyan Tag Antibodies
+              - Nano Tag Antibodies
+          - Viral-derived Tags:
+            subsubsubcategories:
+              - VSV-g Tag Antibodies
+              - HSV Tag Antibodies
+      Cancer Marker Antibodies:
+        subsubcategories:
+          - AFP Antibodies
+          - ALK Antibodies
+          - B7-H4 Antibodies
+          - Bcl-2 Antibodies
+          - bcr/abl Antibodies
+          - Beta hCG Antibodies
+          - Beta-2-microglobulin Antibodies
+          - BRAF Antibodies
+          - BRCA1 Antibodies
+          - BRCA2 Antibodies
+          - CA 15-3 Antibodies
+          - Calcitonin Antibodies
+          - Calretinin Antibodies
+          - CD10 Antibodies
+          - CD44 Antibodies
+          - CD45 Antibodies
+          - CEA Antibodies
+          - Chromogranin A Antibodies
+          - c-kit Antibodies
+          - Cytokeratin 19 Antibodies
+          - EGFR Antibodies
+          - ER Antibodies
+          - ESR1 Antibodies
+          - ESR2 Antibodies
+          - FOLR1 Antibodies
+          - HE4 Antibodies
+          - HER2 Antibodies
+          - Inhibin Antibodies
+          - Ki-67 Antibodies
+          - KRAS proto-oncogene, GTPase (KRAS) Antibodies
+          - Lactate Dehydrogenase Antibodies
+          - LAMP1 Antibodies
+          - MART1 Antibodies
+          - Mesothelin Antibodies
+          - MUC1 Antibodies
+          - MUC16 Antibodies
+          - NMP22 Antibodies
+          - NSE Antibodies
+          - p53 Antibodies
+          - p63 Antibodies
+          - PD1 Antibodies
+          - PDL1 Antibodies
+          - PKM Antibodies
+          - PLAP Antibodies
+          - Podoplanin Antibodies
+          - Progesterone receptor Antibodies
+          - PSA Antibodies
+          - S100A4 Antibodies
+          - SERPINE1 Antibodies
+          - SFRP1 Antibodies
+          - TAG-72 Antibodies
+          - Thyroglobulin Antibodies
+          - Transthyretin Antibodies
+          - TTF1 Antibodies
+          - uPA Antibodies
+          - Vimentin Antibodies
+      Neuroscience Antibodies:
+        subsubcategories:
+          Neuronal Marker Antibodies:
+            subsubsubcategories:
+                - PGP9.5 Antibodies
+                - Beta III Tubulin Antibodies
+                - NSE Antibodies
+                - HuC Antibodies
+                - Tyrosine Hydroxylase Antibodies
+                - Nestin Antibodies
+                - Calretinin Antibodies
+                - CDK5 Antibodies
+                - CHAT Antibodies
+                - VGLUT1 Antibodies
+                - VGLUT2 Antibodies
+                - Tau Antibodies
+                - PSD95 Antibodies
+                - Ephrin B2 Antibodies
+                - NeuN Antibodies
+                - MAP2 Antibodies
+                - NEFL Antibodies
+                - NF160 Antibodies
+                - NF200 Antibodies
+                - Neuropilin 1 Antibodies
+                - doublecortin Antibodies
+                - Synaptophysin Antibodies
+
+          Astrocyte Marker Antibodies:
+            subsubsubcategories:
+                - S100B Antibodies
+                - GFAP Antibodies
+                - Glutamine Synthetase Antibodies
+                - ALDH1L1 Antibodies
+                - GLT1 Antibodies
+                - Glast Antibodies
+
+          Microglia Marker Antibodies:
+            subsubsubcategories:
+                - CD11b Antibodies
+                - CD68 Antibodies
+                - CD45 Antibodies
+                - Iba1 Antibodies
+                - TREM2 Antibodies
+                - CX3CR1 Antibodies
+
+          Oligodendrocyte Marker Antibodies:
+            subsubsubcategories:
+                - myelin basic protein Antibodies
+                - MOG Antibodies
+                - NG2 Antibodies
+                - Olig1 Antibodies
+                - Olig2 Antibodies
+                - Oligodendrocyte transcription factor 3 Antibodies
+                - PDGFR alpha Antibodies
+                - Claudin 11 Antibodies
+
+          Synaptic Vesicle Antibodies:
+            subsubsubcategories:
+                - Synaptophysin Antibodies
+                - SYT1 Antibodies
+                - Synapsin Antibodies
+                - Synapsin II Antibodies
+
+          Neurotransmitter Transporter Antibodies:
+            subsubsubcategories:
+                - GAT1 Antibodies
+                - DAT Antibodies
+                - SERT Antibodies
+                - VAChT Antibodies
+                - VGLUT1 Antibodies
+                - VGLUT2 Antibodies
+                - GLT1 Antibodies
+
+          Neurotransmitter Receptor Antibodies:
+            subsubsubcategories:
+                - CB1 Antibodies
+                - Dopamine D1 Receptor Antibodies
+                - GB1 Antibodies
+                - GABBR2 Antibodies
+                - GABA A Receptor, alpha 1 Antibodies
+                - GluR1 Antibodies
+                - 5HT1a Antibodies
+
+          Neurodegenerative Marker Antibodies:
+            subsubsubcategories:
+                - Amyloid, beta Antibodies
+                - Parkin Antibodies
+                - SOD1 Antibodies
+                - Synuclein, alpha Antibodies
+                - GSK3 Antibodies
+                - HIP5 Antibodies
+                - PSEN1 Antibodies
+                - PSEN2 Antibodies
+                - BACE1 Antibodies
+                - Tau Antibodies
+                - Huntingtin Antibodies
+
+          Neural Stem Cell Marker Antibodies:
+            subsubsubcategories:
+                - Nestin Antibodies
+                - SOX2 Antibodies
+                - Musashi Antibodies
+                - MSI2 Antibodies
+                - ABCG2 Antibodies
+                - CXCR4 Antibodies
+                - Notch1 Antibodies
+                - Notch 2 Antibodies
+                - CD133 Antibodies
+                - Frizzled 9 Antibodies
+                - FABP7 Antibodies
+                - PAX6 Antibodies
+                - GLUT1 Antibodies
+                - Vimentin Antibodies
+                - SSEA-1 Antibodies
+                - SOX9 Antibodies
+                - GFAP Antibodies
+      Antibodies for Loading Controls:
+        subsubcategories:
+          - GAPDH Antibodies
+          - Actin beta Antibodies
+          - GUSB Antibodies
+          - HSP90 Antibodies
+          - alpha Tubulin Antibodies
+          - B2M Antibodies
+          - HPRT1 Antibodies
+          - CHMP2A Antibodies
+          - GPI Antibodies
+          - PSMB2 Antibodies
+          - RAB7A Antibodies
+          - VCP Antibodies
+          - VPS29 Antibodies
+          - SSB Antibodies
+          - LAMP1 Antibodies
+          - VEGFB Antibodies
+          - CD63 Antibodies
+          - ATF4 Antibodies
+          - GPX4 Antibodies
+          - STAT3 Antibodies
+          - BRD4 Antibodies
+          - CD81 Antibodies
+          - CDK4 Antibodies
+          - HMGB1 Antibodies
+          - KRAS proto-oncogene, GTPase (KRAS) Antibodies
+          - LAMP2 Antibodies
+          - MTOR Antibodies
+          - PHF1 Antibodies
+          - PTEN Antibodies
+          - SP1 Antibodies
+          - TOMM20 Antibodies
+          - ATF6A Antibodies
+          - G3BP1 Antibodies
+          - PARP1 Antibodies
+          - BAD Antibodies
+          - BAP1 Antibodies
+          - KEAP1 Antibodies
+          - LMNA Antibodies
+          - MFN2 Antibodies
+          - RAC1 Antibodies
+          - SOD1 Antibodies
+          - STAT5b Antibodies
+          - TBK1 Antibodies
+          - VDAC1 Antibodies
+          - C1orf43 Antibodies
+          - PSMB4 Antibodies
+          - REEP5 Antibodies
+          - SNRPD3 Antibodies
+      Isotype Control Antibodies:
+        subsubcategories:
+          Mouse Isotype Controls:
+            subsubsubcategories:
+                - Mouse IgG1 Isotype Control
+                - Mouse IgG1 kappa Isotype Control
+                - Mouse IgG2a Isotype Control
+                - Mouse IgG2a kappa Isotype Control
+                - Mouse IgG2b Isotype Control
+                - Mouse IgG2b kappa Isotype Control
+                - Mouse IgG3 Isotype Control
+                - Mouse IgG3 kappa Isotype Control
+                - Mouse IgM Isotype Control
+                - Mouse IgM kappa Isotype Control
+                - Mouse IgM lambda Isotype Control
+
+          Rat Isotype Controls:
+            subsubsubcategories:
+                - Rat IgG1 Isotype Control
+                - Rat IgG1 kappa Isotype Control
+                - Rat IgG1 lambda Isotype Control
+                - Rat IgG2a Isotype Control
+                - Rat IgG2a kappa Isotype Control
+                - Rat IgG2b Isotype Control
+                - Rat IgG2b kappa Isotype Control
+                - Rat IgM Isotype Control
+
+          Hamster Isotype Controls:
+            subsubsubcategories:
+                - Hamster IgG Isotype Control
+                - Hamster IgM Isotype Control
+
+          Rabbit Isotype Controls:
+            subsubsubcategories:
+                - Rabbit IgG Isotype Control
+      Stem Cell Marker Antibodies:
+        subsubcategories:
+          Pluripotent Stem Cell Marker Antibodies:
+            subsubsubcategories:
+                - OCT4 Antibodies
+                - Nanog Antibodies
+                - SSEA-1 Antibodies
+                - SSEA-3 Antibodies
+                - SSEA-4 Antibodies
+                - c-myc Antibodies
+                - SOX2 Antibodies
+                - KLF4 Antibodies
+                - DNMT3B Antibodies
+
+          Mesenchymal Stem Cell Marker Antibodies:
+            subsubsubcategories:
+                - Endoglin Antibodies
+                - CD73 Antibodies
+                - CD90 Antibodies
+                - CD44 Antibodies
+                - CD13 Antibodies
+                - CD29 Antibodies
+                - CD146 Antibodies
+                - VCAM1 Antibodies
+                - CD166 Antibodies
+                - SSEA-4 Antibodies
+                - Sca-1 Antibodies
+                - CD45 Antibodies
+                - CD19 Antibodies
+                - STRO-1 Antibodies
+
+          Hematopoietic Stem Cell Marker Antibodies:
+            subsubsubcategories:
+                - CD34 Antibodies
+                - CD38 Antibodies
+                - CD90 Antibodies
+                - CD133 Antibodies
+                - CD150 Antibodies
+                - CD48 Antibodies
+                - VCAM1 Antibodies
+                - SSEA-4 Antibodies
+                - Sca-1 Antibodies
+                - CD45 Antibodies
+                - CD135 Antibodies
+                - CD244 Antibodies
+                - CD44 Antibodies
+                - Endoglin Antibodies
+
+          Neural Stem Cell Marker Antibodies:
+            subsubsubcategories:
+                - Nestin Antibodies
+                - SOX2 Antibodies
+                - Musashi Antibodies
+                - MSI2 Antibodies
+                - ABCG2 Antibodies
+                - CXCR4 Antibodies
+                - Notch1 Antibodies
+                - Notch 2 Antibodies
+                - CD133 Antibodies
+                - Frizzled 9 Antibodies
+                - FABP7 Antibodies
+                - PAX6 Antibodies
+                - GLUT1 Antibodies
+                - Vimentin Antibodies
+                - SSEA-1 Antibodies
+                - SOX9 Antibodies
+                - GFAP Antibodies
+
+          Cancer Stem Cell Marker Antibodies:
+            subsubsubcategories:
+                - CD44 Antibodies
+                - ALDH1 Antibodies
+                - CD133 Antibodies
+                - ABCG2 Antibodies
+                - CD24 Antibodies
+                - BMI1 Antibodies
+                - CD90 Antibodies
+                - Nestin Antibodies
+                - CD166 Antibodies
+                - EPCAM Antibodies
+                - ABCB5 Antibodies
+                - CXCR4 Antibodies
+                - Integrin alpha 6 Antibodies
+                - LGR5 Antibodies
+                - c-kit Antibodies
+                - CD29 Antibodies
+                - CD34 Antibodies
+                - SSEA-1 Antibodies
+                - CD151 Antibodies
+                - CD13 Antibodies
+                - CD20 Antibodies
+                - DPP4 Antibodies
+                - c-Met Antibodies
+      Cytokine Detection:
+        subsubcategories:
+          Cytokine Multiplex Assays:
+            subsubsubcategories: []
+          Cytokine/Chemokine ELISA:
+            subsubsubcategories: []
+          CXC Chemokine Antibodies:
+            subsubsubcategories:
+                - CXCL1 Antibodies
+                - CXCL2 Antibodies
+                - CXCL3 Antibodies
+                - CXCL4 Antibodies
+                - CXCL5 Antibodies
+                - CXCL6 Antibodies
+                - CXCL7 Antibodies
+                - CXCL8 Antibodies
+                - CXCL9 Antibodies
+                - CXCL10 Antibodies
+                - CXCL11 Antibodies
+                - CXCL12 Antibodies
+                - CXCL13 Antibodies
+                - CXCL14 Antibodies
+                - CXCL15 Antibodies
+                - CXCL16 Antibodies
+          CC Chemokine Antibodies:
+            subsubsubcategories:
+                - CCL1 Antibodies
+                - CCL2 Antibodies
+                - CCL3 Antibodies
+                - CCL3L1 Antibodies
+                - CCL4 Antibodies
+                - CCL5 Antibodies
+                - CCL6 Antibodies
+                - CCL7 Antibodies
+                - CCL8 Antibodies
+                - CCL9 Antibodies
+                - CCL11 Antibodies
+                - CCL12 Antibodies
+                - CCL13 Antibodies
+                - CCL14 Antibodies
+                - CCL15 Antibodies
+                - CCL16 Antibodies
+                - CCL17 Antibodies
+                - CCL18 Antibodies
+                - CCL19 Antibodies
+                - CCL20 Antibodies
+                - CCL21 Antibodies
+                - CCL22 Antibodies
+                - CCL23 Antibodies
+                - CCL24 Antibodies
+                - CCL25 Antibodies
+                - CCL26 Antibodies
+                - CCL27 Antibodies
+                - CCL28 Antibodies
+          CX3C Chemokine Antibodies:
+            subsubsubcategories:
+                - CX3CL1 Antibodies
+          Interferon Antibodies:
+            subsubsubcategories:
+                - IFNA1 Antibodies
+                - IFNA2 Antibodies
+                - IFNA4 Antibodies
+                - IFNA5 Antibodies
+                - IFNA6 Antibodies
+                - IFNA7 Antibodies
+                - IFNA8 Antibodies
+                - IFNA10 Antibodies
+                - IFNA13 Antibodies
+                - IFNA14 Antibodies
+                - IFNA16 Antibodies
+                - IFNA17 Antibodies
+                - IFNA21 Antibodies
+                - IFNB1 Antibodies
+                - IFNG Antibodies
+                - IFNK Antibodies
+                - IFNL1 Antibodies
+                - IFNL2 Antibodies
+                - IFNL3 Antibodies
+                - IFNW1 Antibodies
+          Interleukin Antibodies:
+            subsubsubcategories:
+                - IL1A Antibodies
+                - IL1B Antibodies
+                - IL2 Antibodies
+                - IL3 Antibodies
+                - IL4 Antibodies
+                - IL5 Antibodies
+                - IL6 Antibodies
+                - IL7 Antibodies
+                - IL8 Antibodies
+                - IL9 Antibodies
+                - IL10 Antibodies
+                - IL11 Antibodies
+                - IL12 Antibodies
+                - IL13 Antibodies
+                - IL14 Antibodies
+                - IL15 Antibodies
+                - IL16 Antibodies
+                - IL17 Antibodies
+                - IL19 Antibodies
+                - IL20 Antibodies
+                - IL21 Antibodies
+                - IL22 Antibodies
+                - IL23 Antibodies
+                - IL24 Antibodies
+                - IL25 Antibodies
+                - IL26 Antibodies
+                - IL27 Antibodies
+                - IL29 Antibodies
+                - IL30 Antibodies
+                - IL31 Antibodies
+                - IL32 Antibodies
+                - IL33 Antibodies
+                - IL34 Antibodies
+                - IL37 Antibodies
+          Tumor Necrosis Factor Antibodies:
+            subsubsubcategories:
+                - TNFalpha Antibodies
+                - CD40L Antibodies
+                - BAFF Antibodies
+                - RANKL Antibodies
+                - OX40L Antibodies
+                - LIGHT Antibodies
+                - TNFSF15 Antibodies
+                - CD153 Antibodies
+                - CD70 Antibodies
+                - APRIL Antibodies
+                - GITRL Antibodies
+                - LTA Antibodies
+                - LTB Antibodies
+      Infectious Disease Antibodies:
+        subsubcategories:
+          - Bacterial Antibodies
+          - Virus Antibodies
+          - Parasite Antibodies
+      Phosphoprotein Antibodies:
+        subsubcategories:
+          - Phospho AKT Antibodies
+          - Phospho Tau Antibodies
+          - Phospho Src Antibodies
+          - Phospho MAPK Antibodies
+          - Phospho JAK1 Antibodies
+          - Phospho JAK2 Antibodies
+          - Phospho FAK Antibodies           
+      Antibody Panel:
+      Antibody Kits:
+        subsubcategories:
+          - Antibody Kits
+          - Antibody Fragmentation Kits
+          - Antibody Isotyping Kits
+          - Antibody Labeling Kits
+          - Antibody Purification Kits
+          - Antibody Sampler Kits
+      Flow Cytometry Antibodies:
+        subsubsubcategories:
+          - ACE2 Flow Cytometry Antibodies
+          - ALDH Flow Cytometry Antibodies
+          - Annexin V Flow Cytometry Antibodies
+          - Arginase-1 Flow Cytometry Antibodies
+          - BrdU Flow Cytometry Antibodies
+          - Calreticulin Flow Cytometry Antibodies
+          - Caspase 1 Flow Cytometry Antibodies
+          - Caspase 3 Flow Cytometry Antibodies
+          - CCR6 Flow Cytometry Antibodies
+          - CCR7 Flow Cytometry Antibodies
+          - CD1a Flow Cytometry Antibodies
+          - CD3 Flow Cytometry Antibodies
+          - CD4 Flow Cytometry Antibodies
+          - CD8 Flow Cytometry Antibodies
+          - CD11b Flow Cytometry Antibodies
+          - CD14 Flow Cytometry Antibodies
+          - CD16 Flow Cytometry Antibodies
+          - CD19 Flow Cytometry Antibodies
+          - CD34 Flow Cytometry Antibodies
+          - CD38 Flow Cytometry Antibodies
+          - CD44 Flow Cytometry Antibodies
+          - CD45 Flow Cytometry Antibodies
+          - CD56 Flow Cytometry Antibodies
+          - CD86 Flow Cytometry Antibodies
+          - CXCR3 Flow Cytometry Antibodies
+          - CXCR4 Flow Cytometry Antibodies
+          - Cyclin D1 Flow Cytometry Antibodies
+          - Cytokeratin Flow Cytometry Antibodies
+          - DNA Flow Cytometry Antibodies
+          - E Cadherin Flow Cytometry Antibodies
+          - EGFR Flow Cytometry Antibodies
+          - EPCAM Flow Cytometry Antibodies
+          - F4/80 Flow Cytometry Antibodies
+          - FOXP3 Flow Cytometry Antibodies
+          - GFAP Flow Cytometry Antibodies
+          - Granzyme B Flow Cytometry Antibodies
+          - HIV Flow Cytometry Antibodies
+          - IFN gamma Flow Cytometry Antibodies
+          - IL10 Flow Cytometry Antibodies
+          - iNOS Flow Cytometry Antibodies
+          - MPO Flow Cytometry Antibodies
+          - NFκB Flow Cytometry Antibodies
+          - NG2 Flow Cytometry Antibodies
+          - p53 Flow Cytometry Antibodies
+          - PDL1 Flow Cytometry Antibodies
+          - Perforin Flow Cytometry Antibodies
+          - TLR4 Flow Cytometry Antibodies
+          - TMEM119 Flow Cytometry Antibodies
+          - TNF alpha Flow Cytometry Antibodies
+          - TRBC1 Flow Cytometry Antibodies
+          - Vimentin Flow Cytometry Antibodies
+          - ZAP70 Flow Cytometry Antibodies
+          - CD20 Flow Cytometry Antibodies
+          - CD40 Flow Cytometry Antibodies
+          - CD68 Flow Cytometry Antibodies                        
+      Primary Antibodies:
+        subsubcategories:
+          - Primary Antibodies for ELISA
+          - Primary Antibodies for Flow Cytometry
+          - Primary Antibodies for Immunocytochemistry
+          - Primary Antibodies for Immunofluorescence
+          - Primary Antibodies for Immunohistochemistry
+          - Primary Antibodies for Western Blotting
+          - Primary Antibodies for Immunoprecipitation
+          - Primary Antibodies for Chromatin IP
+          - Primary Antibodies for Neutralization Assays
+          - Primary Antibodies for Sandwich ELISA
+          - Primary Antibodies for Blocking Studies
+      Phosphoprotein Antibodies:
+        subsubcategories:
+          - Phospho AKT Antibodies
+          - Phospho Tau Antibodies
+          - Phospho Src Antibodies
+          - Phospho MAPK Antibodies
+          - Phospho JAK1 Antibodies
+          - Phospho JAK2 Antibodies
+          - Phospho FAK Antibodies
+          - Phospho p38 Antibodies
+          - Phospho ERK1/2 Antibodies
+          - Phospho STAT3 Antibodies
+          - Phospho PLCγ Antibodies
+      Immunohistochemistry Antibodies:
+        subsubcategories:
+          - 4-HNE IHC Antibodies
+          - ADH5 IHC Antibodies
+          - ALK IHC Antibodies
+          - AMACR IHC Antibodies
+          - ATRX IHC Antibodies
+          - BAP1 IHC Antibodies
+          - BCL2 IHC Antibodies
+          - BCOR IHC Antibodies
+          - BRAF IHC Antibodies
+          - BrdU IHC Antibodies
+          - Calcitonin IHC Antibodies
+          - CAMTA1 IHC Antibodies
+          - Caspase 3 IHC Antibodies
+          - Cathepsin K IHC Antibodies
+          - CD19 IHC Antibodies
+          - CD4 IHC Antibodies
+          - CD31 IHC Antibodies
+          - CD34 IHC Antibodies
+          - CD44 IHC Antibodies
+          - CD68 IHC Antibodies
+          - CD99 IHC Antibodies
+          - CDK4 IHC Antibodies
+          - CDX2 IHC Antibodies
+          - CD138 IHC Antibodies
+          - CD163 IHC Antibodies
+          - Claudin 4 IHC Antibodies
+          - CMV IHC Antibodies
+          - CXCL13 IHC Antibodies
+          - Cyclin D1 IHC Antibodies
+          - Cytokeratin IHC Antibodies
+          - Desmin IHC Antibodies
+          - DLL3 IHC Antibodies
+          - DOG1 IHC Antibodies
+          - Dystrophin IHC Antibodies
+          - EBV IHC Antibodies
+          - EGFR IHC Antibodies
+          - EMA IHC Antibodies
+          - EPCAM IHC Antibodies
+          - ERG IHC Antibodies
+          - Fap IHC Antibodies
+          - FOLR1 IHC Antibodies
+          - FOXP3 IHC Antibodies
+          - Gastrin IHC Antibodies
+          - GATA3 IHC Antibodies
+          - GFAP IHC Antibodies
+          - Granzyme B IHC Antibodies
+          - Helicobacter pylori IHC Antibodies
+          - HER2 IHC Antibodies
+          - HMGA2 IHC Antibodies
+          - Iba1 IHC Antibodies
+          - ICOS IHC Antibodies
+          - IDH1 IHC Antibodies
+          - IL6 IHC Antibodies
+          - INSM1 IHC Antibodies
+          - Ki-67 IHC Antibodies
+          - LAG3 IHC Antibodies
+          - LEF1 IHC Antibodies
+          - Lysozyme IHC Antibodies
+          - MAP2 IHC Antibodies
+          - MDM2 IHC Antibodies
+          - Melan-A IHC Antibodies
+          - MET IHC Antibodies
+          - MITF IHC Antibodies
+          - MLH1 IHC Antibodies
+          - MNDA IHC Antibodies
+          - MPO IHC Antibodies
+          - MTAP IHC Antibodies
+          - MUC4 IHC Antibodies
+          - MUM1 IHC Antibodies
+          - MYB IHC Antibodies
+          - MYC IHC Antibodies
+          - MYOD1 IHC Antibodies
+          - myogenin IHC Antibodies
+          - Neurofilament IHC Antibodies
+          - Olig2 IHC Antibodies
+          - OSCAR IHC Antibodies
+          - PAX5 IHC Antibodies
+          - PAX8 IHC Antibodies
+          - PCNA IHC Antibodies
+          - PD1 IHC Antibodies
+          - PDL1 IHC Antibodies
+          - PHOX2B IHC Antibodies
+          - PIN4 IHC Antibodies
+          - PLAG1 IHC Antibodies
+          - PRAME IHC Antibodies
+          - PTEN IHC Antibodies
+          - SALL4 IHC Antibodies
+          - SATB2 IHC Antibodies
+          - SDHB IHC Antibodies
+          - Sf1 IHC Antibodies
+          - SMAD4 IHC Antibodies
+          - SOX2 IHC Antibodies
+          - SOX9 IHC Antibodies
+          - SOX10 IHC Antibodies
+          - SOX11 IHC Antibodies
+          - STAT6 IHC Antibodies
+          - Synaptophysin IHC Antibodies
+          - TFE3 IHC Antibodies
+          - Thyroglobulin IHC Antibodies
+          - TP53 IHC Antibodies
+          - TRPS1 IHC Antibodies
+          - TTF1 IHC Antibodies
+          - Tyrosine Hydroxylase IHC Antibodies
+          - VEGF IHC Antibodies
+          - Vimentin IHC Antibodies
+          - WT1 IHC Antibodies
+
+
+
+
+
+
+
+

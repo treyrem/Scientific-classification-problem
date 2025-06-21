@@ -1,0 +1,185 @@
+categories:
+  Antibodies:
+    subcategories:
+      Antibody Panels:
+        subsubcategories:
+          - Human Cytokine Panel
+          - Phospho-Protein Panel
+          - Cancer Marker Panel
+          - Apoptosis Marker Panel
+          - Stem Cell Marker Panel
+          - Sandwich ELISA Panel
+          - Flow Cytometry Panel
+          - IHC Panel
+          - Multiplex Cytokine Panel
+          - Infectious Disease Panel
+      Antibody Kits:
+        subsubcategories:
+          - Fragmentation Kits
+          - Isotyping Kits
+          - Labeling Kits
+          - Purification Kits
+          - Sampler Kits
+          - ELISA Kits
+          - Flow Cytometry Kits
+          - IHC Kits
+          - Western Blot Kits
+          - Conjugation Kits
+          - Stabilization Kits
+      Primary Antibodies:
+        subsubcategories:
+          - Primary Antibodies for ELISA
+          - Primary Antibodies for Flow Cytometry
+          - Primary Antibodies for Immunocytochemistry
+          - Primary Antibodies for Immunofluorescence
+          - Primary Antibodies for Immunohistochemistry
+          - Primary Antibodies for Western Blotting
+          - Primary Antibodies for Immunoprecipitation
+          - Primary Antibodies for Chromatin IP
+          - Primary Antibodies for Neutralization Assays
+          - Primary Antibodies for Sandwich ELISA
+          - Primary Antibodies for Blocking Studies
+      Secondary Antibodies:
+        subsubcategories:
+          - Bovine Secondary Antibodies
+          - Chicken Secondary Antibodies
+          - Donkey Secondary Antibodies
+          - Duck Secondary Antibodies
+          - Goat Secondary Antibodies
+          - Horse Secondary Antibodies
+          - Mouse Secondary Antibodies
+          - Pig Secondary Antibodies
+          - Rabbit Secondary Antibodies
+          - Rat Secondary Antibodies
+          - Sheep Secondary Antibodies
+      Recombinant Antibodies:
+        subsubcategories:
+          - Human Recombinant Antibodies
+          - Mouse Recombinant Antibodies
+          - Rabbit Recombinant Antibodies
+          - scFv Fragments
+          - Fab Fragments
+          - Nanobodies
+          - Bispecific Recombinant Antibodies
+          - Humanized Recombinant Antibodies
+          - Chimeric Recombinant Antibodies
+          - Pre-Adsorbed Recombinant Antibodies
+          - Biotinylated Recombinant Antibodies
+      Isotype Control Antibodies:
+        subsubcategories:
+          - Mouse IgG1 Isotype Control
+          - Mouse IgG2a Isotype Control
+          - Mouse IgG2b Isotype Control
+          - Mouse IgM Isotype Control
+          - Rat IgG1 Isotype Control
+          - Rat IgG2a Isotype Control
+          - Rat IgG2b Isotype Control
+          - Rabbit IgG Isotype Control
+          - Goat IgG Isotype Control
+          - Hamster IgG Isotype Control
+          - Human IgG Isotype Control
+      Epitope Tag Antibodies:
+        subsubcategories:
+          - Anti-HA Tag Antibodies
+          - Anti-FLAG Tag Antibodies
+          - Anti-Myc Tag Antibodies
+          - Anti-V5 Tag Antibodies
+          - Anti-His Tag Antibodies
+          - Anti-GST Tag Antibodies
+          - Anti-MBP Tag Antibodies
+          - Anti-GFP Tag Antibodies
+          - Anti-RFP Tag Antibodies
+          - Anti-Myc-DDK Tag Antibodies
+          - Anti-HA.11 Tag Antibodies
+      Cancer Marker Antibodies:
+        subsubcategories:
+          - HER2 Antibodies
+          - EGFR Antibodies
+          - PD-L1 Antibodies
+          - CD20 Antibodies
+          - CD19 Antibodies
+          - CD33 Antibodies
+          - Ki-67 Antibodies
+          - VEGF Antibodies
+          - CA-125 Antibodies
+          - CEA Antibodies
+          - ALK Antibodies
+      Neuroscience Antibodies:
+        subsubcategories:
+          - NeuN Antibodies
+          - Synaptophysin Antibodies
+          - GFAP Antibodies
+          - MAP2 Antibodies
+          - PSD-95 Antibodies
+          - Tau Antibodies
+          - Amyloid Beta Antibodies
+          - Dopamine Transporter Antibodies
+          - GABA Receptor Antibodies
+          - NMDA Receptor Antibodies
+          - Tyrosine Hydroxylase Antibodies
+      Apoptosis Marker Antibodies:
+        subsubcategories:
+          - Annexin V Antibodies
+          - Caspase-3 Antibodies
+          - Cleaved PARP Antibodies
+          - Bcl-2 Antibodies
+          - Bax Antibodies
+          - Cytochrome c Antibodies
+          - Survivin Antibodies
+          - p53 Antibodies
+          - Fas Ligand Antibodies
+          - TRAIL Antibodies
+          - Smac/DIABLO Antibodies
+      Stem Cell Marker Antibodies:
+        subsubcategories:
+          - SSEA-1 Antibodies
+          - SSEA-3 Antibodies
+          - SSEA-4 Antibodies
+          - TRA-1-60 Antibodies
+          - TRA-1-81 Antibodies
+          - Oct4 Antibodies
+          - Sox2 Antibodies
+          - Nanog Antibodies
+          - CD34 Antibodies
+          - CD133 Antibodies
+          - CD44 Antibodies
+      Cytokine Antibodies:
+        subsubcategories:
+          - IL-2 Antibodies
+          - IL-4 Antibodies
+          - IL-6 Antibodies
+          - IL-10 Antibodies
+          - TNF-α Antibodies
+          - IFN-γ Antibodies
+          - GM-CSF Antibodies
+          - TGF-β Antibodies
+          - IL-17 Antibodies
+          - IL-1β Antibodies
+          - IL-12 Antibodies
+      Phosphoprotein Antibodies:
+        subsubcategories:
+          - Phospho AKT Antibodies
+          - Phospho Tau Antibodies
+          - Phospho Src Antibodies
+          - Phospho MAPK Antibodies
+          - Phospho JAK1 Antibodies
+          - Phospho JAK2 Antibodies
+          - Phospho FAK Antibodies
+          - Phospho p38 Antibodies
+          - Phospho ERK1/2 Antibodies
+          - Phospho STAT3 Antibodies
+          - Phospho PLCγ Antibodies
+      Immunohistochemistry Antibodies:
+        subsubcategories:
+          - CD Markers
+          - Immune Checkpoint & Regulatory Markers
+          - Tumor Suppressor & Oncogene Markers
+          - Transcription & Lineage Factors
+          - Proliferation & Cell Cycle Markers
+          - Apoptosis & Cell Death Markers
+          - Structural & Cytoskeletal Proteins
+          - Membrane & Adhesion Proteins
+          - Growth Factor & Receptor Proteins
+          - Enzymes & Metabolic Proteins
+          - Infectious Disease Markers
+          - Neuroendocrine & Neural Markers
