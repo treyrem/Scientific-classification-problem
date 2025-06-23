@@ -1,0 +1,58 @@
+categories:
+  Blood and Tissue Products:
+    subcategories:
+      Blood Samples by Species:
+        subsubcategories:
+          - Guinea Pig Blood
+          - Feline Blood
+          - Porcine Blood
+          - Rabbit Blood
+          - Sheep Blood
+          - Human Blood
+          - Mouse Blood
+          - Rat Blood
+      Plasma:
+        subsubcategories:
+          Plasma by Species:
+            subsubsubcategories:
+              - Donkey Plasma
+              - Horse Plasma
+              - Human Plasma
+              - Mouse Plasma
+              - Porcine Plasma
+              - Rabbit Plasma
+              - Rat Plasma
+          Plasma by Anticoagulant:
+            subsubcategories:
+              - Acid Citrate Dextrose Plasma
+              - Citrate Plasma
+              - Citrate Phosphate Dextrose Plasma
+              - EDTA Plasma
+              - Heparin Plasma
+              - Sodium Citrate Plasma
+              - Sodium EDTA Plasma
+              - Sodium Heparin Plasma
+      Serum:
+        subsubcategories:
+          Serum Products:
+            subsubsubcategories:
+              - Bovine Serum Albumin (BSA)
+              - Fetal Bovine Serum (FBS)
+          Serum by Species:
+            subsubsubcategories:
+              - Bovine Serum
+              - Canine Serum
+              - Chicken/Bird Serum
+              - Donkey Serum
+              - Feline Serum
+              - Hamster Serum
+              - Horse Serum
+              - Human Serum
+              - Mouse Serum
+              - Other Mammalian Serum
+              - Porcine Serum
+              - Rabbit Serum
+              - Rat Serum
+              - Sheep Serum
+              - Non-Human Primate Serum
+      

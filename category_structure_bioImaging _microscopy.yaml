@@ -1,0 +1,39 @@
+categories:
+  Bioimaging/Microscopy:
+    subcategories:
+      Gel Documentation Systems:
+        subsubcategories:
+          - Gel Imaging Systems
+          - Chemiluminescence Imagers
+          - Multiplex Fluorescence Imagers
+          - Automated Blot Analysis
+          - Phosphorimagers
+          - Transilluminators
+      Microscopes and Cell Imaging Systems:
+        subsubcategories:
+          - Confocal Microscopes
+          - Confocal Laser Scanning
+          - 3D Microscopes
+          - Automated Microscopes
+          - Cell Imaging Systems
+          - Digital Microscopes
+          - Inverted Microscopes
+          - Upright Microscopes
+          - Stereo / Zoom Microscopes
+          - Electron Microscopes
+          - Spinning Disk Confocals
+          - Super-Resolution Microscopes
+          - Polarizing Microscopes
+          - Live Cell Imaging Systems
+          - Fluorescence Microscopes
+          - Slide Scanner Microscopes
+          - Light Sheet Fluorescence Microscopes
+          - TIRF Microscopes
+          - In Vivo Imaging Systems
+          - Microscope Cameras
+          - CMOS Microscope Cameras
+      Specialized Imaging Systems:
+        subsubcategories:
+          - Gel Documentation Systems
+          - High Content Screening Systems
+          - Laser Capture Microdissection Instruments
