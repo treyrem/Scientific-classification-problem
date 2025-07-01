@@ -19,7 +19,7 @@ VALIDATION_CSV = "validation_sample_100.csv"
 CHECKPOINT_DIR = "checkpoints"
 CHECKPOINT_FREQ = 100
 VALIDATION_SAMPLE_SIZE = 100
-CATEGORY_YAML = "category_structure_copyofbiocompare.yaml"
+CATEGORY_YAML = "category_structure.yaml"
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

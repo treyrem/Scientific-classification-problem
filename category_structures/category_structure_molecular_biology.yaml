@@ -1,0 +1,84 @@
+category:
+  Molecular Biology:
+    subcategories:
+      Expression Analysis:
+        subsubcategories:
+          - Quantitative PCR (qPCR)
+          - RT-PCR (Reverse Transcriptase PCR)
+          - Microarrays
+          - RNA Amplification Kits
+          - RNA
+          - cDNA Clones, Tissue-specific cDNA and cDNA Libraries
+          - Epigenetics Tools
+
+      Nucleic Acid Analysis:
+        subsubcategories:
+          - Nucleic Acid Analysis Instruments
+          - UV Crosslinkers
+          - DNA/RNA Oligo Synthesizers
+          - DNA Quantification Kits
+          - RNA Quantification Kits
+          - Nucleic Acid Stains
+          - Electrophoresis Equipment
+          - DNA Sequencing:
+              subsubsubcategories:
+                - Automated DNA Sequencing
+                - Manual DNA Sequencing
+
+      CRISPR Products:
+        subsubcategories:
+          - CRISPR-Cas9 
+          - Cas9 Nuclease
+          - CRISPR Knockout Kits
+
+      In Situ Hybridization:
+        subsubcategories:
+        - In Situ Hybridization Kits             
+        - In Situ Hybridization Probes  
+        - FISH Probes
+        - DNA Probes
+        ISH Reagents:
+            subsubsubcategories:
+              - ISH Buffers and Reagents
+              - Digoxigenin
+              - Formaldehyde
+              - Formamide
+              - In Situ Hybridization Blockers
+              - SSC Buffers
+        Nucleic Acid Labeling:
+            subsubsubcategories:
+              - DNA Labeling Kits
+              - RNA Labeling Kits
+              - Labeled Nucleotides
+              - Ribonucleotide triphosphates (rNTPs)
+
+      RNA Technologies:
+        subsubcategories:
+          - In Vitro Transcription Kits
+          - Poly A Tailing Kits / dA-Tailing Kits
+          - Ribonucleotide triphosphates (rNTPs)
+          - RNA Capping
+
+      Transfection Kits and Reagents:
+        subsubcategories:
+          - DNA Transfection Reagents
+          - RNA Transfection Reagents
+          - Primary Cell Transfection
+          - PEI Transfection Reagents
+          - Transfection Instruments
+          - Electroporation Cuvettes
+
+      Molecular Biology Reagents:
+        subsubcategories:
+          - EDTA
+          - Enzymes
+          - Nuclease-Free Water
+
+      Chemicals:
+        subsubcategories:
+          - Agarose
+          - Bromophenol Blue
+          - Enhancers
+          - Fluorescent Dextran
+          - Glycogen
+          - Vitamins

@@ -1,0 +1,36 @@
+category:
+  Nucleic Acid Electrophoresis:
+    subcategories:
+      DNA / RNA Gels:
+        subsubcategories:
+          - Agarose
+          - Agarose Gels
+          - TBE Gels
+          - TBE-Urea Gels
+
+      DNA / RNA Standards:
+        subsubcategories:
+          - PCR Controls and Standards
+          - 1 kb DNA Ladders
+          - 100 bp DNA Ladders
+          - 50 bp DNA Ladders
+          - 500 bp DNA Ladders
+          - Lambda DNA
+          - RNA Ladders
+          - PFGE DNA Markers
+
+      Gel Documentation Systems:
+        subsubcategories:
+          - Gel Imaging Systems
+          - Chemiluminescence Imagers
+          - Multiplex Fluorescence Imagers
+          - Automated Blot Analysis
+          - Phosphorimagers
+          - Transilluminators
+
+      Nucleic Acid Stains:
+        subsubcategories:
+          - DNA Loading Dyes
+          - DNA Stains
+          - Ethidium Bromide
+          - Methylene Blue

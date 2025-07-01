@@ -1,0 +1,101 @@
+Unnamed: 0,UUID,Name,Manufacturer,Protocols Referenced,Verified,category,subcategory,subsubcategory,subsubsubcategory,confidence,secondary_category,secondary_subcategory,secondary_subsubcategory,secondary_subsubsubcategory,secondary_confidence,has_secondary,needs_stage2
+689032,2iPhCZIBPBHhf-iFy8Di,z ala ala asn amc,Bachem,31,No,Other,,,,Low,,,,,,False,True
+455357,SSThCZIBPBHhf-iF1SW7,sictrl,GenePharma,43,No,Other,,,,Low,,,,,,False,True
+788667,RijiCZIBPBHhf-iFKytG,6.0 array,Thermo Fisher Scientific,32,No,Other,,,,Low,,,,,,False,True
+882113,UibiCZIBPBHhf-iFFcSF,zorbax sb aq column,Agilent Technologies,58,No,Other,,,,Low,,,,,,False,True
+731930,aiLhCZIBPBHhf-iFeNAp,p jnk,Cell Signaling Technology,925,No,Antibodies,Phosphoprotein Antibodies,Phospho JNK Antibodies,,High,,,,,,False,False
+764372,gyThCZIBPBHhf-iF1Qy4,electropuls e10000,Instron,32,No,Other,,,,Low,,,,,,False,True
+843508,1iPhCZIBPBHhf-iFnRQx,bioruptor plus,Diagenode,229,No,Other,,,,Low,,,,,,False,True
+662285,bCXhCZIBPBHhf-iF_rZu,anti met,Cell Signaling Technology,35,No,Antibodies,Primary Antibodies,,,Low,,,,,,False,True
+837523,MCLhCZIBPBHhf-iFeOks,chitosan,Sinopharm,98,No,Other,,,,Low,,,,,,False,True
+780021,FCLhCZIBPBHhf-iFeNIp,mini trans blot cell,Bio-Rad,308,No,Other,,,,Low,,,,,,False,True
+878685,sibiCZIBPBHhf-iFEsBI,imeron 350,Bracco,37,No,Other,,,,Low,,,,,,False,True
+607993,PCbiCZIBPBHhf-iFBzQa,coenzyme q10,Merck Group,38,No,Other,,,,Low,,,,,,False,True
+658224,xyXhCZIBPBHhf-iF9VCf,miseq reagent kits v3,Illumina,29,No,Other,,,,Low,,,,,,False,True
+591158,BiLhCZIBPBHhf-iFnfwv,vanquish uhplc system,Thermo Fisher Scientific,360,No,Other,,,,Low,,,,,,False,True
+880736,YSPhCZIBPBHhf-iFy7jh,orca flash4.0 v2 digital cmos camera,Hamamatsu Photonics,42,No,Other,,,,Low,,,,,,False,True
+798318,lifiCZIBPBHhf-iFHEzi,d eclipse c1 confocal microscope,Nikon,29,No,Other,,,,Low,,,,,,False,True
+639213,DSThCZIBPBHhf-iF1Q65,7 hydroxycoumarin,Merck Group,71,No,Other,,,,Low,,,,,,False,True
+791312,5CPhCZIBPBHhf-iFvHmM,trypsin,Corning,349,No,Other,,,,Low,,,,,,False,True
+730329,PSXhCZIBPBHhf-iF8hx9,ilab 650,Werfen,32,No,Other,,,,Low,,,,,,False,True
+780196,VSbiCZIBPBHhf-iFDVkb,enzyme linked immunosorbent assay kit,Abcam,79,No,Antibodies,Antibody Kits,ELISA Kits,,High,,,,,,False,False
+585802,zSbiCZIBPBHhf-iFEptE,rabbit anti nf κb p65,Cell Signaling Technology,60,No,Antibodies,Primary Antibodies,Primary Antibodies for Western Blotting,,High,,,,,,False,False
+799233,WyXhCZIBPBHhf-iF8iZ-,sybr green 1,Solarbio,36,No,Other,,,,Low,,,,,,False,True
+755163,7iPhCZIBPBHhf-iFnRUy,dharmafect,Horizon Discovery,181,No,Other,,,,Low,,,,,,False,True
+844869,-SriCZIBPBHhf-iFUd8h,pecfp c1,Takara Bio,31,No,Other,,,,Low,,,,,,False,True
+580970,zCPhCZIBPBHhf-iFy8Di,cirrus hd oct 5000,Zeiss,85,No,Other,,,,Low,,,,,,False,True
+819633,-CPhCZIBPBHhf-iFqxmX,apotome 2 system,Zeiss,48,No,Other,,,,Low,,,,,,False,True
+794713,0CPhCZIBPBHhf-iF0egy,powerup sybr green master mix kit,Thermo Fisher Scientific,89,No,Antibodies,Antibody Kits,Sampler Kits,,Low,,,,,,False,True
+428956,NiviCZIBPBHhf-iFVR_b,af7001,Affinity Biosciences,35,No,Other,,,,Low,,,,,,False,True
+738837,ySjiCZIBPBHhf-iFLVyc,ab2739,Abcam,28,No,Antibodies,Primary Antibodies,,,Low,,,,,,False,True
+751886,yiPhCZIBPBHhf-iFqzib,percp cy5,Thermo Fisher Scientific,62,No,Antibodies,Secondary Antibodies,,,Low,,,,,,False,True
+758456,8yriCZIBPBHhf-iFSkXP,gt1m accelerometer,ActiGraph,46,No,Other,,,,Low,,,,,,False,True
+630327,kSbiCZIBPBHhf-iFFdmH,snap surface alexa fluor 647,New England Biolabs,39,No,Antibodies,Labeling Kits,,,Medium,,,,,,False,False
+740163,fCThCZIBPBHhf-iF3lus,chloroform,Fujifilm,147,No,Other,,,,Low,,,,,,False,True
+624792,XSPhCZIBPBHhf-iF0fo0,ecl advance,GE Healthcare,52,No,Other,,,,Low,,,,,,False,True
+867693,9CPhCZIBPBHhf-iFqzSa,nextera xt library,Illumina,32,No,Other,,,,Low,,,,,,False,True
+782423,7iPhCZIBPBHhf-iFy9Pk,syringe filter,Sartorius,52,No,Other,,,,Low,,,,,,False,True
+605705,GCXiCZIBPBHhf-iFAfiL,pan b cell isolation kit,Miltenyi Biotec,43,No,Antibodies,Antibody Kits,Sampler Kits,,Medium,,,,,,False,False
+571604,diPhCZIBPBHhf-iFtFjL,oligo dt 18,Thermo Fisher Scientific,51,No,Other,,,,Low,,,,,,False,True
+587441,OiXhCZIBPBHhf-iF-GuT,cd206 apc,BioLegend,64,No,Antibodies,Primary Antibodies,Primary Antibodies for Flow Cytometry,,High,,,,,,False,False
+637366,XSXhCZIBPBHhf-iF8id-,alcohol dehydrogenase,Merck Group,81,No,Other,,,,Low,,,,,,False,True
+742866,oCPhCZIBPBHhf-iFxq9A,his60 ni superflow resin,Takara Bio,48,No,Antibodies,Antibody Kits,Purification Kits,,Medium,,,,,,False,False
+742990,QSThCZIBPBHhf-iF4nxo,dab solution,Merck Group,45,No,Other,,,,Low,,,,,,False,True
+881205,3iThCZIBPBHhf-iF2jyf,methylflash global dna methylation 5 mc elisa easy kit,Epigentek,44,No,Other,,,,Low,,,,,,False,True
+795809,UybiCZIBPBHhf-iFD4mi,shc001,Merck Group,29,No,Other,,,,Low,,,,,,False,True
+690379,bCfiCZIBPBHhf-iFHE7j,balb c mice,Samtako Bio,47,No,Other,,,,Low,,,,,,False,True
+643517,KiPhCZIBPBHhf-iFy9Tk,rna dna protein purification plus kit,Norgen Biotek,36,No,Antibodies,Antibody Kits,Purification Kits,,Low,,,,,,False,True
+792448,OCziCZIBPBHhf-iFbbE4,pmir report mirna expression reporter vector,Thermo Fisher Scientific,62,No,Other,,,,Low,,,,,,False,True
+895329,CSThCZIBPBHhf-iF1RK5,lyovapor l 200,Büchi,74,Yes,Other,,,,Low,,,,,,False,True
+581096,gyPhCZIBPBHhf-iFy9jk,laser confocal microscope,Nikon,111,No,Other,,,,Low,,,,,,False,True
+793072,qCLhCZIBPBHhf-iFeNMq,l cysteine,Merck Group,737,No,Other,,,,Low,,,,,,False,True
+786488,ciLhCZIBPBHhf-iFeOcs,trizol reagent,Vazyme,512,No,Other,,,,Low,,,,,,False,True
+781471,_SXhCZIBPBHhf-iF7hPt,flocked swab,Copan,51,No,Other,,,,Low,,,,,,False,True
+793512,XSPhCZIBPBHhf-iFvHaL,chemiluminescence detection system,Thermo Fisher Scientific,58,No,Other,,,,Low,,,,,,False,True
+783246,qiThCZIBPBHhf-iF4p1s,ecl plus kit,GE Healthcare,158,No,Antibodies,Antibody Kits,Western Blot Kits,,High,,,,,,False,False
+880535,JCfiCZIBPBHhf-iFHFLj,donkey serum,Solarbio,31,No,Antibodies,Isotype Control Antibodies,Donkey Secondary Antibodies,,High,,,,,,False,False
+590950,zSPhCZIBPBHhf-iF0eYx,nod scid il2rgammanull nsg mice,Jackson ImmunoResearch,44,No,Other,,,,Low,,,,,,False,True
+582814,tiPhCZIBPBHhf-iFvI2Q,mammocult human medium kit,STEMCELL,57,No,Other,,,,Low,,,,,,False,True
+781370,9yPhCZIBPBHhf-iFqyaZ,endofree plasmid giga kit,Qiagen,112,No,Other,,,,Low,,,,,,False,True
+456597,1iThCZIBPBHhf-iF2kCg,bsk h medium,Merck Group,29,No,Other,,,,Low,,,,,,False,True
+577932,9SPhCZIBPBHhf-iFqzWa,anti flag monoclonal antibody,Merck Group,123,No,Antibodies,Primary Antibodies,Primary Antibodies for Immunoprecipitation,,High,Antibodies,Epitope Tag Antibodies,Anti-FLAG Tag Antibodies,,High,True,False
+587509,KyPhCZIBPBHhf-iFvIqP,fitc pna,Merck Group,67,No,Antibodies,Secondary Antibodies,,,Low,,,,,,False,True
+649558,KyfiCZIBPBHhf-iFGiCB,methocult m3234,STEMCELL,32,No,Other,,,,Low,,,,,,False,True
+605947,sSXiCZIBPBHhf-iFAf2M,dig wash and block buffer set,Roche,45,No,Other,,,,Low,,,,,,False,True
+483533,miPhCZIBPBHhf-iFxpE9,zen blue,Zeiss,223,No,Other,,,,Low,,,,,,False,True
+732439,1yXhCZIBPBHhf-iF7gvs,experiment builder software,SR Research,63,No,Other,,,,Low,,,,,,False,True
+654090,0SfiCZIBPBHhf-iFIZzC,solarus plasma cleaner,Ametek,60,No,Other,,,,Low,,,,,,False,True
+240105,kSriCZIBPBHhf-iFSlDQ,mxp quant 500 kit,Biocrates,43,No,Antibodies,Antibody Kits,Sampler Kits,,Low,,,,,,False,True
+592953,yyXhCZIBPBHhf-iF-52C,facscalibur flow cytometer system,BD,29,No,Other,,,,Low,,,,,,False,True
+637640,TCLhCZIBPBHhf-iFnfMu,tcs sp,Leica,55,No,Other,,,,Low,,,,,,False,True
+735510,bCbiCZIBPBHhf-iFB0sc,slot blot apparatus,Bio-Rad,35,No,Other,,,,Low,,,,,,False,True
+787331,cSPhCZIBPBHhf-iFy7_h,sybr green supermix kit,Bio-Rad,64,No,Other,,,,Low,,,,,,False,True
+580341,XSPhCZIBPBHhf-iFvI2P,foxp3 fixation permeabilization kit,Thermo Fisher Scientific,109,No,Antibodies,Antibody Kits,Sampler Kits,,Medium,,,,,,False,False
+867953,VyPhCZIBPBHhf-iFqz2b,rabbit anti calnexin,Abcam,30,No,Antibodies,Primary Antibodies,Primary Antibodies for Immunohistochemistry,,High,,,,,,False,False
+878415,1yThCZIBPBHhf-iF2kyi,rpmi 1640 medium,PAN Biotech,103,No,Other,,,,Low,,,,,,False,True
+571960,GSPhCZIBPBHhf-iFvGqJ,mc170 hd camera,Leica,96,No,Other,,,,Low,,,,,,False,True
+586845,lifiCZIBPBHhf-iFH2ZS,pd l1 pe,BioLegend,36,No,Antibodies,Cancer Marker Antibodies,PD-L1 Antibodies,,High,,,,,,False,False
+582071,2SPhCZIBPBHhf-iFqzyb,odyssey fc,LI COR,329,No,Other,,,,Low,,,,,,False,True
+731093,kCbiCZIBPBHhf-iFBAxN,fv300 confocal microscope,Olympus,29,No,Other,,,,Low,,,,,,False,True
+793869,hJoPdZQB1-hLfrUPlUr_,atcc hb 8065,American Type Culture Collection,48,No,Other,,,,Low,,,,,,False,True
+780626,TSXhCZIBPBHhf-iF9Veg,uvette,Eppendorf,48,No,Other,,,,Low,,,,,,False,True
+583292,QybiCZIBPBHhf-iFGPUK,7500 fast pcr system,Thermo Fisher Scientific,42,No,Other,,,,Low,,,,,,False,True
+224232,tSThCZIBPBHhf-iF4olq,dual lucy assay kit,Solarbio,108,No,Other,,,,Low,,,,,,False,True
+797758,aiLhCZIBPBHhf-iFnf8v,tecnai t12,Thermo Fisher Scientific,202,No,Other,,,,Low,,,,,,False,True
+591222,GyfiCZIBPBHhf-iFHDng,genechip mouse gene 1.0 st array,Thermo Fisher Scientific,111,No,Other,,,,Low,,,,,,False,True
+794835,qSPhCZIBPBHhf-iFnRMx,exoquick tc,System Biosciences,231,No,Other,,,,Low,,,,,,False,True
+792075,KiPhCZIBPBHhf-iFxrVB,digital camera,Leica,117,No,Other,,,,Low,,,,,,False,True
+572985,8yPhCZIBPBHhf-iFqzub,l 15 medium,Thermo Fisher Scientific,421,No,Other,,,,Low,,,,,,False,True
+301112,DyXhCZIBPBHhf-iF7gjr,u 1800,Hitachi,82,No,Other,,,,Low,,,,,,False,True
+624540,biPhCZIBPBHhf-iF0fMz,chloroform isoamyl alcohol,Merck Group,32,No,Other,,,,Low,,,,,,False,True
+894193,AZ3FHJMBdNj1hjtAk3aJ,fetal calf serum (fcs),Cytiva,75,No,Other,,,,Low,,,,,,False,True
+751355,ZyPhCZIBPBHhf-iFqxyX,superfrost plus,Thermo Fisher Scientific,491,No,Other,,,,Low,,,,,,False,True
+791575,CiThCZIBPBHhf-iF2kah,luminoskan ascent,Thermo Fisher Scientific,103,No,Other,,,,Low,,,,,,False,True
+790287,giLhCZIBPBHhf-iFnfwv,minimum essential medium (mem),Thermo Fisher Scientific,3208,No,Other,,,,Low,,,,,,False,True
+588701,WiPhCZIBPBHhf-iFxqtA,anti p nf κb p65,Cell Signaling Technology,53,No,Antibodies,Primary Antibodies,Primary Antibodies for Western Blotting,,High,,,,,,False,False
+722471,1SPhCZIBPBHhf-iFvG6K,shrna lentiviral particles,Santa Cruz Biotechnology,32,No,Other,,,,Low,,,,,,False,True
+794832,BiPhCZIBPBHhf-iFxqA-,tla 100,Beckman Coulter,59,No,Other,,,,Low,,,,,,False,True
+571737,gSLhCZIBPBHhf-iFnfku,infinite 200 pro microplate reader,Tecan,324,No,Other,,,,Low,,,,,,False,True
+584748,2iThCZIBPBHhf-iF57Fx,agilent 1260 infinity,Agilent Technologies,277,No,Other,,,,Low,,,,,,False,True
+607436,NybiCZIBPBHhf-iFBCVP,mes hydrate,Merck Group,36,No,Other,,,,Low,,,,,,False,True
+792960,pCPhCZIBPBHhf-iFvGmJ,gateway bp clonase 2 enzyme mix,Thermo Fisher Scientific,95,No,Other,,,,Low,,,,,,False,True

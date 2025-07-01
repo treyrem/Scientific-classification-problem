@@ -1,0 +1,32 @@
+categories:
+  Molecular Diagnostics:
+    subcategories:
+      Histology Equipment:
+        subsubcategories:
+          - Microtomes
+          - Tissue Processors
+          - Slide Stainers / IHC Stainers
+          - Electron Microscopy Sample Preparation
+
+      the NGS Workflow:
+        subsubcategories:
+          - Next Generation Sequencers (NGS)
+          - NGS Library Preparation and Sample Prep
+          - RNA-Seq
+          - Single Cell Sequencing Kits
+          - Bisulfite Sequencing / Methyl-Seq Kits
+          - ChIP-Seq Kits
+          - Next Gen Sequencing Services
+          - NGS Kits
+          - Nucleic Acid Analysis Instruments
+
+      Quantitative PCR (qPCR):
+        subsubcategories:
+          - qPCR Machines
+          - qPCR Kits
+          - RT-qPCR Kits
+          - Multiplex qPCR Kits
+          - qPCR Master Mixes
+          - SYBR Green Master Mixes
+          - qPCR Assays
+          - PCR Consumables

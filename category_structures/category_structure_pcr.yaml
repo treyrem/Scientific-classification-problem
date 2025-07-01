@@ -1,0 +1,83 @@
+categories:
+  Polymerase Chain Reaction (PCR):
+    subcategories:
+      PCR Equipment:
+        subsubcategories:
+          - PCR Thermocyclers
+          - Multipurpose Workstations
+          - PCR Workstation / PCR Hood
+          - PCR Plate Heat Sealers
+          - PCR Consumables
+
+      PCR Machines:
+        subsubcategories: []
+      PCR Thermocyclers:
+        subsubcategories:
+          - Real-Time PCR Machines
+          - Digital PCR Systems (dPCR)
+          - Multi-Block PCR Machines
+          - 384-Well PCR Machines
+          - 96-Well PCR Machines
+          - Portable PCR Machines
+
+      PCR Mixes and Kits:
+        subsubcategories:
+          - PCR Kits
+          - PCR Master Mixes
+          - Hot Start PCR Products
+          - qPCR Kits
+          - qPCR Master Mixes
+          - qPCR Assays
+          - RT-PCR Kits
+          - RT-qPCR Kits
+          - SYBR Green Master Mixes
+          - Multiplex PCR Kits
+          - Multiplex qPCR Kits
+          - cDNA Synthesis Kits
+          - DNA Methylation Kits
+          - Genotyping Kits
+
+      Quantitative PCR (qPCR):
+        subsubcategories:
+          - qPCR Machines
+          - qPCR Kits
+          - RT-qPCR Kits
+          - Multiplex qPCR Kits
+          - qPCR Master Mixes
+          - SYBR Green Master Mixes
+          - qPCR Assays
+          - PCR Consumables
+
+      PCR Reagents:
+        subsubcategories:
+          - Dimethyl Sulfoxide (DMSO)
+          - Magnesium Chloride
+          - Nuclease-Free Water
+          - PCR Buffers
+          - PCR Controls and Standards
+          - PCR Nucleotides and dNTP Mixes
+          - RNase Inhibitors
+          - Single-Stranded Binding Proteins (SSB)
+          - Thermostable Polymerases
+
+      PCR Primers:
+        subsubcategories:
+          - qPCR Primers
+          - Sequencing Primers
+          - RT-PCR Primers
+          - Gene-specific Primers
+
+      RT-PCR (Reverse Transcriptase PCR):
+        subsubcategories:
+          - RT-PCR Kits
+          - RT-qPCR Kits
+          - PCR Reagents
+          - RNA
+
+      PCR Genotyping:
+        subsubcategories:
+          - Gene-specific Primers
+          - Genotyping Kits
+
+      Primers and Probes:
+        subsubcategories: []

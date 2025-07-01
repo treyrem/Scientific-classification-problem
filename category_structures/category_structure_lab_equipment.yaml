@@ -1,0 +1,173 @@
+categories:
+  Lab Equipment:
+    subcategories:
+      Analytical Instrumentation:
+        subsubcategories:
+          - Analytical Balances
+          - Benchtop pH Meters
+          - Blood Analyzers / Lactate Analyzers
+          - Calorimeters
+          - Chemistry Analyzers
+          - Material Testing Systems
+          - Particle Size Analyzer / Particle Shape Analyzers / Particle Counters
+          - Thermal Analysis Instruments
+
+      Animal Behavior & Monitoring:
+        subsubcategories:
+          - Analgesia Meters
+          - Animal Blood Pressure Monitoring
+          - Animal Handling Equipment
+          - Animal Monitoring Systems
+          - Catheters
+          - Electronic von Frey
+          - Plethysmometers
+          - Syringe Infusion Pumps
+          - Temperature Probes & Controllers
+
+      Cell Analysis:
+        subsubcategories:
+          - Flow Cytometry
+          - Automated Cell Culture Systems
+          - Cell Analysis Equipment
+          - Cell Counting and Cell Viability
+          - Protein Conjugation and Labeling
+          - Single Cell Analysis
+          - Spatial Biology
+
+      Cell Culture Equipment:
+        subsubcategories:
+          - Automated Cell Culture Systems
+          - Live Cell Imaging
+          - Single-Use Bioreactors
+          - Stirred-Tank Bioreactors / Fermentors
+          - Tissue Dissociation Instruments
+          - Cell Culture Monitoring Systems
+          - Laboratory Rockers and Shakers
+          - Laboratory Hoods (Laminar Flow Hoods / Biosafety Cabinets)
+          - Laboratory Incubators
+          - Cell Culture Flasks
+          - Cell Culture Inserts
+          - Cell Culture Plates and Dishes
+          - Filters and Filtration Devices
+          - Colony Counters
+          - Colony Pickers / Colony Arrayers
+
+      Chromatography Equipment:
+        subsubcategories:
+          - Chromatography and Separation
+          - Chromatography Systems
+          - Chromatography Columns and Media
+          - High Performance Liquid Chromatography (HPLC)
+          - Chromatography Solvents
+          - Chromatography Software
+          - Gas Chromatography (GC)
+          - Antibody Purification
+
+      Electrophoresis Equipment:
+        subsubcategories:
+          - Electrophoresis Systems
+          - Horizontal Electrophoresis Systems
+          - Vertical Electrophoresis Systems
+          - Automated Electrophoresis Systems
+          - Capillary Electrophoresis Systems
+          - Isoelectric Focusing Systems
+          - Pulsed Field Gel Electrophoresis Systems
+          - Gel Documentation Systems
+          - Electrophoresis Supplies
+          - Microfluidic Chip / Microchip Electrophoresis Systems
+          - Electrophoresis Power Supplies
+
+      General Laboratory Equipment:
+        subsubcategories:
+          - Autoclave Sterilizer
+          - Barcode Readers and Scanners
+          - Decapper / Crimper
+          - Filters and Filtration Devices
+          - Laboratory Centrifuges
+          - Laboratory Hoods (Laminar Flow Hoods / Biosafety Cabinets)
+          - Laboratory Incubators
+          - Laboratory Printers
+          - Laboratory Refrigeration
+          - Laboratory Rockers and Shakers
+          - Laboratory Water Purification Systems (Lab Water)
+          - Magnetic Stirrers
+          - Pipettes / Pipettors
+          - Temperature Monitoring and Thermometers
+          - Ultrapure Water Purification Systems
+          - Vacuum Aspirators
+          - Vacuum Centrifuge / Concentrators
+          - Vacuum Manifolds
+          - Vacuum Pumps
+          - Vortex Mixers
+
+      Genomics Tools:
+        subsubcategories:
+          - Automated DNA/RNA/Protein Purification Systems
+          - DNA Sequencers / Genetic Analyzers
+          - Mass Spectrometers
+          - Microarray Equipment
+          - PCR Equipment
+
+      Laboratory Supplies & Consumables:
+        subsubcategories:
+          - Tubes and Vials
+          - ELISA Microplates
+          - PCR Tubes
+          - Cell Culture Flasks
+          - Cell Culture Inserts
+          - Cell Culture Plates and Dishes
+          - Ultra-Low Attachment Plates
+          - Cryogenic Tubes and Vials
+          - Filters and Filtration Devices
+          - Strip Tubes
+          - 96-Well Microplates
+          - PCR Consumables
+
+      Liquid Handling:
+        subsubcategories:
+          - Automated Liquid Handling Systems
+          - Pipettes / Pipettors
+          - Liquid Handling and Automated Workstations
+
+      Mass Spectrometry:
+        subsubcategories:
+          - Mass Spectrometers
+          - MALDI Sample Preparation
+          - Mass Spectrometry Standards
+
+      Microarray Equipment:
+        subsubcategories:
+          - UV Crosslinkers
+          - Microarray Scanners
+          - Microarray Analysis Software
+
+      Neuroscience Equipment:
+        subsubcategories:
+          - Micromanipulation Equipment
+          - Animal Behavior & Monitoring Equipment
+          - Electrophysiology Equipment
+          - Histology Equipment
+
+      PCR Equipment:
+        subsubcategories:
+          - PCR Thermocyclers
+          - Multipurpose Workstations
+          - PCR Workstation / PCR Hood
+          - PCR Plate Heat Sealers
+          - PCR Consumables
+
+      Spectroscopy:
+        subsubcategories:
+          - Spectrophotometers
+          - Mass Spectrometry
+          - Microplate Readers
+          - Spectrometers
+      Supplies & Consumables:
+        subsubcategories: []
+      UV Crosslinkers:
+        subsubsubcategories: []
+      Western Blotting Equipment:
+        subsubsubcategories:
+          - Automated Blot Analysis
+          - Automated Western Blot Processors / Western Blot Processors
+          - Western Blotters

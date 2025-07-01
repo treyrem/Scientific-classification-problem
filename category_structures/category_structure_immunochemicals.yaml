@@ -1,0 +1,32 @@
+categories:
+  Immunochemicals:
+    subcategories:
+      Immunohistochemistry:
+        subsubcategories:
+          - IHC Antibodies
+          - Histology Equipment
+          - Microscopes
+          - Immunohistochemistry Reagents
+          - Immunohistochemistry Stains
+          - Blood and Tissue Products
+          - Protein Conjugation and Labeling
+          - Tissue Lysates
+
+      Biomolecules:
+        subsubcategories:
+          - Enzymes
+          - Proteins & Peptides
+          - Overexpression Lysates
+          - Anti-Oxidants
+          - Fluorophores, Dyes & Probes
+
+      Cytokine Detection:
+        subsubcategories:
+          - Cytokine Multiplex Assays
+          - Cytokine/Chemokine ELISA
+
+      Immunoassay Stabilizers:
+        subsubcategories:
+          - Horseradish Peroxidase Stabilizers
+          - Immunoassay Stabilizers
+        
