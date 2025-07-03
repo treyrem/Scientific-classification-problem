@@ -1,0 +1,497 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENHANCED MASTER CATEGORIES YAML - For Intelligent Domain Classification
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# Purpose: Intelligently guides LLM classification by providing focused, relevant
+#          subcategory information instead of overwhelming full YAML structures
+#
+# Enhancement: Each domain now includes key subcategory paths and classification hints
+# ═══════════════════════════════════════════════════════════════════════════════
+
+metadata:
+  version: "3.0"
+  created_date: "2025-07-01"
+  description: "Enhanced master category mapping with intelligent LLM guidance"
+  purpose: "Focused domain classification with relevant subcategory guidance"
+  total_domains: 18
+  classification_strategy: "focused_subcategory_guidance"
+
+# Enhanced domain mapping with intelligent classification guidance
+domain_mapping:
+  Antibodies:
+    yaml_file: "category_structure_antibodies.yaml"
+    description: "Primary, secondary, and recombinant antibodies for research and diagnostics"
+    
+    # Enhanced keyword detection
+    keywords: 
+      - "antibody"
+      - "antibodies"
+      - "immunoglobulin"
+      - "IgG"
+      - "IgM"
+      - "monoclonal"
+      - "polyclonal"
+      - "anti-"
+      - "primary antibody"
+      - "secondary antibody"
+      - "recombinant antibody"
+    
+    # Key classification paths to show LLM
+    key_classification_paths:
+      - "Primary Antibodies -> Monoclonal Antibodies -> Human Monoclonal Antibodies"
+      - "Primary Antibodies -> Polyclonal Antibodies -> Rabbit Polyclonal Antibodies"
+      - "Research Area Antibodies -> Cancer Marker Antibodies -> Oncogene Antibodies"
+      - "Research Area Antibodies -> Apoptosis Marker Antibodies -> Bcl-2 Family Antibodies"
+      - "Secondary Antibodies -> HRP Conjugated Secondary Antibodies"
+      - "Secondary Antibodies -> Fluorophore Conjugated Secondary Antibodies -> Alexa Fluor Secondary Antibodies"
+      - "Utility Antibodies -> Loading Control Antibodies -> Beta Actin Antibodies"
+    
+    # Classification hints for LLM
+    classification_hints:
+      - "If product mentions 'anti-[protein name]', classify under Primary Antibodies"
+      - "Cancer markers (p53, BCL-2, HER2) go under Research Area Antibodies -> Cancer Marker Antibodies"
+      - "Apoptosis markers (BAX, BCL-2, Caspase) go under Research Area Antibodies -> Apoptosis Marker Antibodies"
+      - "HRP, FITC, PE, APC conjugates go under Secondary Antibodies with appropriate conjugation type"
+      - "Loading controls (GAPDH, β-actin, tubulin) go under Utility Antibodies -> Loading Control Antibodies"
+    
+    typical_products:
+      - "Anti-CD3 antibody"
+      - "Anti-Beta Actin antibody"
+      - "HRP-conjugated secondary antibody"
+      - "Anti-BCL-2 monoclonal antibody"
+    
+    dual_function_indicators:
+      - "bcl-2"  # Both cancer and apoptosis marker
+      - "p53"    # Both cancer and apoptosis marker
+      - "bax"    # Both cancer and apoptosis marker
+
+  Cell_Biology:
+    yaml_file: "category_structure_cell_biology.yaml"
+    description: "Cell culture, analysis, and manipulation products"
+    
+    keywords:
+      - "cell"
+      - "culture"
+      - "medium"
+      - "media"
+      - "transfection"
+      - "isolation"
+      - "viability"
+      - "apoptosis"
+      - "cell line"
+      - "primary cells"
+      - "stem cell"
+    
+    key_classification_paths:
+      - "Primary Cells, Cell Lines and Microorganisms -> Cell Lines"
+      - "Primary Cells, Cell Lines and Microorganisms -> Primary Human Cells"
+      - "Primary Cells, Cell Lines and Microorganisms -> Stem Cells and Progenitor Cells"
+      - "Cell Analysis -> Flow Cytometry"
+      - "Cell Analysis -> Cell Counting and Cell Viability"
+      - "Apoptosis Products -> Apoptosis Assay Kits"
+      - "Apoptosis Products -> Annexin V Staining Kits"
+      - "Cell Isolation -> Cell Isolation Products"
+      - "Stem Cell Culture -> Stem Cell Culture Media"
+    
+    classification_hints:
+      - "Cell lines (HeLa, MCF-7, A549) go under Primary Cells, Cell Lines and Microorganisms -> Cell Lines"
+      - "Flow cytometry products go under Cell Analysis -> Flow Cytometry"
+      - "Cell viability/proliferation assays go under Cell Analysis -> Cell Counting and Cell Viability"
+      - "Apoptosis detection goes under Apoptosis Products with specific assay type"
+      - "Stem cell products go under Stem Cell Culture"
+    
+    typical_products:
+      - "HeLa cells"
+      - "Cell culture media"
+      - "Transfection reagent"
+      - "Cell viability assay"
+      - "Flow cytometry buffer"
+
+  PCR:
+    yaml_file: "category_structure_pcr.yaml"
+    description: "PCR instruments, reagents, and consumables"
+    
+    keywords:
+      - "PCR"
+      - "thermocycler"
+      - "thermal cycler"
+      - "polymerase"
+      - "qPCR"
+      - "real-time PCR"
+      - "RT-PCR"
+      - "amplification"
+      - "PCR kit"
+      - "master mix"
+    
+    key_classification_paths:
+      - "PCR Equipment -> PCR Thermocyclers -> Real-Time PCR Machines"
+      - "PCR Equipment -> PCR Thermocyclers -> 96-Well PCR Machines"
+      - "PCR Mixes and Kits -> PCR Master Mixes -> Hot Start PCR Products"
+      - "PCR Mixes and Kits -> qPCR Master Mixes -> SYBR Green Master Mixes"
+      - "Quantitative PCR (qPCR) -> qPCR Kits"
+      - "PCR Reagents -> Thermostable Polymerases"
+      - "PCR Primers -> qPCR Primers"
+      - "RT-PCR (Reverse Transcriptase PCR) -> RT-PCR Kits"
+    
+    classification_hints:
+      - "PCR machines/thermocyclers go under PCR Equipment -> PCR Thermocyclers"
+      - "Master mixes go under PCR Mixes and Kits -> PCR Master Mixes"
+      - "qPCR/real-time products go under Quantitative PCR (qPCR)"
+      - "Primers go under PCR Primers with specific type"
+      - "Reverse transcription products go under RT-PCR"
+    
+    typical_products:
+      - "Thermal cycler"
+      - "qPCR machine"
+      - "PCR master mix"
+      - "Taq polymerase"
+
+  Assay_Kits:
+    yaml_file: "category_structure_assay_kits.yaml"
+    description: "ELISA, cell-based, and functional assay kits"
+    
+    keywords:
+      - "ELISA"
+      - "assay"
+      - "kit"
+      - "detection kit"
+      - "quantification"
+      - "screening"
+      - "immunoassay"
+      - "multiplex"
+      - "enzyme assay"
+    
+    key_classification_paths:
+      - "ELISA Kits -> Cytokine/Chemokine ELISA Kits"
+      - "ELISA Kits -> Cancer Marker ELISA Kits"
+      - "ELISA Kits -> Multiplex ELISA Kits"
+      - "Cell-Based Assays -> Cell Viability Assay Kits -> MTT Assay Kits"
+      - "Cell-Based Assays -> Apoptosis Assay Kits -> Caspase Assay Kits"
+      - "Cell-Based Assays -> Cell Proliferation Assay Kits"
+      - "Enzyme Assays -> Kinase Assay Kits"
+      - "Multiplex Immunoassays -> Cytokine Multiplex Assays"
+    
+    classification_hints:
+      - "ELISA kits go under ELISA Kits with specific target type"
+      - "Cell viability assays (MTT, CCK-8, XTT) go under Cell-Based Assays -> Cell Viability Assay Kits"
+      - "Apoptosis assays go under Cell-Based Assays -> Apoptosis Assay Kits"
+      - "Enzyme activity assays go under Enzyme Assays"
+      - "Multiplex assays go under Multiplex Immunoassays"
+    
+    typical_products:
+      - "Human TNF-alpha ELISA Kit"
+      - "Cell viability assay kit"
+      - "Apoptosis detection kit"
+      - "Kinase activity assay"
+
+  Nucleic_Acid_Purification:
+    yaml_file: "category_structure_nucleic_acid_purification.yaml"
+    description: "DNA and RNA extraction and purification products"
+    
+    keywords:
+      - "extraction"
+      - "purification"
+      - "isolation"
+      - "genomic DNA"
+      - "plasmid"
+      - "RNA isolation"
+      - "DNA cleanup"
+      - "purification kit"
+    
+    key_classification_paths:
+      - "DNA Purification -> Genomic DNA Extraction Kits"
+      - "DNA Purification -> Plasmid DNA Purification Kits -> Plasmid Purification Miniprep Kits"
+      - "DNA Purification -> PCR Purification Kits"
+      - "RNA Isolation Kits -> Total RNA Isolation Kits"
+      - "RNA Isolation Kits -> mRNA Isolation Kits"
+      - "RNA Isolation Kits -> Viral RNA Extraction Kits"
+      - "Automated DNA/RNA/Protein Purification Systems"
+    
+    classification_hints:
+      - "Genomic DNA extraction goes under DNA Purification -> Genomic DNA Extraction Kits"
+      - "Plasmid purification goes under DNA Purification -> Plasmid DNA Purification Kits"
+      - "RNA isolation goes under RNA Isolation Kits with source type"
+      - "PCR cleanup goes under DNA Purification -> PCR Purification Kits"
+      - "Automated systems go under Automated DNA/RNA/Protein Purification Systems"
+    
+    typical_products:
+      - "Genomic DNA extraction kit"
+      - "RNeasy RNA isolation kit"
+      - "Plasmid miniprep kit"
+      - "PCR cleanup kit"
+
+  Molecular_Biology:
+    yaml_file: "category_structure_molecular_biology.yaml"
+    description: "DNA, RNA, and protein analysis tools and reagents"
+    
+    keywords:
+      - "DNA"
+      - "RNA"
+      - "sequencing"
+      - "cloning"
+      - "expression"
+      - "gel"
+      - "primer"
+      - "probe"
+      - "nucleic acid"
+      - "oligonucleotide"
+      - "CRISPR"
+      - "in situ"
+    
+    key_classification_paths:
+      - "Expression Analysis -> Quantitative PCR (qPCR)"
+      - "Expression Analysis -> RT-PCR (Reverse Transcriptase PCR)"
+      - "Expression Analysis -> RNA Amplification Kits"
+      - "Nucleic Acid Analysis -> DNA Sequencing"
+      - "Nucleic Acid Analysis -> Nucleic Acid Stains"
+      - "CRISPR Products -> CRISPR-Cas9"
+      - "In Situ Hybridization -> In Situ Hybridization Kits"
+      - "RNA Technologies -> In Vitro Transcription Kits"
+      - "Transfection Kits and Reagents -> DNA Transfection Reagents"
+    
+    classification_hints:
+      - "Gene expression analysis goes under Expression Analysis"
+      - "DNA/RNA sequencing goes under Nucleic Acid Analysis -> DNA Sequencing"
+      - "CRISPR products go under CRISPR Products"
+      - "In situ hybridization goes under In Situ Hybridization"
+      - "Transfection reagents go under Transfection Kits and Reagents"
+    
+    typical_products:
+      - "DNA sequencing kit"
+      - "CRISPR-Cas9 system"
+      - "In situ hybridization probe"
+      - "Transfection reagent"
+
+  Cloning_And_Expression:
+    yaml_file: "category_structure_cloning_expression.yaml"
+    description: "Molecular cloning and protein expression systems"
+    
+    keywords:
+      - "cloning"
+      - "expression"
+      - "vector"
+      - "transformation"
+      - "competent cells"
+      - "cloning kit"
+      - "expression system"
+      - "plasmid"
+      - "cDNA synthesis"
+    
+    key_classification_paths:
+      - "Cloning and Expression Kits -> Cloning Kits"
+      - "Cloning and Expression Kits -> cDNA Synthesis Kits"
+      - "Cloning and Expression Kits -> Protein Expression Systems"
+      - "Cloning and Expression Vectors -> Cloning Vectors"
+      - "Cloning and Expression Vectors -> Mammalian Expression Vectors"
+      - "Library Construction -> cDNA Synthesis"
+      - "Library Construction -> Library Construction Kits"
+      - "Transfection Kits and Reagents -> DNA Transfection Reagents"
+    
+    classification_hints:
+      - "cDNA synthesis goes under Library Construction -> cDNA Synthesis"
+      - "Cloning kits go under Cloning and Expression Kits -> Cloning Kits"
+      - "Expression vectors go under Cloning and Expression Vectors"
+      - "Competent cells go under Cell Culture / Tissue Culture"
+      - "Transfection goes under Transfection Kits and Reagents"
+    
+    typical_products:
+      - "cDNA synthesis kit"
+      - "Cloning vector"
+      - "Competent cells"
+      - "Expression plasmid"
+
+  Protein_Biochemistry:
+    yaml_file: "category_structure_protein.yaml"
+    description: "Protein purification, analysis, and characterization"
+    
+    keywords:
+      - "protein"
+      - "purification"
+      - "chromatography"
+      - "western"
+      - "blot"
+      - "electrophoresis"
+      - "protein ladder"
+      - "protein assay"
+      - "enzyme"
+      - "peptide"
+    
+    key_classification_paths:
+      - "Western Blot Analysis -> Western Blotting Equipment"
+      - "Western Blot Analysis -> Western Blot Supplies"
+      - "Protein Purification -> Protein Extraction Kits"
+      - "Protein Purification -> Chromatography Columns and Media"
+      - "Protein Gel Electrophoresis -> Precast Protein Gels"
+      - "Protein Gel Electrophoresis -> Protein Standards and Ladders"
+      - "Proteomics Tools -> Mass Spectrometry"
+      - "Biomolecules -> Enzymes"
+    
+    classification_hints:
+      - "Western blot products go under Western Blot Analysis"
+      - "Protein purification goes under Protein Purification"
+      - "Protein gels/electrophoresis go under Protein Gel Electrophoresis"
+      - "Enzymes go under Biomolecules -> Enzymes"
+      - "Mass spectrometry goes under Proteomics Tools"
+    
+    typical_products:
+      - "Protein purification kit"
+      - "Western blot reagents"
+      - "Protein molecular weight marker"
+      - "Chromatography column"
+
+  Lab_Equipment:
+    yaml_file: "category_structure_lab_equipment.yaml"
+    description: "Laboratory instruments and analytical equipment"
+    
+    keywords:
+      - "instrument"
+      - "equipment"
+      - "machine"
+      - "analyzer"
+      - "reader"
+      - "system"
+      - "device"
+      - "centrifuge"
+      - "incubator"
+      - "shaker"
+      - "balance"
+      - "microscope"
+      - "spectrophotometer"
+      - "spectrometer" 
+      - "chromatography"
+      - "electrophoresis"
+      - "flow cytometer"
+      - "plate reader"
+      - "thermocycler"
+      - "uv"
+      - "vis"
+      - "mass spectrometer"
+    
+    key_classification_paths:
+      - "Analytical Instrumentation -> Mass Spectrometers"
+      - "Analytical Instrumentation -> Chemistry Analyzers"
+      - "General Laboratory Equipment -> Laboratory Centrifuges"
+      - "General Laboratory Equipment -> Laboratory Incubators"
+      - "Cell Culture Equipment -> Laboratory Hoods (Laminar Flow Hoods / Biosafety Cabinets)"
+      - "PCR Equipment -> PCR Thermocyclers"
+      - "Spectroscopy -> Microplate Readers"
+      - "Electrophoresis Equipment -> Electrophoresis Systems"
+    
+    classification_hints:
+      - "Centrifuges go under General Laboratory Equipment -> Laboratory Centrifuges"
+      - "Incubators go under General Laboratory Equipment -> Laboratory Incubators"
+      - "PCR machines go under PCR Equipment"
+      - "Plate readers go under Spectroscopy -> Microplate Readers"
+      - "Mass spectrometers go under Analytical Instrumentation"
+    
+    typical_products:
+      - "Microplate reader"
+      - "Laboratory centrifuge"
+      - "CO2 incubator"
+      - "Analytical balance"
+
+  Bioimaging_Microscopy:
+    yaml_file: "category_structure_bioimaging_microscopy.yaml"
+    description: "Microscopes and imaging systems for biological research"
+    
+    keywords:
+      - "microscope"
+      - "imaging"
+      - "confocal"
+      - "fluorescence"
+      - "camera"
+      - "objective"
+      - "imaging system"
+      - "scanner"
+      - "documentation"
+      - "fluoview"
+      - "olympus"
+      - "zeiss"
+      - "leica"
+      - "nikon"
+      - "gel doc"
+      - "chemiluminescence"
+      - "live cell"
+    
+    key_classification_paths:
+      - "Microscopes and Cell Imaging Systems -> Confocal Microscopes"
+      - "Microscopes and Cell Imaging Systems -> Fluorescence Microscopes"
+      - "Microscopes and Cell Imaging Systems -> Live Cell Imaging Systems"
+      - "Gel Documentation Systems -> Gel Imaging Systems"
+      - "Gel Documentation Systems -> Chemiluminescence Imagers"
+      - "Specialized Imaging Systems -> High Content Screening Systems"
+    
+    classification_hints:
+      - "Microscopes go under Microscopes and Cell Imaging Systems"
+      - "Gel documentation goes under Gel Documentation Systems"
+      - "Imaging cameras go under Microscopes and Cell Imaging Systems"
+      - "High content screening goes under Specialized Imaging Systems"
+    
+    typical_products:
+      - "Confocal microscope"
+      - "Fluorescence microscope"
+      - "Gel documentation system"
+      - "Live cell imaging system"
+
+  Chemicals_Reagents:
+    yaml_file: "category_structure_chemicals.yaml"  # May not exist, will fallback
+    description: "Chemical compounds, pharmaceuticals, and research reagents"
+    
+    keywords:
+      - "chemical"
+      - "compound"
+      - "reagent"
+      - "pharmaceutical"
+      - "drug"
+      - "inhibitor"
+      - "activator"
+      - "buffer"
+      - "solution"
+      - "solvent"
+      - "enoxaparin"
+      - "heparin"
+      - "dmso"
+      - "glycerol"
+      - "ethanol"
+      - "methanol"
+      - "tris"
+      - "hepes"
+    
+    key_classification_paths:
+      - "Chemical Compounds -> Pharmaceuticals"
+      - "Chemical Compounds -> Research Chemicals"
+      - "Buffers and Solutions -> Biological Buffers"
+      - "Solvents -> Organic Solvents"
+      - "Inhibitors and Activators -> Enzyme Inhibitors"
+    
+    classification_hints:
+      - "Pharmaceuticals like enoxaparin go under Chemical Compounds -> Pharmaceuticals"
+      - "Research chemicals go under Chemical Compounds -> Research Chemicals"
+      - "Buffers go under Buffers and Solutions"
+      - "Solvents go under Solvents with appropriate type"
+    
+    typical_products:
+      - "Enoxaparin"
+      - "DMSO"
+      - "Tris buffer"
+      - "HEPES solution"
+
+# Classification guidance for intelligent LLM prompting
+classification_strategy:
+  approach: "focused_relevant_paths"
+  
+  prompt_optimization:
+    max_paths_shown: 8
+    prioritize_by_relevance: true
+    include_classification_hints: true
+    show_typical_products: true
+    
+  path_selection_criteria:
+    keyword_relevance_weight: 0.4
+    structural_depth_weight: 0.3
+    common_usage_weight: 0.3
+    
+  dual_function_detection:
+    enabled: true
+    confidence_threshold: 0.7
+    require_biological_basis: true

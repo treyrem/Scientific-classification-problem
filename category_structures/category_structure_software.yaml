@@ -9,3 +9,16 @@ categories:
       - Instrument Status And Control Software
       - Microarray Analysis Software
       - Imaging Software
+      - Statistical Analysis Software:
+        subsubcategories:
+          - "SPSS"
+          - "R Software"
+          - "SAS"
+          - "STATA"
+          - "GraphPad Prism"
+          - "JMP"
+      - Data Analysis Software:
+        subsubcategories:
+          - "MATLAB"
+          - "Python Packages"
+          - "Statistical Software Packages"

@@ -1,0 +1,165 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPLETE MASTER CATEGORIES YAML - All Available Domains
+# ═══════════════════════════════════════════════════════════════════════════════
+
+metadata:
+  version: "5.0"
+  created_date: "2025-07-01"
+  description: "Complete master category mapping for all 18 available domains"
+  purpose: "Comprehensive LLM-driven domain classification"
+  total_domains: 18
+  classification_strategy: "comprehensive_domain_coverage"
+
+# Complete domain mapping using all available YAML files
+domain_mapping:
+  Antibodies:
+    yaml_file: "category_structure_antibodies.yaml"
+    description: "Primary, secondary, and recombinant antibodies for research and diagnostics"
+    keywords: ["antibody", "antibodies", "immunoglobulin", "IgG", "IgM", "monoclonal", "polyclonal", "anti-", "conjugated"]
+    typical_products: ["Anti-CD3 antibody", "Anti-Beta Actin antibody", "HRP-conjugated secondary antibody"]
+
+  Assay_Kits:
+    yaml_file: "category_structure_assay_kits.yaml"
+    description: "Complete assay kits including ELISA, cell-based assays, and functional assays"
+    keywords: ["ELISA", "assay kit", "detection kit", "immunoassay", "multiplex", "enzyme assay", "MTT", "CCK-8"]
+    typical_products: ["Human TNF-alpha ELISA Kit", "Cell viability assay kit", "Apoptosis detection kit"]
+
+  Bioimaging_Microscopy:
+    yaml_file: "category_structure_bioimaging_microscopy.yaml"
+    description: "Microscopes, imaging systems, and visualization equipment for biological research"
+    keywords: ["microscope", "imaging", "confocal", "fluorescence", "camera", "objective", "scanner", "gel doc"]
+    typical_products: ["Confocal microscope", "Fluorescence microscope", "Gel documentation system"]
+
+  Blood:
+    yaml_file: "category_structure_blood.yaml"
+    description: "Blood products, serum, plasma, and hematology-related products"
+    keywords: ["blood", "serum", "plasma", "hematology", "coagulation", "hemoglobin", "blood cells"]
+    typical_products: ["Human serum", "Plasma samples", "Blood collection tubes"]
+
+  Cell_Biology:
+    yaml_file: "category_structure_cell_biology.yaml"
+    description: "Cell culture systems, cell analysis tools, cell lines, and cellular manipulation products"
+    keywords: ["cell", "culture", "medium", "media", "transfection", "cell line", "viability", "flow cytometry", "FACS"]
+    typical_products: ["HeLa cells", "Cell culture media", "Transfection reagent", "Flow cytometry buffer"]
+
+  Cloning_And_Expression:
+    yaml_file: "category_structure_cloning_expression.yaml"
+    description: "Molecular cloning vectors, expression systems, and transformation reagents"
+    keywords: ["cloning", "expression", "vector", "transformation", "competent cells", "plasmid", "cDNA synthesis"]
+    typical_products: ["Expression vector", "Competent cells", "cDNA synthesis kit", "Cloning vector"]
+
+  Immunochemicals:
+    yaml_file: "category_structure_immunochemicals.yaml"
+    description: "Immunological reagents, adjuvants, and immune system modulators"
+    keywords: ["immunochemical", "adjuvant", "immune", "immunostimulant", "immunosuppressant", "complement"]
+    typical_products: ["Freund's adjuvant", "Immune modulators", "Complement proteins"]
+
+  Lab_Automation:
+    yaml_file: "category_structure_lab_automation.yaml"
+    description: "Laboratory automation systems, robotics, and automated workflows"
+    keywords: ["automation", "robotic", "automated", "liquid handling", "dispensing", "pipetting robot"]
+    typical_products: ["Liquid handling robot", "Automated pipetting system", "Lab automation workstation"]
+
+  Lab_Equipment:
+    yaml_file: "category_structure_lab_equipment.yaml"
+    description: "Laboratory instruments, analytical equipment, and general lab hardware"
+    keywords: ["instrument", "equipment", "centrifuge", "incubator", "balance", "reader", "analyzer", "spectrometer"]
+    typical_products: ["Microplate reader", "Laboratory centrifuge", "CO2 incubator", "Analytical balance"]
+
+  Molecular_Biology:
+    yaml_file: "category_structure_molecular_biology.yaml"
+    description: "DNA, RNA, and protein analysis tools, enzymes, and molecular reagents"
+    keywords: ["DNA", "RNA", "sequencing", "enzyme", "restriction", "ligase", "buffer", "molecular", "hybridization"]
+    typical_products: ["T4 DNA ligase", "Restriction enzymes", "Hybridization buffer", "DNA ladder"]
+
+  Molecular_Diagnostics:
+    yaml_file: "category_structure_molecular_diagnostics.yaml"
+    description: "Diagnostic assays, biomarker detection, and clinical testing products"
+    keywords: ["diagnostic", "biomarker", "clinical", "detection", "screening", "pathogen", "genetic testing"]
+    typical_products: ["Genetic testing kit", "Pathogen detection assay", "Biomarker panel"]
+
+  Nucleic_Acid_Electrophoresis:
+    yaml_file: "category_structure_nucleic_acid_electrophoresis.yaml"
+    description: "Gel electrophoresis systems, gels, and DNA/RNA separation products"
+    keywords: ["electrophoresis", "gel", "agarose", "polyacrylamide", "DNA separation", "RNA separation"]
+    typical_products: ["Agarose gel", "Electrophoresis system", "DNA gel stain", "Loading dye"]
+
+  Nucleic_Acid_Purification:
+    yaml_file: "category_structure_nucleic_acid_purification.yaml"
+    description: "DNA and RNA extraction, purification, and cleanup products"
+    keywords: ["extraction", "purification", "isolation", "cleanup", "genomic DNA", "RNA isolation", "plasmid"]
+    typical_products: ["Genomic DNA extraction kit", "RNA isolation kit", "PCR cleanup kit"]
+
+  PCR:
+    yaml_file: "category_structure_pcr.yaml"
+    description: "PCR instruments, reagents, consumables, and amplification technologies"
+    keywords: ["PCR", "thermocycler", "polymerase", "qPCR", "RT-PCR", "master mix", "primers", "probes"]
+    typical_products: ["Thermal cycler", "qPCR machine", "PCR master mix", "Taq polymerase"]
+
+  Protein:
+    yaml_file: "category_structure_protein.yaml"
+    description: "Proteins, peptides, protein purification, and protein analysis products"
+    keywords: ["protein", "peptide", "purification", "chromatography", "western", "blot", "enzyme", "recombinant"]
+    typical_products: ["Recombinant protein", "Protein purification kit", "Western blot reagents", "Fibronectin"]
+
+  RNAi_Technology:
+    yaml_file: "category_structure_RNAi_technology.yaml"
+    description: "RNAi reagents, siRNA, shRNA, and gene silencing technologies"
+    keywords: ["RNAi", "siRNA", "shRNA", "gene silencing", "knockdown", "interference", "CRISPR"]
+    typical_products: ["siRNA library", "shRNA vectors", "RNAi transfection kit"]
+
+  Software:
+    yaml_file: "category_structure_software.yaml"
+    description: "Laboratory software, data analysis tools, and bioinformatics applications"
+    keywords: ["software", "analysis", "bioinformatics", "data analysis", "imaging software", "LIMS"]
+    typical_products: ["ImageJ software", "GraphPad Prism", "Bioinformatics suite", "Lab management software"]
+
+  Translational:
+    yaml_file: "category_structure_translational.yaml"
+    description: "Translational research tools, clinical trial products, and therapeutic development"
+    keywords: ["translational", "clinical", "therapeutic", "drug development", "clinical trial", "biomarker"]
+    typical_products: ["Clinical trial kit", "Therapeutic antibody", "Biomarker assay"]
+
+# Enhanced classification strategy
+classification_strategy:
+  approach: "comprehensive_domain_coverage"
+  
+  domain_selection_principles:
+    primary_rule: "Choose domain based on what the product IS, not just what it's used for"
+    secondary_rule: "Prefer specific domains over general ones"
+    fallback_rule: "Use closest available domain rather than 'Other'"
+    coverage_rule: "18 domains should cover 85%+ of life science products"
+  
+  decision_hierarchy:
+    1: "Exact product type match"
+    2: "Primary functional category"  
+    3: "Most specific applicable domain"
+    4: "Closest related domain"
+    5: "Other (only for non-life-science products)"
+
+  domain_prioritization:
+    specific_products: ["Antibodies", "Protein", "Software"]
+    techniques: ["PCR", "RNAi_Technology", "Molecular_Biology"]
+    equipment: ["Lab_Equipment", "Bioimaging_Microscopy", "Lab_Automation"]
+    applications: ["Cell_Biology", "Molecular_Diagnostics", "Translational"]
+
+# Enhanced classification strategy for LLM-driven decisions
+classification_strategy:
+  approach: "llm_driven_intelligent_selection"
+  
+  domain_selection_principles:
+    primary_rule: "Choose domain based on what the product IS, not just what it's used for"
+    secondary_rule: "When uncertain, prefer more specific/specialized domains over general ones"
+    fallback_rule: "Use 'Other' only when product clearly doesn't fit any available domain"
+  
+  prompt_optimization:
+    include_domain_criteria: true
+    show_differentiation_examples: true
+    emphasize_primary_function: true
+    
+  decision_hierarchy:
+    1: "Exact product type match (e.g., antibody -> Antibodies)"
+    2: "Primary functional purpose (e.g., PCR kit -> PCR)"  
+    3: "Most specific applicable domain"
+    4: "General laboratory function"
+    5: "Other (if no clear match)"

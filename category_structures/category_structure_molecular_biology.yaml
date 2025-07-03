@@ -1,4 +1,4 @@
-category:
+categories:
   Molecular Biology:
     subcategories:
       Expression Analysis:
@@ -82,3 +82,15 @@ category:
           - Fluorescent Dextran
           - Glycogen
           - Vitamins
+          - Basic Laboratory Salts
+          - Laboratory Solvents:
+            subsubsubcategories:
+               - Acetonitrile
+               - Methanol 
+               - Ethanol
+               - DMSO
+               - Chloroform
+               - Isopropanol
+               - Organic Solvents
+               - Other
+          - Molecular Biology Chemicals

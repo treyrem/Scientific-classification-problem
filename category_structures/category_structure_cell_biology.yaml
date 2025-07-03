@@ -19,7 +19,23 @@ categories:
           - Proteins & Peptides
           - Overexpression Lysates
           - Anti-Oxidants
-          - Fluorophores, Dyes & Probes
+          - Fluorophores, Dyes & Probes:
+            subsubsubcategories:
+              - DyLight Dyes
+              - Alexa Fluor Dyes
+              - FITC Dyes
+              - PE Dyes
+              - APC Dyes
+              - Live/Dead Stains
+              - Other Dyes and Probes
+          - Extracellular Matrix Components:
+            subsubsubcategories:
+              - Matrigel
+              - Basement Membrane Extract
+              - Collagen Matrices
+              - Laminin
+              - Fibronectin
+              - Specialized ECM Products
 
       Cell Analysis:
         subsubcategories:
@@ -51,16 +67,29 @@ categories:
           - Nucleic Acid Labeling
 
       Inhibitors:
-        subsubcategories: []
+        subsubcategories:
+          - Research Antibiotics
+          - Cell Culture Antibiotics  
+          - Enzyme Inhibitors
 
       Primary Cells, Cell Lines and Microorganisms:
         subsubcategories:
-          - Search Cells and Microorganisms
+          - Cells and Microorganisms
           - Primary Human Cells
           - Stem Cells and Progenitor Cells
           - Blood and Immune Cells
           - Cell Lines
           - Competent Cells
+
+      Animal Models:
+        subsubcategories:
+          - Transgenic Mouse Models
+          - Knockout Mouse Models 
+          - Cancer Mouse Models
+          - Disease Mouse Models
+          - Rat Models
+          - Zebrafish Models
+          - Other Animal Models
 
       Stem Cell Culture:
         subsubcategories:
