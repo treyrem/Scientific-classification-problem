@@ -21,6 +21,7 @@ categories:
           - Nucleic Acid Analysis Instruments
 
       Quantitative PCR (qPCR):
+        description: "qPCR machines, sequencers,Kits"
         subsubcategories:
           - qPCR Machines
           - qPCR Kits

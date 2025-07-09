@@ -1,82 +1,7 @@
 categories:
-  Molecular Biology:
-    subcategories:
-      Expression Analysis:
-        subsubcategories:
-          - Quantitative PCR (qPCR)
-          - RT-PCR (Reverse Transcriptase PCR)
-          - Microarrays
-          - RNA Amplification Kits
-          - RNA
-          - cDNA Clones, Tissue-specific cDNA and cDNA Libraries
-          - Epigenetics Tools
-
-      Nucleic Acid Analysis:
-        subsubcategories:
-          - Nucleic Acid Analysis Instruments
-          - UV Crosslinkers
-          - DNA/RNA Oligo Synthesizers
-          - DNA Quantification Kits
-          - RNA Quantification Kits
-          - Nucleic Acid Stains
-          - Electrophoresis Equipment
-          - DNA Sequencing:
-            subsubsubcategories:
-              - Automated DNA Sequencing
-              - Manual DNA Sequencing
-
-      CRISPR Products:
-        subsubcategories:
-          - CRISPR-Cas9
-          - Cas9 Nuclease
-          - CRISPR Knockout Kits
-
-      In Situ Hybridization:
-        subsubcategories:
-          - In Situ Hybridization Kits
-          - In Situ Hybridization Probes
-          - FISH Probes
-          - DNA Probes
-          - ISH Reagents:
-            subsubsubcategories:
-              - ISH Buffers and Reagents
-              - Digoxigenin
-              - Formaldehyde
-              - Formamide
-              - In Situ Hybridization Blockers
-              - SSC Buffers
-          - Nucleic Acid Labeling:
-            subsubsubcategories:
-              - DNA Labeling Kits
-              - RNA Labeling Kits
-              - Labeled Nucleotides
-              - Ribonucleotide triphosphates (rNTPs)
-
-      RNA Technologies:
-        subsubcategories:
-          - In Vitro Transcription Kits
-          - Poly A Tailing Kits / dA-Tailing Kits
-          - Ribonucleotide triphosphates (rNTPs)
-          - RNA Capping
-
-      Transfection Kits and Reagents:
-        subsubcategories:
-          - DNA Transfection Reagents
-          - RNA Transfection Reagents
-          - Primary Cell Transfection
-          - PEI Transfection Reagents
-          - Transfection Instruments
-          - Electroporation Cuvettes
-
-      Molecular Biology Reagents:
-        subsubcategories:
-          - EDTA
-          - Enzymes
-          - Nuclease-Free Water
-
-      Chemicals:
+  Chemicals:
         description: "Laboratory chemicals, solvents, and reagents for molecular biology"
-        subsubcategories:
+        subcategories:
           - Agarose
           - Bromophenol Blue
           - Enhancers
@@ -85,11 +10,11 @@ categories:
           - Vitamins
           - Antibiotics
           - Herbicides
-          - Therapeutic_Agents
-          - Research_Compounds
+          - Therapeutic Agents
+          - Research Compounds
           - Molecular Biology Chemicals
           - Basic Laboratory Salts:
-            subsubsubcategories:
+            subsubcategories:
               - Sodium Chloride (NaCl)
               - Potassium Chloride (KCl)
               - Magnesium Chloride (MgCl2)
@@ -99,88 +24,88 @@ categories:
               - Potassium Phosphate
               - Other Laboratory Salts
           - Laboratory Acids:
-            subsubsubcategories:
+            subsubcategories:
               Acetic Acid:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Glacial Acetic Acid
                   - Dilute Acetic Acid
                   - Acetic Acid Solutions
               Hydrochloric Acid (HCl):
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Concentrated HCl
                   - Dilute HCl
                   - HCl Solutions
               Sulfuric Acid (H2SO4):
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Concentrated Sulfuric Acid
                   - Dilute Sulfuric Acid
               Phosphoric Acid (H3PO4):
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Concentrated Phosphoric Acid
                   - Dilute Phosphoric Acid
                   - Phosphoric Acid Buffers
               Formic Acid:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Formic Acid Solutions
                   - LC-MS Grade Formic Acid
               Trifluoroacetic Acid (TFA):
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - TFA for HPLC
                   - TFA for Mass Spectrometry
                   - TFA Solutions
               Citric Acid:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Citric Acid Monohydrate
                   - Citric Acid Anhydrous
                   - Citric Acid Buffers
               Lactic Acid:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - L-Lactic Acid
                   - D-Lactic Acid
                   - Lactic Acid Solutions
               Nitric Acid (HNO3):
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Concentrated Nitric Acid
                   - Dilute Nitric Acid
                   - Trace Metal Grade Nitric Acid
               Perchloric Acid (HClO4):
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Concentrated Perchloric Acid
                   - Dilute Perchloric Acid
               Boric Acid (H3BO3):
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Boric Acid Powder
                   - Boric Acid Solutions
                   - Boric Acid Buffers
               Carbonic Acid Systems:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Sodium Bicarbonate
                   - Sodium Carbonate
                   - CO2/Bicarbonate Buffers
               Weak Organic Acids:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Ascorbic Acid (Vitamin C)
                   - Tartaric Acid
                   - Malic Acid
                   - Succinic Acid
               Nucleic Acid Related Acids:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - DNA/RNA Isolation Acids
                   - Phenol-Based Acids
                   - Acid Washes for Nucleic Acids
               Buffer Acids:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - HEPES Acid
                   - MES Acid
                   - MOPS Acid
                   - Bis-Tris Acid
               Other Laboratory Acids:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Specialized Research Acids
                   - Custom Acid Solutions
                   - Acid Mixtures
           - Laboratory Solvents:
-            subsubsubcategories:
+            subsubcategories:
               - Acetonitrile
               - Methanol
               - Ethanol
@@ -188,46 +113,46 @@ categories:
               - Chloroform
               - Isopropanol
               - Organic Solvents:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Hexane
                   - Dichloromethane
                   - Acetone
                   - Butanol
                   - Toluene
               - Other Solvents:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Specialty Solvents
                   - Solvent Mixtures
           - Advanced Molecular Biology Chemicals:
-            subsubsubcategories:
+            subsubcategories:
               Buffer Components:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Tris Base
                   - HEPES
                   - MES
                   - MOPS
                   - Bis-Tris
               Chelating Agents:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - EDTA
                   - EGTA
                   - DTPA
               Reducing Agents:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - DTT (Dithiothreitol)
                   - TCEP
                   - Beta-Mercaptoethanol
               Protein Denaturants:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Urea
                   - Guanidinium Chloride
                   - SDS
               Molecular Biology Salts:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - High Purity Salts
                   - Buffer Salts
                   - Specialized MB Salts
               Other MB Chemicals:
-                subsubsubsubcategories:
+                subsubsubcategories:
                   - Specialty Reagents
                   - Research Chemicals

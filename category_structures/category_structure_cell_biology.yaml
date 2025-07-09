@@ -46,7 +46,17 @@ categories:
           - Protein Conjugation and Labeling
           - Single Cell Analysis
           - Spatial Biology
-
+      Cell Culture:
+        subsubcategories:
+          - Cell Culture Media
+          - Cell Culture Reagents  
+          - Cell Culture Stains and Dyes:
+              description: Giemsa Stain, Crystal Violet Stain , Trypan Blue Stain, etc 
+          - Cell Culture Consumables
+          - Cell Culture Plates and Dishes
+          - Cell Culture Supplements
+          - Cell Culture Antibiotics
+          
       Cell Isolation:
         subsubcategories:
           - Cell Isolation Products

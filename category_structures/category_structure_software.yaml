@@ -5,7 +5,9 @@ categories:
       - Image Acquisition Software
       - Image Analysis Software / Image Processing Software
       - Laboratory Information Management Systems (LIMS) Software
-      - Laboratory Management Software
+      - Laboratory Management Software:
+        subsubcategories:
+          - Origin Software
       - Instrument Status And Control Software
       - Microarray Analysis Software
       - Imaging Software

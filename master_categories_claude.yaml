@@ -1,0 +1,479 @@
+# Updated master categories based on actual YAML structures analysis
+
+domain_mapping:
+  Cell_Biology:
+    yaml_file: "category_structure_cell_biology.yaml"
+    description: "Cell culture systems, cell analysis tools, staining reagents, cell lines, cellular manipulation products, and biological molecules"
+    keywords: ["cell", "giemsa", "crystal violet", "trypan blue", "staining", "culture", "medium", "media", "transfection", "cell line", "viability", "flow cytometry", "FACS", "matrigel", "ECM", "extracellular matrix", "animal models", "transgenic", "knockout", "fluorescent dyes", "dylight"]
+    # Add staining reagents as primary indicators
+    staining_reagents: ["giemsa", "crystal violet", "methylene blue", "trypan blue", "neutral red", "congo red"]
+    typical_products: ["HeLa cells", "Giemsa stain", "Cell culture media", "Flow cytometry buffer", "Trypan blue", "Crystal violet stain", "Matrigel matrix", "Mouse models", "DyLight dyes"]
+    key_classification_paths:
+      - "Cell Analysis -> Flow Cytometry -> Flow Cytometry Stains (for giemsa, trypan blue)"
+      - "Cell Culture -> Cell Culture Media (for RPMI, DMEM)"
+      - "Cell Culture -> Cell Culture Stains and Dyes (for giemsa, trypan blue)"
+      - "Primary Cells, Cell Lines and Microorganisms"
+      - "Biomolecules -> Proteins & Peptides (for proteins like gelatin, fibronectin)"
+      - "Inhibitors (for research antibiotics like streptomycin, penicillin, cloxacillin)"
+    classification_hints:
+      - "Giemsa, crystal violet, trypan blue = staining reagents, NOT equipment"
+      - "Cell culture stains and dyes have dedicated categories"
+      - "Biological proteins (gelatin, fibronectin) go to Biomolecules -> Proteins & Peptides"
+      - "Research antibiotics (streptomycin, penicillin) should go to Inhibitors"
+
+  Cloning_And_Expression:
+    yaml_file: "category_structure_cloning_expression.yaml"
+    description: "Molecular cloning vectors, expression systems, transformation reagents, and cell culture media/reagents"
+    keywords: ["cloning", "expression", "vector", "transformation", "competent cells", "plasmid", "cDNA synthesis", "cell culture media", "culture reagents", "transfection", "enzymes"]
+    typical_products: ["Expression vector", "Competent cells", "cDNA synthesis kit", "Cell culture media", "Cell culture reagents"]
+    key_classification_paths:
+      - "Cell Culture / Tissue Culture -> Cell Culture Media"
+      - "Cell Culture / Tissue Culture -> Cell Culture Reagents"  
+      - "Cell Culture / Tissue Culture -> Serum"
+      - "Cloning and Expression Kits"
+      - "Transfection Kits and Reagents"
+      - "Enzymes (extensive enzyme list including restriction enzymes, polymerases)"
+    classification_hints:
+      - "Cell culture media and buffers can go here under Cell Culture / Tissue Culture"
+
+  Lab_Equipment:
+    yaml_file: "category_structure_lab_equipment.yaml"
+    description: "Physical laboratory instruments, analytical equipment, and lab hardware. EXCLUDES reagents, chemicals, stains, membranes, or biological supplies."
+    keywords: ["instrument", "equipment", "centrifuge", "incubator", "balance", "reader", "analyzer", "spectrometer", "system", "machine", "thermocycler", "chromatography", "microscope", "scanner"]
+    # CRITICAL: Add exclusion keywords to prevent misclassification
+    exclusion_keywords: ["giemsa", "crystal violet", "stain", "dye", "membrane", "pvdf", "nitrocellulose", "immobilon", "buffer", "solution", "medium", "reagent", "chemical", "solvent", "acetonitrile", "methanol"]
+    typical_products: ["Microplate reader", " centrifuge", "CO2 incubator", "PCR thermocycler", "HPLC system", "Spectrophotometer", "Flow cytometer","Mass Spectrometers"]
+    key_classification_paths:
+      - "Analytical Instrumentation -> Spectroscopy (UV-Vis, fluorescence, mass spectrometers)"
+      - "Spectroscopy -> Microplate Readers (absorbance, fluorescence readers)"
+      - "Cell Analysis -> Flow Cytometry (flow cytometers, cell counters)"
+      - "Chromatography Equipment -> Chromatography Systems (HPLC instruments, LC-MS)"
+      - "PCR Equipment -> PCR Thermocyclers (real-time PCR, digital PCR)"
+    classification_hints:
+      - "Physical instruments and machines that analyze, separate, or process samples"
+      - "If it has moving parts, electronics, or measures something = likely equipment"
+      - "NEVER classify stains, dyes, membranes, buffers, or chemicals as equipment"
+      - "Reduce use of 'General Laboratory Equipment' - use specific subcategories"
+      - "Chromatography columns are equipment (physical separation devices)"
+
+  Molecular_Biology:
+    yaml_file: "category_structure_molecular_biology.yaml"
+    description: "DNA, RNA, protein analysis reagents, enzymes, molecular reagents, organic solvents, and basic laboratory chemicals"
+    keywords: ["DNA", "RNA", "acetonitrile", "Strong acids", "Organic acids","methanol", "DMSO", "solvents", "organic solvents", "chromatography solvents", "enzyme", "buffer", "EDTA", "molecular", "chemicals", "agarose", "sequencing", "restriction", "ligase", "hybridization", "nuclease-free water"]
+    # Emphasize solvents and chemicals
+    solvent_chemicals: ["acetonitrile", "methanol", "ethanol", "DMSO", "chloroform", "isopropanol", "hexane", "dichloromethane"]
+    typical_products: ["T4 DNA ligase", "Acetonitrile", "Methanol", "DMSO", "Restriction enzymes", "EDTA", "Agarose", "Nuclease-free water", "Chromatography solvents"]
+    key_classification_paths:
+      - "Chemicals -> Solvents (acetonitrile, methanol, DMSO)"
+      - "Chemicals -> Salts (EDTA, NaCl, buffer components)"
+      - "Molecular Biology Reagents -> Enzymes"
+      - "Molecular Biology Reagents -> EDTA"
+      - "Molecular Biology Reagents -> Nuclease-Free Water"
+      - "Expression Analysis"
+      - "CRISPR Products"
+      - "Chemicals -> Antibiotics (streptomycin, penicillin, cloxacillin)"
+    classification_hints:
+      - "Organic solvents (acetonitrile, methanol) = chemicals, not equipment"
+      - "All laboratory chemicals and solvents belong here"
+      - "Basic molecular biology chemicals go to Chemicals subcategory"
+      - "Basic reagents like EDTA, water go to Molecular Biology Reagents"
+
+  Nucleic_Acid_Electrophoresis:
+    yaml_file: "category_structure_nucleic_acid_electrophoresis.yaml"
+    description: "Gel electrophoresis systems, gels, DNA/RNA separation products, and gel documentation"
+    keywords: ["electrophoresis", "gel", "agarose", "DNA separation", "RNA separation", "gel documentation", "DNA ladders", "stains"]
+    typical_products: ["Agarose gel", "DNA gel stain", "Loading dye", "Gel documentation system", "DNA ladders"]
+    key_classification_paths:
+      - "DNA / RNA Gels -> Agarose (NOTE: agarose appears here AND in Molecular Biology)"
+      - "DNA / RNA Standards (various DNA ladders and markers)"
+      - "Gel Documentation Systems"
+      - "Nucleic Acid Stains"
+    classification_hints:
+      - "Dual classification: Agarose appears both here and in Molecular Biology -> Chemicals"
+
+  Nucleic_Acid_Purification:
+    yaml_file: "category_structure_nucleic_acid_purification.yaml"
+    description: "DNA and RNA extraction, purification, and cleanup products"
+    keywords: ["extraction", "purification", "isolation", "cleanup", "genomic DNA", "RNA isolation", "plasmid", "magnetic beads", "spin columns"]
+    typical_products: ["Genomic DNA extraction kit", "RNA isolation kit", "PCR cleanup kit", "Plasmid purification kit"]
+    key_classification_paths:
+      - "DNA Purification (extensive subcategories for different sample types)"
+      - "RNA Isolation Kits (various RNA types and sources)"
+      - "Automated DNA/RNA/Protein Purification Systems"
+      - "Nucleic Acid Purification Accessory Reagents"
+    classification_hints:
+      - "Well-organized with specific kits for different applications"
+      - "Accessory reagents include some chemicals and buffers"
+
+  PCR:
+    yaml_file: "category_structure_pcr.yaml"
+    description: "PCR reagents, consumables, and amplification technologies. NOTE: Contains some equipment that conflicts with Lab_Equipment."
+    keywords: ["PCR", "polymerase", "qPCR", "RT-PCR", "master mix", "primers", "probes", "thermocycler"]
+    typical_products: ["PCR master mix", "Taq polymerase", "PCR primers", "qPCR reagents"]
+    key_classification_paths:
+      - "PCR Mixes and Kits (for master mixes, complete kits)"
+      - "PCR Reagents (for individual components)"
+      - "PCR Primers"
+      - "Quantitative PCR (qPCR)"
+      - "PCR Equipment -> PCR Thermocyclers (DUAL OPPORTUNITY: PCR systems are equipment but serve PCR applications)"
+
+  Protein:
+    yaml_file: "category_structure_protein.yaml"
+    description: "Proteins, peptides, protein purification, Western blot supplies including membranes, and biochemistry reagents"
+    keywords: ["protein", "peptide", "western", "blot", "membrane", "pvdf", "nitrocellulose", "immobilon", "transfer", "BSA", "purification", "chromatography", "buffers", "biochemistry"]
+    # Emphasize Western blot supplies
+    western_blot_supplies: ["pvdf membrane", "nitrocellulose membrane", "immobilon", "transfer membrane", "blotting paper", "western blot buffer"]
+    typical_products: ["Recombinant protein", "PVDF membrane", "Immobilon membrane", "Western blot buffer", "BSA", "Transfer buffer", "Protein purification kit"]
+    key_classification_paths:
+      - "Western Blot Analysis -> Western Blot Membranes (PVDF, nitrocellulose, Immobilon)"
+      - "Western Blot Analysis -> Western Blot Reagents"
+      - "Biochemistry Reagents -> Bovine Serum Albumin (BSA)"
+      - "Biomolecules -> Proteins & Peptides"
+    classification_hints:
+      - "PVDF membranes, Immobilon = Western blot supplies, NOT equipment"
+      - "All membranes for protein transfer belong in Western Blot Analysis"
+      - "Protein Assays -> BCA Protein Assay Kits (for BCA assays)"
+      - "Quantitative Assays -> Protein Quantification Assays (alternative)"
+      - "Protein biochemistry buffers belong in Biochemistry Reagents -> Buffers"
+
+  Antibodies:
+    yaml_file: "category_structure_antibodies.yaml"
+    description: "Primary, secondary, and recombinant antibodies with extensive research area and application-specific classifications"
+    keywords: ["antibody", "cleaved caspase", "apoptosis markers", "caspase antibodies", "antibodies", "immunoglobulin", "IgG", "IgM", "monoclonal", "polyclonal", "anti-", "conjugated", "primary", "secondary", "recombinant", "NeuN", "neuronal nuclei", "research marker"]
+    typical_products: ["Anti-CD3 antibody", "Cleaved Caspase 3 antibody", "Apoptosis antibodies", "Anti-Beta Actin antibody", "HRP-conjugated secondary antibody", "NeuN antibodies", "Neuronal markers"]
+    key_classification_paths:
+      - "Primary Antibodies -> Monoclonal Antibodies"
+      - "Primary Antibodies -> Polyclonal Antibodies"
+      - "Research Area Antibodies -> Neuroscience Antibodies -> Neuronal Marker Antibodies -> NeuN Antibodies"
+      - "Research Area Antibodies -> Cancer Marker Antibodies"
+      - "Utility Antibodies -> Loading Control Antibodies -> Beta Actin Antibodies"
+      - "Secondary Antibodies -> Conjugated Secondary Antibodies"
+    classification_hints:
+      - "NeuN (neuronal nuclei) antibodies specifically go to Research Area Antibodies -> Neuroscience Antibodies -> Neuronal Marker Antibodies -> NeuN Antibodies"
+      - "Loading control antibodies (beta actin, GAPDH) have dedicated subcategory"
+      - "Very detailed research area classifications available"
+    dual_classification_opportunities:
+      - "Neuroscience antibodies could also fit Cell_Biology for cellular applications"
+      - "Cancer marker antibodies could also fit research-specific domains"
+
+  Assay_Kits:
+    yaml_file: "category_structure_assay_kits.yaml"
+    description: "Complete assay kits including ELISA, cell-based assays, enzyme assays, and multiplex immunoassays"
+    keywords: ["ELISA", "assay kit", "detection kit", "immunoassay", "multiplex", "enzyme assay", "MTT", "CCK-8", "cell viability", "ATP assay", "caspase", "apoptosis", "cytotoxicity"]
+    typical_products: ["Human TNF-alpha ELISA Kit", "Cell viability assay kit", "Apoptosis detection kit", "ATP assay kit", "Caspase assay kit"]
+    key_classification_paths:
+      - "ELISA Kits -> Cytokine/Chemokine ELISA Kits"
+      - "Cell-Based Assays -> Cell Viability Assay Kits"
+      - "Cell-Based Assays -> Apoptosis Assay Kits"
+      - "Cell-Based Assays -> ATP Assay Kits"
+      - "Multiplex Immunoassays -> Multiplex Assay Kits"
+      - "Enzyme Assays -> Inhibitor Screening Assay Kits"
+      - "Protein Assays -> BCA Protein Assay Kits (for BCA protein assays)"
+      - "Cell-Based Assays -> Cell Viability Assay Kits (for MTT, CCK-8, ATP)"
+      - "Cell-Based Assays -> Apoptosis Assay Kits (for caspase, TUNEL)"
+      - "ELISA Kits -> Cytokine/Chemokine ELISA Kits (for specific proteins)"
+      - "Enzyme Assays -> Inhibitor Screening Assay Kits (ONLY for inhibitor screening)"
+  
+    classification_hints:
+      - "Very comprehensive cell-based assay categories"
+      - "ELISA automation systems and readers are included here"
+      - "BCA, Bradford, Lowry = protein assays, NOT inhibitor screening"
+      - "MTT, CCK-8, alamarBlue = cell viability, NOT enzyme assays"
+      - "Inhibitor screening = testing compound libraries, NOT routine protein assays"
+    dual_classification_opportunities:
+      - "Cell-based assays could also fit Cell_Biology domain"
+      - "Enzyme assays could also fit Protein domain"
+      - "ELISA equipment could also fit Lab_Equipment"
+
+  Bioimaging_Microscopy:
+    yaml_file: "category_structure_bioimaging_microscopy.yaml"
+    description: "Microscopy equipment, imaging systems, and gel documentation systems for biological visualization"
+    keywords: ["microscope", "imaging", "confocal", "fluorescence", "camera", "gel documentation", "scanner", "chemiluminescence", "live cell imaging", "super-resolution"]
+    typical_products: ["Confocal microscope", "Fluorescence microscope", "Gel documentation system", "Live cell imaging system", "Microscope camera"]
+    key_classification_paths:
+      - "Microscopes and Cell Imaging Systems -> Confocal Microscopes"
+      - "Microscopes and Cell Imaging Systems -> Live Cell Imaging Systems"
+      - "Gel Documentation Systems -> Gel Imaging Systems"
+      - "Specialized Imaging Systems -> High Content Screening Systems"
+    classification_hints:
+      - "Gel documentation systems appear here (could also be in Lab_Equipment or Nucleic_Acid_Electrophoresis)"
+      - "Specialized imaging for various applications"
+    dual_classification_opportunities:
+      - "Gel documentation systems could also fit Nucleic_Acid_Electrophoresis or Lab_Equipment"
+      - "Cell imaging systems could also fit Cell_Biology"
+      - "Laser capture microdissection could also fit Cell_Biology"
+
+  Blood:
+    yaml_file: "category_structure_blood.yaml"
+    description: "Blood products, serum, plasma, and tissue products organized by species and processing method"
+    keywords: ["blood", "serum", "plasma", "hematology", "bovine serum albumin", "BSA", "fetal bovine serum", "FBS", "anticoagulant", "EDTA", "heparin"]
+    typical_products: ["Human serum", "Fetal bovine serum", "Bovine serum albumin", "EDTA plasma", "Blood samples"]
+    key_classification_paths:
+      - "Serum -> Serum Products -> Bovine Serum Albumin (BSA)"
+      - "Serum -> Serum Products -> Fetal Bovine Serum (FBS)"
+      - "Plasma -> Plasma by Anticoagulant -> EDTA Plasma"
+      - "Blood Samples by Species -> Human Blood"
+    classification_hints:
+      - "BSA specifically categorized under Serum Products"
+      - "Plasma organized by both species and anticoagulant type"
+      - "Comprehensive species coverage"
+    dual_classification_opportunities:
+      - "Bovine serum albumin could also fit Protein -> Biochemistry Reagents"
+      - "Blood products could also fit Cell_Biology for culture applications"
+
+  Immunochemicals:
+    yaml_file: "category_structure_immunochemicals.yaml"
+    description: "Immunological reagents, biomolecules, and immunohistochemistry products"
+    keywords: ["immunochemical", "immunohistochemistry", "IHC", "cytokine", "biomolecules", "proteins", "peptides", "immunoassay stabilizers"]
+    typical_products: ["IHC antibodies", "Cytokine ELISA", "Immunoassay stabilizers", "Immunohistochemistry reagents"]
+    key_classification_paths:
+      - "Immunohistochemistry -> IHC Antibodies"
+      - "Biomolecules -> Proteins & Peptides"
+      - "Cytokine Detection -> Cytokine/Chemokine ELISA"
+      - "Immunoassay Stabilizers -> Horseradish Peroxidase Stabilizers"
+    dual_classification_opportunities:
+      - "IHC antibodies could also fit Antibodies domain"
+      - "Biomolecules could also fit Cell_Biology or Protein domains"
+      - "Cytokine detection could also fit Assay_Kits"
+
+  Lab_Automation:
+    yaml_file: "category_structure_lab_automation.yaml"
+    description: "Laboratory automation systems, liquid handling, and high-throughput equipment"
+    keywords: ["automation", "robotic", "automated", "liquid handling", "dispensing", "workstation", "high-throughput", "microplate handler"]
+    typical_products: ["Liquid handling robot", "Automated workstation", "Microplate dispenser", "Automated DNA extraction system"]
+    key_classification_paths:
+      - "Automated Liquid Handling Systems -> Automated Workstations"
+      - "Automated Workstations -> Liquid Handling and Automated Workstations"
+      - "Dispensing Systems -> Microplate Dispensers"
+    classification_hints:
+      - "Some automated systems overlap with other domains (DNA/RNA extraction, protein purification)"
+      - "Clear focus on automation and high-throughput applications"
+    dual_classification_opportunities:
+      - "Automated DNA/RNA extraction systems could also fit Nucleic_Acid_Purification"
+      - "Automated cell culture systems could also fit Cell_Biology"
+      - "Protein purification workstations could also fit Protein"
+
+  Molecular_Diagnostics:
+    yaml_file: "category_structure_molecular_diagnostics.yaml"
+    description: "Diagnostic equipment, NGS workflow, and quantitative PCR for clinical and research diagnostics"
+    keywords: ["diagnostic", "NGS", "next generation sequencing", "qPCR", "histology", "molecular diagnostics", "sequencing", "library preparation"]
+    typical_products: ["NGS sequencer", "qPCR machine", "Library preparation kit", "Sequencing services", "Tissue processor"]
+    key_classification_paths:
+      - "the NGS Workflow -> Next Generation Sequencers (NGS)"
+      - "the NGS Workflow -> NGS Library Preparation and Sample Prep"
+      - "Quantitative PCR (qPCR) -> qPCR Machines"
+      - "Histology Equipment -> Tissue Processors"
+    classification_hints:
+      - "Contains qPCR machines (overlap with Lab_Equipment and PCR domains)"
+      - "NGS workflow is comprehensive"
+      - "Histology equipment for diagnostic applications"
+    dual_classification_opportunities:
+      - "qPCR machines could also fit Lab_Equipment"
+      - "qPCR kits and reagents could also fit PCR domain"
+      - "NGS equipment could also fit Lab_Equipment"
+      - "Library preparation could also fit Molecular_Biology"
+  
+  RNAi_Technology:
+    yaml_file: "category_structure_RNAi_technology.yaml"
+    description: "RNAi reagents, siRNA, shRNA, gene silencing technologies, and transfection reagents"
+    keywords: ["RNAi", "siRNA", "shRNA", "gene silencing", "knockdown", "interference", "miRNA", "transfection", "electroporation", "RNA capping", "poly A tailing"]
+    typical_products: ["siRNA library", "shRNA vectors", "RNAi transfection kit", "miRNA mimics", "siRNA vectors"]
+    key_classification_paths:
+      - "siRNA (for siRNA products)"
+      - "shRNA (for shRNA products)" 
+      - "shRNA Vectors (for shRNA vector systems)"
+      - "siRNA Vectors (for siRNA vector systems)"
+      - "Transfection Kits and Reagents (for RNAi delivery)"
+      - "miRNA (for microRNA products)"
+    classification_hints:
+      - "Most subcategories have empty subsubcategories - structure is minimal"
+      - "Only Transfection Kits and Reagents has detailed subsubcategories"
+      - "Focus on gene silencing and RNA interference applications"
+    dual_classification_opportunities:
+      - "Transfection reagents could also fit Molecular_Biology or Cloning_And_Expression"
+      - "siRNA/shRNA products could also fit Molecular_Biology for research applications"
+
+  Software:
+    yaml_file: "category_structure_software.yaml"
+    description: "Laboratory software, data analysis tools, bioinformatics applications, and instrument control software"
+    keywords: ["software", "analysis", "SPSS", "statistical analysis", "data analysis", "statistical software", "bioinformatics", "data analysis", "imaging software", "LIMS", "chromatography software", "instrument control", "image processing"]
+    typical_products: ["ImageJ software","SPSS software", "Statistical analysis tools", "GraphPad Prism", "Bioinformatics suite", "LIMS software", "Chromatography data systems"]
+    key_classification_paths:
+      - "Statistical Analysis Software"
+      - "Data Analysis Software"
+      - "Chromatography Software"
+      - "Image Acquisition Software"
+      - "Image Analysis Software / Image Processing Software"
+      - "Laboratory Information Management Systems (LIMS) Software"
+      - "Laboratory Management Software"
+      - "Instrument Status And Control Software"
+      - "Microarray Analysis Software"
+      - "Imaging Software"
+
+    classification_hints:
+      - "Covers data and statistical analysis, management, and control software"
+      - "Instrument-specific software categories available"
+    dual_classification_opportunities:
+      - "Chromatography software could also fit Lab_Equipment for instrument control"
+      - "Imaging software could also fit Bioimaging_Microscopy"
+      - "Microarray software could also fit Molecular_Biology"
+
+  Translational:
+    yaml_file: "category_structure_translational.yaml"
+    description: "Translational research tools, clinical trial products, proteomics tools, and therapeutic development"
+    keywords: ["translational", "clinical", "therapeutic", "drug development", "clinical trial", "biomarker", "proteomics", "multiplex immunoassays", "stem cell culture"]
+    typical_products: ["Clinical trial kit", "Therapeutic antibody", "Biomarker assay", "Multiplex cytokine panel", "Stem cell culture media"]
+    key_classification_paths:
+      - "Proteomics Tools (extensive protein analysis categories)"
+      - "Multiplex Immunoassays -> Multiplex Assay Kits"
+      - "Multiplex Immunoassays -> Cytokine Multiplex Assays"
+      - "Stem Cell Culture -> Stem Cell Culture Media"
+      - "Stem Cell Culture -> Stem Cell Kits"
+    classification_hints:
+      - "Proteomics Tools overlaps significantly with Protein domain"
+      - "Multiplex immunoassays overlap with Assay_Kits domain"
+      - "Stem cell culture overlaps with Cell_Biology domain"
+    dual_classification_opportunities:
+      - "Proteomics tools could also fit Protein domain"
+      - "Multiplex assays could also fit Assay_Kits domain"
+      - "Stem cell products could also fit Cell_Biology domain"
+
+# DUAL CLASSIFICATION OPPORTUNITIES IDENTIFIED:
+
+dual_classification_matrix:
+  equipment_across_domains:
+    gel_documentation:
+      primary: "Bioimaging_Microscopy"
+      secondary: ["Nucleic_Acid_Electrophoresis", "Lab_Equipment"]
+      reasoning: "Imaging equipment that serves nucleic acid analysis"
+    
+    qpcr_machines:
+      primary: "Lab_Equipment"
+      secondary: ["Molecular_Diagnostics", "PCR"]
+      reasoning: "Physical instruments used for diagnostic and research PCR"
+    
+    automated_systems:
+      primary: "Lab_Automation"
+      secondary: ["Nucleic_Acid_Purification", "Cell_Biology", "Protein"]
+      reasoning: "Automation systems serving specific application domains"
+
+  reagents_across_applications:
+    bovine_serum_albumin:
+      primary: "Blood"
+      secondary: ["Protein", "Cell_Biology"]
+      reasoning: "Blood product used as protein standard and culture reagent"
+    
+    neuronal_antibodies:
+      primary: "Antibodies"
+      secondary: ["Cell_Biology", "Bioimaging_Microscopy"]
+      reasoning: "Antibodies used for cell analysis and imaging applications"
+    
+    cell_based_assays:
+      primary: "Assay_Kits"
+      secondary: ["Cell_Biology"]
+      reasoning: "Assay kits designed for cellular analysis"
+
+  technique_overlaps:
+    immunohistochemistry:
+      primary: "Immunochemicals"
+      secondary: ["Antibodies", "Bioimaging_Microscopy"]
+      reasoning: "Technique requiring antibodies and imaging"
+    
+    cytokine_detection:
+      primary: "Assay_Kits"
+      secondary: ["Immunochemicals"]
+      reasoning: "Detection methods spanning immunological reagents"
+      
+  equipment_dual_classifications:
+    western_blot_equipment:
+      primary: "Lab_Equipment"
+      secondary: ["Protein"]
+      reasoning: "Equipment used specifically for protein analysis techniques"
+    
+    chromatography_systems:
+      primary: "Lab_Equipment" 
+      secondary: ["Protein", "Molecular_Biology"]
+      reasoning: "Physical equipment serving multiple analytical domains"
+    
+    pcr_thermocyclers:
+      primary: "Lab_Equipment"
+      secondary: ["PCR", "Molecular_Diagnostics"]
+      reasoning: "Physical instruments serving PCR reagent and diagnostic applications"
+
+  software_dual_classifications:
+    chromatography_software:
+      primary: "Software"
+      secondary: ["Lab_Equipment"]
+      reasoning: "Software that controls chromatography equipment"
+    
+    imaging_software:
+      primary: "Software"
+      secondary: ["Bioimaging_Microscopy"]
+      reasoning: "Software for microscopy and imaging analysis"
+    
+    microarray_software:
+      primary: "Software"
+      secondary: ["Molecular_Biology"]
+      reasoning: "Analysis software for molecular biology applications"
+
+  reagent_dual_classifications:
+    transfection_reagents:
+      primary: "RNAi_Technology"
+      secondary: ["Molecular_Biology", "Cloning_And_Expression"]
+      reasoning: "Transfection reagents serve multiple molecular manipulation domains"
+    
+    proteomics_tools:
+      primary: "Translational"
+      secondary: ["Protein"]
+      reasoning: "Clinical proteomics tools overlap with basic protein research"
+    
+    stem_cell_culture:
+      primary: "Translational"
+      secondary: ["Cell_Biology"]
+      reasoning: "Translational stem cell work overlaps with basic cell culture"
+
+# ENHANCED CLASSIFICATION STRATEGY FOR DUAL ASSIGNMENTS:
+classification_hierarchy:
+  1: "Physical instrument → Lab_Equipment (HIGHEST PRIORITY)"
+  2: "Antibody product → Antibodies"
+  3: "assay kit → Assay_Kits"
+
+mandatory_equipment_rules:
+  rule_1: "Any product with 'system' in name → Lab_Equipment"
+  rule_2: "Any product with 'machine' in name → Lab_Equipment"  
+  rule_3: "Any product with 'reader' in name → Lab_Equipment"
+  rule_4: "Any product with 'analyzer' in name → Lab_Equipment"
+  rule_5: "Any product with 'cycler' in name → Lab_Equipment"
+  rule_6: "Any product with 'sequencer' in name → Lab_Equipment"
+
+dual_classification_rules:
+  equipment_hierarchy:
+    1: "Physical instruments → Lab_Equipment (primary)"
+    2: "Application-specific equipment → Technique domain (secondary)"
+    3: "Example: qPCR machine → Lab_Equipment + Molecular_Diagnostics"
+  
+  reagent_applications:
+    1: "Product source/type → Source domain (primary)"
+    2: "Primary application → Application domain (secondary)"
+    3: "Example: BSA → Blood + Protein (biochemistry use)"
+  
+  technique_products:
+    1: "Core reagent type → Reagent domain (primary)"
+    2: "Technique application → Technique domain (secondary)"
+    3: "Example: IHC antibody → Antibodies + Immunochemicals"
+
+# SPECIFIC RECOMMENDATIONS:
+
+implementation_priorities:
+  high_priority_dual_classifications:
+    - "NeuN antibodies: Antibodies + Cell_Biology"
+    - "qPCR machines: Lab_Equipment + Molecular_Diagnostics"
+    - "BSA: Blood + Protein"
+    - "Cell viability assays: Assay_Kits + Cell_Biology"
+    - "Gel documentation: Bioimaging_Microscopy + Nucleic_Acid_Electrophoresis"
+  
+  prompt_enhancements_needed:
+    - "Add dual classification examples for equipment serving multiple domains"
+    - "Clarify that reagent source vs application can justify dual classification"
+    - "Emphasize that technique overlaps are opportunities, not conflicts"
+

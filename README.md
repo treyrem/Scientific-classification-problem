@@ -1,6 +1,10 @@
+This project aims to solve the complex task of lab product classification for unstructured list of 50k lab products using the Chatgpt 4-o-mini as an LLM classifier for multiclass classification problem in the absence of any datasets or labelled data to train an actual model.
+Additionally, due to the formatting of lab product names in the original dataset, it required specialised domain knowledge to understand what the product is (some names were catalogue numbers)
+
+
 Lab Product Categorization: A Tale of Trials, Errors, and Occasional Triumphs
 
-Welcome to the cringy chronicles of my attempts to categorize 10,000 (that was the first batch, the latest code categorized over 50k products ) hyper-specific in places not specific enough lab product names into "right categories" (or somewhat reasonable). Spoiler alert: it wasn’t pretty—but hey, at least it was educational.
+Welcome to the cringy chronicles of my attempts to categorize 10,000 hyper-specific in places not specific enough lab product names into "right categories" (or somewhat reasonable). Spoiler alert: it wasn’t pretty—but hey, at least it was educational.
 
 🏁 Chapter 1: The Naïve Debut (main.py)
 

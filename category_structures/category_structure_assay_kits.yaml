@@ -1,6 +1,16 @@
 categories:
   Assay Kits:
     subcategories:
+      Biochemical Assays:
+      description: "Metabolite and biochemical compound detection assays"
+      subsubcategories:
+        - Metabolite Assay Kits:
+            subsubsubcategories:
+              - Glycogen Assay Kits          
+              - Glucose Assay Kits
+              - Lactate Assay Kits
+              - Cholesterol Assay Kits
+              
       ELISA Kits:
         subsubcategories:
           - ELISA Substrates
@@ -85,6 +95,13 @@ categories:
           - Hormone Multiplex Assays
           - Growth Factor Multiplex Assays
           - Multiplex ELISA Kits
+      Protein Assays:
+        subsubcategories:
+          - BCA Protein Assay Kits
+          - Bradford Protein Assay Kits  
+          - Lowry Protein Assay Kits
+          - Biuret Protein Assay Kits
+          - Protein Quantification Assays
       Reporter Assay Kits:
         subsubcategories: []
       Immunoprecipitation Kits and Reagents:

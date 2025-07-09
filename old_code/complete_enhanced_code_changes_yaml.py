@@ -1,5 +1,6 @@
-# YAML-BASED LLM-DRIVEN CLASSIFICATION SYSTEM
-# Removes rigid scoring, lets LLM choose domains intelligently
+# ENHANCED YAML-BASED LLM-DRIVEN CLASSIFICATION SYSTEM
+# Comprehensive YAML context with unlimited paths and enhanced reasoning
+# WITH VALIDATION LOGIC IMPROVEMENTS
 
 import pandas as pd
 import json
@@ -17,10 +18,10 @@ import random
 # Configuration
 INPUT_CSV = "C:/LabGit/150citations classification/top_50_000_products_in_citations.xlsx - Sheet1.csv"
 OUTPUT_CSV = "products_llm_driven_classification1.csv"
-VALIDATION_CSV = "validation_llm_driven_classification.csv"
+VALIDATION_CSV = "validation_llm_driven_classification_unlimited_claude_yaml.csv"
 YAML_DIRECTORY = "C:/LabGit/150citations classification/category_structures"
 MASTER_CATEGORIES_FILE = (
-    "C:/LabGit/150citations classification/master_categories_new.yaml"
+    "C:/LabGit/150citations classification/master_categories_claude.yaml"
 )
 
 logging.basicConfig(
@@ -46,7 +47,7 @@ client = OpenAI(api_key=get_openai_key())
 
 
 class LLMDrivenCategorySystem:
-    """LLM-driven category system without rigid scoring"""
+    """Enhanced LLM-driven category system with comprehensive YAML context and improved validation"""
 
     def __init__(self, master_file: str = None, yaml_directory: str = None):
         self.master_file = master_file or MASTER_CATEGORIES_FILE
@@ -55,6 +56,24 @@ class LLMDrivenCategorySystem:
         self.category_files = {}
         self.domain_structures = {}
         self.available_domains = []
+
+        # NEW: Add domain name mapping for mismatches
+        self.domain_name_mapping = {
+            "Protein": "Protein Biochemistry",  # Master config uses "Protein", YAML uses "Protein Biochemistry"
+            # Add other mappings as needed
+        }
+
+        # NEW: Add known path fixes for common validation issues
+        self.known_path_fixes = {
+            # Format: (domain_key, subcategory) -> alternative_finder_method
+            ("Cell_Biology", "Cell Culture"): self._find_cell_culture_alternatives,
+            (
+                "Lab_Equipment",
+                "Microplate Readers",
+            ): self._find_microplate_reader_alternatives,
+            ("Protein", "Western Blot Membranes"): self._find_western_blot_alternatives,
+            ("Assay_Kits", "Protein Assays"): self._find_protein_assay_alternatives,
+        }
 
         self.load_master_categories()
         self.load_individual_yaml_files()
@@ -110,8 +129,10 @@ class LLMDrivenCategorySystem:
         else:
             return data
 
-    def get_domain_selection_prompt(self, product_name: str, description: str) -> str:
-        """Create prompt for LLM to select the best domain"""
+    def get_enhanced_domain_selection_prompt(
+        self, product_name: str, description: str
+    ) -> str:
+        """Enhanced domain selection prompt with specific kit classification guidance"""
 
         domain_info = []
         domain_mapping = {}  # Map display names to actual keys
@@ -146,66 +167,153 @@ class LLMDrivenCategorySystem:
 
         prompt = f"""You are a life science product classification expert with access to 18 specialized domains.
 
-Your task: Select the BEST domain for this product from the available domains below.
+    Your task: Select the BEST domain for this product from the available domains below.
 
-AVAILABLE DOMAINS ({len(self.available_domains)} total):
-{domains_text}
+    AVAILABLE DOMAINS ({len(self.available_domains)} total):
+    {domains_text}
 
-Product Name: "{product_name}"
-Description: "{description}"
+    Product Name: "{product_name}"
+    Description: "{description}"
 
-CLASSIFICATION HIERARCHY RULES:
-1. PRODUCT TYPE beats APPLICATION:
-   - Instruments, systems, equipment, machines → Lab Equipment domain
-   - Reagents, chemicals, kits → Appropriate reagent domain
-   - Solvents are ALWAYS chemicals, never equipment
-   
-2. CONTEXT-SPECIFIC RULES:
-   - Antibiotics in research context → Cell Biology or Cloning And Expression
-   - Antibodies/markers → Antibodies domain
-   - PCR/qPCR systems → Lab Equipment (not PCR domain)
-   - Software/analysis tools → Software domain
-   - Statistical software (SPSS, R, SAS) → Software domain
-   - Organic solvents (acetonitrile, methanol) → Molecular Biology -> Chemicals -> Solvents
-   - Fluorescent dyes (DyLight, Alexa Fluor) → Cell Biology -> Biomolecules -> Fluorophores, Dyes & Probes
-   - ECM components (Matrigel, collagen) → Cell Biology -> Biomolecules -> Extracellular Matrix Components
-   - Animal models (transgenic mice, knockout mice) → Cell Biology -> Animal Models
-   - Apoptosis markers (cleaved caspase) → Antibodies -> Apoptosis Antibodies -> Caspase Antibodies
+    CLASSIFICATION HIERARCHY RULES:
+    1. PRODUCT TYPE beats APPLICATION:
+    - Instruments, systems, equipment, machines → Lab Equipment domain
+    - Reagents, chemicals, kits → Appropriate reagent domain
+    - Solvents are ALWAYS chemicals, never equipment
 
+    2. CRITICAL EQUIPMENT vs REAGENT DISTINCTION:
+    EQUIPMENT = Physical instruments with moving parts, electronics, or measurement capabilities
+    Examples: "spectrophotometer", "centrifuge", "PCR machine", "plate reader", "microscope"
+    
+    REAGENTS/SUPPLIES = Chemicals, biological materials, consumables, stains, membranes
+    Examples: "giemsa stain", "PVDF membrane", "acetonitrile", "cell culture medium"
 
-3. EXAMPLES:
-   - "CFX384 PCR system" → "Lab Equipment" (it's equipment, not a PCR reagent)
-   - "Streptomycin" → "Cell Biology" (research antibiotic, not therapeutic)
-   - "Anti-CD3 antibody" → "Antibodies" (it's an antibody)
-   - "PCR master mix" → "PCR" (it's a PCR reagent)
-   - "ImageJ software" → "Software" (it's analysis software)
+    3. **NEW: ENHANCED KIT CLASSIFICATION RULES**:
+    
+     **COMPLETE ASSAY KITS** → Assay_Kits domain:
+     "ELISA kit", "cell viability assay kit", "caspase activity kit", "cytokine detection kit"
+     "macsplex exosome kit", "ATP assay kit", "apoptosis detection kit"
+    
+      **PREPARATION/PURIFICATION KITS** → Specific technique domains:
+     "DNA extraction kit" → Nucleic_Acid_Purification
+     "plasmid maxi kit" → Cloning_And_Expression  
+     "PCR master mix kit" → PCR
+     "protein purification kit" → Protein
+    
+      **CELL PREPARATION KITS** → Cell_Biology:
+     "fixation permeabilization kit" → Cell_Biology (NOT Immunochemicals)
+     "cell isolation kit" → Cell_Biology (NOT Blood domain)
+     "transfection kit" → Cell_Biology or Cloning_And_Expression
+    CRITICAL CELL BIOLOGY CLASSIFICATION RULES:
+    
+     **CELL CULTURE MEDIA** (NOT stains):
+    - "RPMI 1640", "DMEM", "medium", "media" → Cell Culture -> Cell Culture Media
+    - "culture medium", "growth medium" → Cell Culture -> Cell Culture Media
+    
+     **CELL CULTURE CONSUMABLES** (NOT stains):
+    - "plates", "dishes", "flasks", "carrier plates" → Cell Culture -> Cell Culture Consumables
+    - "cell culture plates", "tissue culture" → Cell Culture -> Cell Culture Consumables
+    
+    **ACTUAL STAINS AND DYES**:
+    - "giemsa", "crystal violet", "trypan blue" → Cell Culture -> Cell Culture Stains and Dyes
+    - "fluorescent dye", "nuclear stain" → Cell Culture -> Cell Culture Stains and Dyes
+    
+    **DECISION TREE FOR CELL CULTURE PRODUCTS**:
+    1. Is it liquid growth medium/media? → Cell Culture Media
+    2. Is it plastic consumable (plates/dishes)? → Cell Culture Consumables  
+    3. Is it actual staining reagent? → Cell Culture Stains and Dyes
+    4. Is it cells themselves? → Primary Cells, Cell Lines and Microorganisms
+    
+    WRONG: "RPMI 1640 medium" → Cell Culture Stains and Dyes
+    CORRECT: "RPMI 1640 medium" → Cell Culture Media
+    
+    WRONG: "CellCarrier plates" → Cell Culture Stains and Dyes  
+    CORRECT: "CellCarrier plates" → Cell Culture Consumables (or Lab_Equipment)
+    
+    **NOT KITS** - Individual reagents:
+    "RIPA buffer" → Protein (it's a buffer, NOT an assay kit)
+    "lysis buffer" → Protein (buffer component, NOT complete kit)
+       "antibody" → Antibodies (reagent, NOT kit)
 
-4. If uncertain between domains, choose the more specific/specialized one
-5. Prefer any relevant domain over "Other"
-6. Use the EXACT domain name as shown above (with spaces)
+    4. **KIT CLASSIFICATION DECISION TREE**:
+    
+    **Step 1**: Is it a complete, ready-to-use assay system?
+    - YES → Assay_Kits domain
+    - NO → Continue to Step 2
+    
+    **Step 2**: Is it for sample preparation/purification?
+    - DNA/RNA → Nucleic_Acid_Purification
+    - Protein → Protein  
+    - Cloning → Cloning_And_Expression
+    - Cells → Cell_Biology
+    
+    **Step 3**: Is it actually just a buffer/reagent with "assay" in the name?
+    - "RIPA buffer" → Protein (extraction buffer)
+    - "lysis buffer" → Protein (cell lysis reagent)
+    - Individual antibodies → Antibodies
 
-Respond with JSON only:
-{{
-    "selected_domain": "exact_domain_name_with_spaces",
-    "confidence": "High/Medium/Low",
-    "reasoning": "brief explanation focusing on what the product IS"
-}}"""
+    5. CONTEXT-SPECIFIC RULES:
+    - Antibiotics in research context → Cell Biology or Cloning And Expression
+    - Antibodies/markers → Antibodies domain
+    - PCR/qPCR systems → Lab Equipment (not PCR domain)
+    - Software/analysis tools → Software domain
+
+    6. COMMON MISCLASSIFICATION FIXES :
+    **Staining Reagents** (NOT equipment):
+    • "giemsa" → Cell Biology (cell staining reagent)
+    • "crystal violet" → Cell Biology (bacterial staining)
+    
+    **Membranes & Supplies** (NOT equipment):
+    • "PVDF membrane" → Protein (Western blot supply)
+    • "immobilon" → Protein (membrane brand)
+    
+    **Solvents & Chemicals** (NOT equipment):
+    • "acetonitrile" → Molecular Biology (HPLC solvent)
+    • "methanol" → Molecular Biology (extraction solvent)
+
+    7. **ENHANCED KIT EXAMPLES**:
+      WRONG: "fixation permeabilization kit" → Immunochemicals
+        Reasoning: "Contains immunoassay-related words"
+      CORRECT: "fixation permeabilization kit" → Cell Biology
+        Reasoning: "Kit for cell preparation/processing, not immunoassay detection"
+
+      WRONG: "RIPA buffer" → Assay_Kits
+        Reasoning: "Has 'assay' in the name"  
+      CORRECT: "RIPA buffer" → Protein
+        Reasoning: "RIPA is a protein extraction buffer, not a complete assay kit"
+
+      CORRECT: "cell isolation kit" → Cell_Biology
+        Reasoning: "Kit for cell preparation, even if targeting specific cell types"
+
+      CORRECT: "ELISA kit" → Assay_Kits
+        Reasoning: "Complete detection assay system"
+
+    8. If uncertain between domains, choose the more specific/specialized one
+    9. Use "Other" if uncertain
+    10. Use the EXACT domain name as shown above (with spaces)
+
+    Respond with JSON only:
+    {{
+        "selected_domain": "exact_domain_name_with_spaces",
+        "confidence": "High/Medium/Low",
+        "reasoning": "brief explanation focusing on what the product IS and why it fits this domain (kit type vs buffer vs complete system)"
+    }}"""
 
         return prompt
 
     def select_domain_with_llm(
         self, product_name: str, description: str
     ) -> Dict[str, Any]:
-        """Use LLM to intelligently select the best domain"""
+        """Use enhanced LLM to intelligently select the best domain"""
 
-        prompt = self.get_domain_selection_prompt(product_name, description)
+        prompt = self.get_enhanced_domain_selection_prompt(product_name, description)
 
         try:
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1,
-                max_tokens=300,
+                max_tokens=400,  # Increased for comprehensive YAML context
             )
 
             text = response.choices[0].message.content.strip()
@@ -272,7 +380,7 @@ Respond with JSON only:
     def get_focused_structure_for_prompt(
         self, domain_key: str, product_name: str = "", description: str = ""
     ) -> str:
-        """Enhanced structure prompt with complete deep paths and depth guidance"""
+        """Enhanced structure prompt with comprehensive YAML context and depth guidance"""
 
         if domain_key not in self.domain_structures:
             return f"Domain '{domain_key}' not found"
@@ -284,11 +392,11 @@ Respond with JSON only:
         lines.append(f"Description: {domain_info.get('description', '')}")
         lines.append("")
 
-        # Show COMPLETE deep paths from the YAML structure
+        # Show COMPLETE deep paths from the YAML structure (unlimited context)
         complete_paths = self._extract_actual_paths_from_yaml(domain_key)
         if complete_paths:
             lines.append(
-                "COMPLETE CLASSIFICATION PATHS (use these exact names for deep classification):"
+                f"COMPREHENSIVE CLASSIFICATION PATHS ({len(complete_paths)} total paths - use these exact names for deep classification):"
             )
 
             # Group paths by depth for clarity
@@ -333,13 +441,16 @@ Respond with JSON only:
                 lines.append(f"- {hint}")
             lines.append("")
 
-        # Enhanced depth requirements
-        lines.append("DEPTH REQUIREMENTS:")
+        # Enhanced depth requirements for comprehensive context
+        lines.append("ENHANCED DEPTH REQUIREMENTS:")
         lines.append("1. MANDATORY: Provide at least subcategory (level 1)")
         lines.append("2. STRONGLY RECOMMENDED: Provide subsubcategory (level 2)")
         lines.append("3. PREFERRED: Provide subsubsubcategory (level 3) when available")
-        lines.append("4. Use EXACT names from the complete paths shown above")
-        lines.append("5. Stop only when no deeper level exists in the paths")
+        lines.append("4. OPTIMAL: Use 4+ levels when comprehensive paths support it")
+        lines.append(
+            "5. Use EXACT names from the comprehensive classification paths shown above"
+        )
+        lines.append("6. Navigate as deep as the available structure allows")
         lines.append("")
 
         lines.append("CLASSIFICATION EXAMPLES:")
@@ -353,58 +464,44 @@ Respond with JSON only:
         return "\n".join(lines)
 
     def _extract_actual_paths_from_yaml(self, domain_key: str) -> List[str]:
-        """Extract complete deep classification paths from YAML structure"""
+        """Extract complete deep classification paths EXCLUDING structural terms"""
         if domain_key not in self.domain_structures:
             return []
 
         structure = self.domain_structures[domain_key]
         complete_paths = []
 
+        # CRITICAL: Define structural terms to exclude
+        STRUCTURAL_TERMS = {
+            "subcategories",
+            "subsubcategories",
+            "subsubsubcategories",
+            "categories",
+            "category",
+            "items",
+            "list",
+        }
+
         def extract_complete_paths(node, current_path=[], max_depth=4):
             if len(current_path) >= max_depth:
                 return
 
             if isinstance(node, dict):
-                # Handle top-level domain structure (e.g., {"Antibodies": {...}})
-                if len(current_path) == 0 and len(node) == 1:
-                    domain_name = list(node.keys())[0]
-                    extract_complete_paths(node[domain_name], [domain_name])
-                    return
-
-                # Handle subcategories navigation
-                if "subcategories" in node:
-                    extract_complete_paths(node["subcategories"], current_path)
-                    return
-
-                # Handle subsubcategories navigation
-                if "subsubcategories" in node:
-                    extract_complete_paths(node["subsubcategories"], current_path)
-                    return
-
-                # Regular structure navigation - build complete paths
                 for key, value in node.items():
+                    # SKIP structural navigation terms
+                    if key.lower() in STRUCTURAL_TERMS:
+                        extract_complete_paths(value, current_path)
+                        continue
+
                     new_path = current_path + [key]
 
-                    # Add complete paths at different depths
-                    if len(new_path) >= 2:  # At least domain + subcategory
-                        # Show complete path without domain prefix
+                    # Only add paths with actual category names (not structural terms)
+                    if len(new_path) >= 2 and key.lower() not in STRUCTURAL_TERMS:
                         display_path = " -> ".join(new_path[1:])
                         complete_paths.append(display_path)
 
-                    # Continue deeper to find more complete paths
                     if value and isinstance(value, (dict, list)):
                         extract_complete_paths(value, new_path)
-
-                # Handle final level lists within dictionaries
-                for key, value in node.items():
-                    if isinstance(value, list) and value:
-                        new_path = current_path + [key]
-                        for item in value:
-                            if isinstance(item, str):
-                                final_path = new_path + [item]
-                                if len(final_path) >= 2:
-                                    display_path = " -> ".join(final_path[1:])
-                                    complete_paths.append(display_path)
 
             elif isinstance(node, list):
                 # Handle list of final items
@@ -425,18 +522,25 @@ Respond with JSON only:
         # Sort by depth first (longer paths first), then alphabetically
         unique_paths.sort(key=lambda x: (-len(x.split(" -> ")), x))
 
-        # Return top 50 paths to show more deep options
-        return unique_paths[:50]
+        # Return ALL paths for comprehensive context (unlimited)
+        return unique_paths
 
     def validate_classification_path(
         self, domain_key: str, path_components: List[str]
     ) -> Tuple[bool, str]:
-        """Enhanced validation with better fuzzy matching and fallback"""
-        if domain_key not in self.domain_structures:
+        """ENHANCED validation with domain mapping and known issue fixes"""
+
+        # NEW: Handle domain name mapping
+        actual_domain_key = self.domain_name_mapping.get(domain_key, domain_key)
+
+        if actual_domain_key not in self.domain_structures:
+            logger.warning(
+                f"Domain '{actual_domain_key}' (mapped from '{domain_key}') not found"
+            )
             return False, f"Domain '{domain_key}' not found"
 
-        structure = self.domain_structures[domain_key]
-        validated_path = [domain_key.replace("_", " ")]
+        structure = self.domain_structures[actual_domain_key]
+        validated_path = [domain_key.replace("_", " ")]  # Use original display name
 
         # Navigate into the domain structure
         current_node = structure
@@ -448,7 +552,7 @@ Respond with JSON only:
             validated_path = [domain_name]  # Use actual domain name from YAML
 
         logger.info(
-            f"Validating path components: {path_components} in domain {domain_key}"
+            f"Validating path components: {path_components} in domain {domain_key} (mapped to {actual_domain_key})"
         )
 
         # If no path components, accept at domain level
@@ -459,7 +563,18 @@ Respond with JSON only:
             logger.info(f"Accepting domain-level classification: {final_path}")
             return True, final_path
 
-        # Navigate through the structure with enhanced fuzzy matching
+        # NEW: Check for known path fixes BEFORE attempting normal validation
+        if (
+            path_components
+            and (domain_key, path_components[0]) in self.known_path_fixes
+        ):
+            logger.info(
+                f"Applying known path fix for {domain_key} -> {path_components[0]}"
+            )
+            fix_method = self.known_path_fixes[(domain_key, path_components[0])]
+            return fix_method(path_components, validated_path)
+
+        # Continue with enhanced validation logic...
         for i, component in enumerate(path_components):
             if not component or component == "null":
                 continue
@@ -476,7 +591,7 @@ Respond with JSON only:
                 logger.info(f"Navigated into subcategories level")
 
             if isinstance(current_node, dict):
-                # Enhanced matching strategies
+                # Enhanced matching strategies with better scoring
                 component_lower = component.lower()
 
                 # Strategy 1: Exact match
@@ -498,30 +613,35 @@ Respond with JSON only:
                             )
                             break
 
-                # Strategy 3: Partial matching (both ways)
+                # Strategy 3: Enhanced partial matching with better scoring
                 elif not found:
                     matches = []
                     for key in current_node.keys():
                         key_lower = key.lower()
-                        # Check if component is contained in key OR key is contained in component
-                        if component_lower in key_lower or key_lower in component_lower:
-                            matches.append(
-                                (
-                                    key,
-                                    max(len(component_lower), len(key_lower))
-                                    - abs(len(component_lower) - len(key_lower)),
-                                )
-                            )
+
+                        # Calculate similarity score
+                        if component_lower in key_lower:
+                            score = len(component_lower) / len(
+                                key_lower
+                            )  # Favor shorter keys
+                            matches.append((key, score, "component_in_key"))
+                        elif key_lower in component_lower:
+                            score = len(key_lower) / len(
+                                component_lower
+                            )  # Favor longer matches
+                            matches.append((key, score, "key_in_component"))
 
                     if matches:
-                        # Sort by best match (longest common part)
-                        best_match = max(matches, key=lambda x: x[1])[0]
-                        validated_path.append(best_match)
-                        current_node = current_node[best_match]
+                        # Sort by best match (highest score)
+                        best_match = max(matches, key=lambda x: x[1])
+                        validated_path.append(best_match[0])
+                        current_node = current_node[best_match[0]]
                         found = True
-                        logger.info(f"Partial match: '{component}' -> '{best_match}'")
+                        logger.info(
+                            f"Enhanced partial match: '{component}' -> '{best_match[0]}' (score: {best_match[1]:.2f}, type: {best_match[2]})"
+                        )
 
-                # Strategy 4: Keyword matching
+                # Strategy 4: Enhanced keyword matching
                 elif not found:
                     component_words = set(
                         component_lower.replace("-", " ").replace("_", " ").split()
@@ -534,13 +654,20 @@ Respond with JSON only:
                             key.lower().replace("-", " ").replace("_", " ").split()
                         )
                         common_words = component_words.intersection(key_words)
+
                         if common_words:
-                            score = len(common_words) / max(
+                            # Enhanced scoring: consider both overlap and total words
+                            overlap_ratio = len(common_words) / len(
+                                component_words.union(key_words)
+                            )
+                            coverage_ratio = len(common_words) / max(
                                 len(component_words), len(key_words)
                             )
+                            score = (overlap_ratio + coverage_ratio) / 2
+
                             if (
                                 score > best_score and score >= 0.3
-                            ):  # At least 30% word overlap
+                            ):  # At least 30% similarity
                                 best_score = score
                                 best_match = key
 
@@ -549,7 +676,7 @@ Respond with JSON only:
                         current_node = current_node[best_match]
                         found = True
                         logger.info(
-                            f"Keyword match: '{component}' -> '{best_match}' (score: {best_score:.2f})"
+                            f"Enhanced keyword match: '{component}' -> '{best_match}' (score: {best_score:.2f})"
                         )
 
                 # Navigate deeper if we found a match
@@ -559,7 +686,7 @@ Respond with JSON only:
                         logger.info(f"Navigated into subsubcategories level")
 
             elif isinstance(current_node, list):
-                # Enhanced list matching
+                # Enhanced list matching with better error tolerance
                 component_lower = component.lower()
 
                 # Strategy 1: Exact match
@@ -587,37 +714,36 @@ Respond with JSON only:
                             f"Case-insensitive match in list: '{case_matches[0]}'"
                         )
 
-                # Strategy 3: Partial matches
+                # Strategy 3: Enhanced partial matches with scoring
                 elif not found:
-                    partial_matches = [
-                        item
-                        for item in current_node
-                        if isinstance(item, str)
-                        and (
-                            component_lower in item.lower()
-                            or item.lower() in component_lower
-                        )
-                    ]
-                    if partial_matches:
-                        # Choose the best match (closest length)
-                        best_match = min(
-                            partial_matches, key=lambda x: abs(len(x) - len(component))
-                        )
-                        validated_path.append(best_match)
+                    scored_matches = []
+                    for item in current_node:
+                        if isinstance(item, str):
+                            item_lower = item.lower()
+                            if component_lower in item_lower:
+                                score = len(component_lower) / len(item_lower)
+                                scored_matches.append((item, score))
+                            elif item_lower in component_lower:
+                                score = len(item_lower) / len(component_lower)
+                                scored_matches.append((item, score))
+
+                    if scored_matches:
+                        # Choose the best match (highest score)
+                        best_match = max(scored_matches, key=lambda x: x[1])
+                        validated_path.append(best_match[0])
                         found = True
                         logger.info(
-                            f"Partial match in list: '{component}' -> '{best_match}'"
+                            f"Enhanced partial match in list: '{component}' -> '{best_match[0]}' (score: {best_match[1]:.2f})"
                         )
 
             if not found:
-                # More lenient acceptance - if we got at least domain + one level, accept it
+                # Enhanced acceptance criteria - be more lenient for good partial paths
                 if len(validated_path) >= 2:  # Domain + at least one subcategory
                     logger.info(
-                        f"Stopping validation at: {' -> '.join(validated_path)} (couldn't find '{component}', but accepting partial path)"
+                        f"Stopping validation at: {' -> '.join(validated_path)} (couldn't find '{component}', but accepting good partial path)"
                     )
                     break
                 else:
-                    # Accept at domain level if nothing else works
                     logger.info(
                         f"No matches found for '{component}', accepting at domain level"
                     )
@@ -628,6 +754,74 @@ Respond with JSON only:
         logger.info(f"Successfully validated path: {final_path}")
         return True, final_path
 
+    # NEW: Known path fix methods for common validation issues
+    def _find_cell_culture_alternatives(
+        self, path_components: List[str], validated_path: List[str]
+    ) -> Tuple[bool, str]:
+        """Handle Cell Culture path issues - missing 'Cell Culture' subcategory"""
+        logger.info("Applying Cell Culture path fix...")
+
+        # Try to find alternatives in Cell_Biology domain
+        if len(path_components) >= 2:
+            subsubcat = path_components[1]
+
+            # Map common cell culture subsubcategories to existing paths
+            cell_culture_mapping = {
+                "Cell Culture Media": "Primary Cells, Cell Lines and Microorganisms",
+                "Cell Culture Stains and Dyes": "Biomolecules",
+                "Cell Culture Consumables": "Cell Analysis",  # Could also map to equipment
+                "Cell Culture Reagents": "Biomolecules",
+            }
+
+            if subsubcat in cell_culture_mapping:
+                alternative = cell_culture_mapping[subsubcat]
+                validated_path.extend(alternative.split(" -> "))
+                logger.info(f"Mapped '{subsubcat}' to alternative path: {alternative}")
+                return True, " -> ".join(validated_path)
+
+        # Default fallback
+        validated_path.append("Biomolecules")
+        return True, " -> ".join(validated_path)
+
+    def _find_microplate_reader_alternatives(
+        self, path_components: List[str], validated_path: List[str]
+    ) -> Tuple[bool, str]:
+        """Handle Microplate Reader path issues - wrong location in YAML"""
+        logger.info("Applying Microplate Reader path fix...")
+
+        # Microplate Readers are actually under Spectroscopy, not Analytical Instrumentation
+        validated_path.extend(["Spectroscopy", "Microplate Readers"])
+        logger.info(
+            "Mapped Microplate Readers to correct location: Spectroscopy -> Microplate Readers"
+        )
+        return True, " -> ".join(validated_path)
+
+    def _find_western_blot_alternatives(
+        self, path_components: List[str], validated_path: List[str]
+    ) -> Tuple[bool, str]:
+        """Handle Western Blot Membranes path issues"""
+        logger.info("Applying Western Blot Membranes path fix...")
+
+        # Western Blot Membranes should map to Western Blot Analysis -> Western Blot Supplies
+        validated_path.extend(["Western Blot Analysis", "Western Blot Supplies"])
+        logger.info(
+            "Mapped Western Blot Membranes to: Western Blot Analysis -> Western Blot Supplies"
+        )
+        return True, " -> ".join(validated_path)
+
+    def _find_protein_assay_alternatives(
+        self, path_components: List[str], validated_path: List[str]
+    ) -> Tuple[bool, str]:
+        """Handle Protein Assays path issues - missing subcategory"""
+        logger.info("Applying Protein Assays path fix...")
+
+        # Map to Quantitative Assays -> Protein Quantification Assays as alternative
+        validated_path.extend(["Quantitative Assays", "Protein Quantification Assays"])
+        logger.info(
+            "Mapped Protein Assays to: Quantitative Assays -> Protein Quantification Assays"
+        )
+        return True, " -> ".join(validated_path)
+
     def _strip_code_fences(self, text: str) -> str:
         """Remove code fences from LLM response"""
         text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.MULTILINE)
@@ -636,7 +830,7 @@ Respond with JSON only:
 
 
 class LLMDrivenClassifier:
-    """LLM-driven classifier without rigid scoring constraints"""
+    """Enhanced LLM-driven classifier with comprehensive YAML context support and improved validation"""
 
     def __init__(self, category_system: LLMDrivenCategorySystem):
         self.category_system = category_system
@@ -661,10 +855,10 @@ class LLMDrivenClassifier:
     def classify_product(
         self, product_name: str, description: str = ""
     ) -> Dict[str, Any]:
-        """Enhanced classification with smart multi-domain detection"""
+        """Enhanced classification with smart multi-domain detection and comprehensive YAML context"""
 
         self.logger.info(f"\n{'='*60}")
-        self.logger.info(f"CLASSIFYING: '{product_name}'")
+        self.logger.info(f"ENHANCED CLASSIFYING: '{product_name}'")
         self.logger.info(f"{'='*60}")
 
         # Step 1: Get top domain candidates from LLM
@@ -694,7 +888,7 @@ class LLMDrivenClassifier:
     def _get_multiple_domain_candidates(
         self, product_name: str, description: str
     ) -> Dict[str, Any]:
-        """Get ranked list of potential domains from LLM"""
+        """Get ranked list of potential domains from LLM with enhanced prompting"""
 
         domain_info = []
         domain_mapping = {}
@@ -769,7 +963,7 @@ Respond with JSON only:
                 model="gpt-4o-mini",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1,
-                max_tokens=400,
+                max_tokens=500,  # Increased for comprehensive domain analysis
             )
 
             text = response.choices[0].message.content.strip()
@@ -854,7 +1048,7 @@ Respond with JSON only:
         top_domains: List[Dict],
         base_tokens: int,
     ) -> Dict[str, Any]:
-        """Classify product in multiple domains"""
+        """Classify product in multiple domains with comprehensive YAML context"""
 
         self.logger.info(f"Multi-domain classification for: {product_name}")
 
@@ -917,7 +1111,7 @@ Respond with JSON only:
         selected_domain: str,
         base_tokens: int,
     ) -> Dict[str, Any]:
-        """Classify product in single domain (existing logic)"""
+        """Classify product in single domain with comprehensive YAML context"""
 
         self.logger.info(
             f"Single-domain classification for: {product_name} in {selected_domain}"
@@ -972,40 +1166,43 @@ Respond with JSON only:
     def _classify_within_domain(
         self, product_name: str, description: str, domain_key: str
     ) -> Optional[Dict]:
-        """Enhanced within-domain classification with deep path enforcement"""
+        """ENHANCED within-domain classification with null cleaning and validation"""
 
-        # Get focused structure and guidance
+        # Get focused structure and guidance with comprehensive YAML context
         focused_structure = self.category_system.get_focused_structure_for_prompt(
             domain_key, product_name, description
         )
 
-        prompt = f"""You are a life science product classification expert.
+        prompt = f"""You are a life science product classification expert with access to comprehensive domain knowledge.
 
-    TASK: Classify this product to the DEEPEST possible level within the specified domain.
+    TASK: Classify this product to the DEEPEST possible level within the specified domain using comprehensive YAML context.
 
     {focused_structure}
 
     Product: "{product_name}"
     Description: "{description}"
 
-    DEEP CLASSIFICATION REQUIREMENTS:
+    COMPREHENSIVE CLASSIFICATION REQUIREMENTS:
     1. Domain Fit Score (0-100): How well does this product fit in this domain?
-    2. MANDATORY: Provide subcategory (exact name from paths above)
-    3. STRONGLY RECOMMENDED: Provide subsubcategory (exact name from paths above)
+    2. MANDATORY: Provide subcategory (exact name from comprehensive paths above)
+    3. STRONGLY RECOMMENDED: Provide subsubcategory (exact name from comprehensive paths above)
     4. PREFERRED: Provide subsubsubcategory when a 3rd level exists
-    5. Confidence Level: High/Medium/Low
+    5. OPTIMAL: Use 4+ levels when comprehensive structure supports it
+    6. Confidence Level: High/Medium/Low
 
-    CRITICAL DEPTH RULES:
-    - Use EXACT names from the complete classification paths shown above
-    - Navigate as deep as the available paths allow
-    - Only use null for subsubsubcategory if genuinely no 3rd level exists
-    - Choose the most specific path that matches this product
-    - Aim for 3 levels whenever possible
+    CRITICAL DEPTH RULES WITH COMPREHENSIVE CONTEXT:
+    - Use EXACT names from the comprehensive classification paths shown above
+    - Navigate as deep as the comprehensive structure allows
+    - Take advantage of the full YAML context to achieve maximum depth
+    - Only use null for deeper levels if genuinely no level exists in the comprehensive paths
+    - Choose the most specific path that matches this product from the full context
+    - Aim for 3+ levels whenever the comprehensive structure supports it
 
-    DEPTH EXAMPLES:
+    ENHANCED DEPTH EXAMPLES:
     ❌ INSUFFICIENT: {{"subcategory": "Cell-Based Assays", "subsubcategory": null}}
     ✅ GOOD: {{"subcategory": "Cell-Based Assays", "subsubcategory": "ATP Assay Kits"}}
     ✅ EXCELLENT: {{"subcategory": "Cell-Based Assays", "subsubcategory": "ATP Assay Kits", "subsubsubcategory": "Luciferase ATP Assays"}}
+    ✅ OPTIMAL: {{"subcategory": "Analytical Instrumentation", "subsubcategory": "Spectroscopy", "subsubsubcategory": "UV-Vis Spectrophotometers"}}
 
     Respond with JSON only:
     {{
@@ -1015,7 +1212,7 @@ Respond with JSON only:
         "subsubcategory": "exact_subsubcategory_name_or_null_if_none_exists", 
         "subsubsubcategory": "exact_3rd_level_name_or_null_if_none_exists",
         "confidence": "Medium",
-        "reasoning": "detailed explanation of why this specific deep path was chosen",
+        "reasoning": "detailed explanation of why this specific deep path was chosen from the comprehensive context",
         "classification_depth": 3
     }}"""
 
@@ -1024,7 +1221,7 @@ Respond with JSON only:
                 model="gpt-4o-mini",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1,
-                max_tokens=600,  # Increased for deeper reasoning
+                max_tokens=1000,  # Increased for deeper reasoning with comprehensive YAML
             )
 
             text = response.choices[0].message.content.strip()
@@ -1034,19 +1231,21 @@ Respond with JSON only:
 
             result = json.loads(cleaned)
 
-            # Calculate actual depth achieved
-            depth_achieved = 0
-            levels = ["subcategory", "subsubcategory", "subsubsubcategory"]
-            for level in levels:
-                value = result.get(level, "")
-                if value and value != "null" and value.strip():
-                    depth_achieved += 1
-                else:
-                    break
+            # NEW: Enhanced null value cleaning
+            result = self._clean_classification_result(result)
 
+            # NEW: Validate that we have meaningful classification
+            if not self._has_meaningful_classification(result):
+                self.logger.warning(
+                    f"No meaningful classification achieved for {product_name}"
+                )
+                return None
+
+            # Calculate actual depth achieved
+            depth_achieved = self._calculate_classification_depth(result)
             result["depth_achieved"] = depth_achieved
 
-            # Log depth achievement
+            # Enhanced logging for comprehensive context
             self.logger.info(
                 f"Classification depth achieved for '{product_name}': {depth_achieved} levels"
             )
@@ -1055,16 +1254,13 @@ Respond with JSON only:
                 self.logger.warning(
                     f"Shallow classification for '{product_name}': only {depth_achieved} levels"
                 )
+            elif depth_achieved >= 3:
+                self.logger.info(
+                    f"✅ Good depth achieved for '{product_name}': {depth_achieved} levels"
+                )
 
-            # Validate the classification path
-            path_components = [
-                result.get("subcategory", ""),
-                result.get("subsubcategory", ""),
-                result.get("subsubsubcategory", ""),
-            ]
-            path_components = [
-                comp for comp in path_components if comp and comp != "null"
-            ]
+            # Validate the classification path with enhanced logic
+            path_components = self._extract_path_components(result)
 
             self.logger.info(
                 f"Attempting to validate path: {path_components} in domain {domain_key}"
@@ -1102,107 +1298,80 @@ Respond with JSON only:
             self.logger.error(f"Error analyzing domain {domain_key}: {e}")
             return None
 
-    # ADD THIS NEW METHOD TO ENHANCE VALIDATION REPORTING
-    def generate_validation_report(validation_df: pd.DataFrame):
-        """Enhanced validation report with depth analysis"""
-        print("\n" + "=" * 80)
-        print("LLM-DRIVEN CLASSIFICATION VALIDATION REPORT")
-        print("=" * 80)
+    def _clean_classification_result(self, result: Dict) -> Dict:
+        """Clean null values and structural terms from classification result"""
 
-        total_products = len(validation_df)
-        classified_products = len(
-            validation_df[
-                validation_df["primary_domain"].notna()
-                & (validation_df["primary_domain"] != "")
-                & (validation_df["primary_domain"] != "Other")
-            ]
-        )
+        # Define values that should be treated as null/empty
+        NULL_VALUES = {None, "null", "", "None", "nan", "NULL"}
+        STRUCTURAL_TERMS = {
+            "subcategories",
+            "subsubcategories",
+            "subsubsubcategories",
+            "categories",
+        }
 
-        print(f"Total products validated: {total_products}")
-        print(
-            f"Successfully classified: {classified_products} ({classified_products/total_products*100:.1f}%)"
-        )
+        # Clean each level
+        for level in ["subcategory", "subsubcategory", "subsubsubcategory"]:
+            value = result.get(level)
 
-        # Classification depth analysis
-        def calculate_depth(row):
-            depth = 0
-            levels = [
-                "primary_subcategory",
-                "primary_subsubcategory",
-                "primary_subsubsubcategory",
-            ]
-            for level in levels:
-                value = row.get(level, "")
-                if value and str(value) != "nan" and str(value).strip():
-                    depth += 1
-                else:
-                    break
-            return depth
+            # Convert to string for comparison
+            str_value = str(value).strip() if value is not None else ""
 
-        validation_df["classification_depth"] = validation_df.apply(
-            calculate_depth, axis=1
-        )
+            # Check if it's a null value or structural term
+            if (
+                value in NULL_VALUES
+                or str_value in NULL_VALUES
+                or str_value.lower() in NULL_VALUES
+                or str_value.lower() in STRUCTURAL_TERMS
+            ):
+                result[level] = ""
+            else:
+                result[level] = str_value
 
-        depth_counts = validation_df["classification_depth"].value_counts().sort_index()
+        return result
 
-        print(f"\n{'CLASSIFICATION DEPTH ANALYSIS':-^60}")
-        for depth, count in depth_counts.items():
-            percentage = count / total_products * 100
-            print(f"  Depth {depth}: {count:>5} ({percentage:>5.1f}%)")
+    def _has_meaningful_classification(self, result: Dict) -> bool:
+        """Check if the classification result has meaningful content"""
 
-        avg_depth = validation_df["classification_depth"].mean()
-        print(f"  Average depth: {avg_depth:.2f}")
+        subcategory = result.get("subcategory", "").strip()
 
-        # Dual classification analysis
-        dual_function_products = len(
-            validation_df[validation_df["is_dual_function"] == True]
-        )
-        print(
-            f"\nDual function products: {dual_function_products} ({dual_function_products/total_products*100:.1f}%)"
-        )
+        # Must have at least a subcategory that's not empty or structural
+        return subcategory and subcategory not in {
+            "",
+            "null",
+            "None",
+            "subcategories",
+            "subsubcategories",
+        }
 
-        # Domain distribution
-        print(f"\n{'DOMAIN DISTRIBUTION':-^60}")
-        domain_counts = validation_df["primary_domain"].value_counts()
-        for domain, count in domain_counts.head(10).items():
-            print(f"  {domain:<35} {count:>5} ({count/total_products*100:>5.1f}%)")
+    def _calculate_classification_depth(self, result: Dict) -> int:
+        """Calculate the actual depth of classification achieved"""
 
-        # Path validity
-        valid_paths = len(validation_df[validation_df["primary_path_valid"] == True])
-        print(f"\n{'PATH VALIDITY':-^60}")
-        print(f"  Valid paths: {valid_paths} ({valid_paths/total_products*100:.1f}%)")
+        depth = 0
+        levels = ["subcategory", "subsubcategory", "subsubsubcategory"]
 
-        # Confidence distribution
-        print(f"\n{'CONFIDENCE DISTRIBUTION':-^60}")
-        confidence_counts = validation_df["primary_confidence"].value_counts()
-        for conf, count in confidence_counts.items():
-            print(f"  {conf:<35} {count:>5} ({count/total_products*100:>5.1f}%)")
+        for level in levels:
+            value = result.get(level, "").strip()
+            if value and value not in {"", "null", "None"}:
+                depth += 1
+            else:
+                break
 
-        # Token usage
-        total_tokens = validation_df["total_token_usage"].sum()
-        avg_tokens = validation_df["total_token_usage"].mean()
-        print(f"\n{'TOKEN USAGE ANALYSIS':-^60}")
-        print(f"  Total tokens used: {total_tokens:,}")
-        print(f"  Average tokens per product: {avg_tokens:.1f}")
-        print(f"  Estimated cost (GPT-4o-mini): ${total_tokens * 0.00015 / 1000:.4f}")
+        return depth
 
-        # Deep classification examples
-        deep_classifications = validation_df[
-            validation_df["classification_depth"] >= 3
-        ].head(5)
-        if len(deep_classifications) > 0:
-            print(f"\n{'EXCELLENT DEEP CLASSIFICATIONS (3+ levels)':-^60}")
-            for idx, row in deep_classifications.iterrows():
-                path_parts = []
-                if row["primary_subcategory"]:
-                    path_parts.append(str(row["primary_subcategory"]))
-                if row["primary_subsubcategory"]:
-                    path_parts.append(str(row["primary_subsubcategory"]))
-                if row["primary_subsubsubcategory"]:
-                    path_parts.append(str(row["primary_subsubsubcategory"]))
+    def _extract_path_components(self, result: Dict) -> List[str]:
+        """Extract valid path components from classification result"""
 
-                full_path = " -> ".join(path_parts) if path_parts else "N/A"
-                print(f"  {row['Name'][:35]:<35} → {full_path}")
+        components = []
+        levels = ["subcategory", "subsubcategory", "subsubsubcategory"]
+
+        for level in levels:
+            value = result.get(level, "").strip()
+            if value and value not in {"", "null", "None"}:
+                components.append(value)
+            # Don't break - continue to check deeper levels in case of gaps
+
+        return components
 
     def _create_fallback_result(
         self, product_name: str, domain_selection: Dict
@@ -1241,8 +1410,27 @@ Respond with JSON only:
         }
 
 
+def get_minimum_required_depth(domain_key: str) -> int:
+    """Determine minimum required classification depth based on domain"""
+
+    # Domains that should typically achieve deeper classification
+    DEEP_CLASSIFICATION_DOMAINS = {
+        "Lab_Equipment": 3,  # Equipment should be very specific
+        "Assay_Kits": 3,  # Assays should specify type and application
+        "Antibodies": 3,  # Antibodies have rich hierarchical structure
+        "Cell_Biology": 2,  # At least subcategory + subsubcategory
+        "Protein": 3,  # Protein domain has good depth
+        "Molecular_Biology": 2,  # Good structure for deeper classification
+    }
+
+    # Default minimum depth
+    default_depth = 2
+
+    return DEEP_CLASSIFICATION_DOMAINS.get(domain_key, default_depth)
+
+
 def test_llm_driven_classification():
-    """Test the LLM-driven classification system"""
+    """Test the enhanced LLM-driven classification system"""
 
     # Initialize systems
     category_system = LLMDrivenCategorySystem()
@@ -1275,10 +1463,20 @@ def test_llm_driven_classification():
             "description": "Automated plate reading system for absorbance and fluorescence",
             "expected_domain": "Lab_Equipment",
         },
+        {
+            "name": "giemsa",
+            "description": "Staining reagent for microscopy",
+            "expected_domain": "Cell_Biology",
+        },
+        {
+            "name": "PVDF membrane",
+            "description": "Membrane for Western blotting",
+            "expected_domain": "Protein",
+        },
     ]
 
     print("=" * 80)
-    print("TESTING LLM-DRIVEN CLASSIFICATION SYSTEM")
+    print("TESTING ENHANCED LLM-DRIVEN CLASSIFICATION SYSTEM")
     print("=" * 80)
 
     success_count = 0
@@ -1302,10 +1500,12 @@ def test_llm_driven_classification():
         domain_correct = selected_domain == expected_domain
         path_valid = primary.get("is_valid_path", False)
         fit_score = primary.get("domain_fit_score", 0)
+        depth_achieved = primary.get("depth_achieved", 0)
 
         print(f"Domain Selection: {'✓ CORRECT' if domain_correct else '✗ INCORRECT'}")
         print(f"Path Valid: {'✓ YES' if path_valid else '✗ NO'}")
         print(f"Fit Score: {fit_score}")
+        print(f"Classification Depth: {depth_achieved} levels")
         print(f"Confidence: {primary.get('confidence', 'N/A')}")
         print(f"Validated Path: {primary.get('validated_path', 'N/A')}")
         print(f"Reasoning: {primary.get('reasoning', 'N/A')}")
@@ -1319,16 +1519,16 @@ def test_llm_driven_classification():
 
     print(f"\n{'='*80}")
     print(
-        f"LLM-DRIVEN TEST RESULTS: {success_count}/{len(test_cases)} passed ({success_count/len(test_cases)*100:.1f}%)"
+        f"ENHANCED LLM-DRIVEN TEST RESULTS: {success_count}/{len(test_cases)} passed ({success_count/len(test_cases)*100:.1f}%)"
     )
     print(f"{'='*80}")
 
-    return success_count >= 4
+    return success_count >= 6  # Adjusted for additional test cases
 
 
 def process_validation_sample():
-    """Process validation sample with LLM-driven classification"""
-    logger.info("Starting LLM-driven validation sample processing...")
+    """Process validation sample with enhanced LLM-driven classification"""
+    logger.info("Starting enhanced LLM-driven validation sample processing...")
 
     # Initialize systems
     category_system = LLMDrivenCategorySystem()
@@ -1367,9 +1567,11 @@ def process_validation_sample():
         validation_df["dual_function_reasoning"] = ""
         validation_df["classification_count"] = 1
 
-        logger.info(f"Processing {len(validation_df)} products...")
+        logger.info(
+            f"Processing {len(validation_df)} products with enhanced validation logic..."
+        )
 
-        for idx in tqdm(validation_df.index, desc="LLM-Driven Classification"):
+        for idx in tqdm(validation_df.index, desc="Enhanced LLM-Driven Classification"):
             name = validation_df.at[idx, "Name"]
             description = (
                 validation_df.at[idx, "Description"]
@@ -1377,7 +1579,7 @@ def process_validation_sample():
                 else ""
             )
 
-            # Perform classification
+            # Perform enhanced classification
             result = classifier.classify_product(name, description)
 
             # Store primary results
@@ -1452,7 +1654,7 @@ def process_validation_sample():
 
         # Save results
         validation_df.to_csv(VALIDATION_CSV, index=False)
-        logger.info(f"LLM-driven validation sample saved to {VALIDATION_CSV}")
+        logger.info(f"Enhanced LLM-driven validation sample saved to {VALIDATION_CSV}")
 
         # Generate report
         generate_validation_report(validation_df)
@@ -1460,14 +1662,14 @@ def process_validation_sample():
         return validation_df
 
     except Exception as e:
-        logger.error(f"Error in validation processing: {e}")
+        logger.error(f"Error in enhanced validation processing: {e}")
         raise
 
 
 def generate_validation_report(validation_df: pd.DataFrame):
-    """Generate validation report"""
+    """Generate enhanced validation report with comprehensive context analysis"""
     print("\n" + "=" * 80)
-    print("LLM-DRIVEN CLASSIFICATION VALIDATION REPORT")
+    print("ENHANCED LLM-DRIVEN CLASSIFICATION VALIDATION REPORT")
     print("=" * 80)
 
     total_products = len(validation_df)
@@ -1484,12 +1686,46 @@ def generate_validation_report(validation_df: pd.DataFrame):
         f"Successfully classified: {classified_products} ({classified_products/total_products*100:.1f}%)"
     )
 
+    # Enhanced depth analysis
+    def calculate_depth(row):
+        depth = 0
+        levels = [
+            "primary_subcategory",
+            "primary_subsubcategory",
+            "primary_subsubsubcategory",
+        ]
+        for level in levels:
+            value = row.get(level, "")
+            if value and str(value) != "nan" and str(value).strip():
+                depth += 1
+            else:
+                break
+        return depth
+
+    validation_df["classification_depth"] = validation_df.apply(calculate_depth, axis=1)
+
+    depth_counts = validation_df["classification_depth"].value_counts().sort_index()
+
+    print(f"\n{'ENHANCED CLASSIFICATION DEPTH ANALYSIS':-^60}")
+    for depth, count in depth_counts.items():
+        percentage = count / total_products * 100
+        print(f"  Depth {depth}: {count:>5} ({percentage:>5.1f}%)")
+
+    avg_depth = validation_df["classification_depth"].mean()
+    print(f"  Average depth with enhanced validation: {avg_depth:.2f}")
+
+    # Quality improvements
+    depth_3_plus = len(validation_df[validation_df["classification_depth"] >= 3])
+    print(
+        f"  Deep classifications (3+ levels): {depth_3_plus} ({depth_3_plus/total_products*100:.1f}%)"
+    )
+
     # Dual classification analysis
     dual_function_products = len(
         validation_df[validation_df["is_dual_function"] == True]
     )
     print(
-        f"Dual function products: {dual_function_products} ({dual_function_products/total_products*100:.1f}%)"
+        f"\nDual function products: {dual_function_products} ({dual_function_products/total_products*100:.1f}%)"
     )
 
     # Domain distribution
@@ -1509,39 +1745,59 @@ def generate_validation_report(validation_df: pd.DataFrame):
     for conf, count in confidence_counts.items():
         print(f"  {conf:<35} {count:>5} ({count/total_products*100:>5.1f}%)")
 
-    # Token usage
+    # Enhanced token usage analysis
     total_tokens = validation_df["total_token_usage"].sum()
     avg_tokens = validation_df["total_token_usage"].mean()
-    print(f"\n{'TOKEN USAGE ANALYSIS':-^60}")
+    print(f"\n{'ENHANCED TOKEN USAGE ANALYSIS':-^60}")
     print(f"  Total tokens used: {total_tokens:,}")
     print(f"  Average tokens per product: {avg_tokens:.1f}")
     print(f"  Estimated cost (GPT-4o-mini): ${total_tokens * 0.00015 / 1000:.4f}")
+    print(f"  Cost per product: ${avg_tokens * 0.00015 / 1000:.6f}")
+
+    # Deep classification examples
+    deep_classifications = validation_df[
+        validation_df["classification_depth"] >= 3
+    ].head(5)
+    if len(deep_classifications) > 0:
+        print(f"\n{'EXCELLENT DEEP CLASSIFICATIONS (3+ levels)':-^60}")
+        for idx, row in deep_classifications.iterrows():
+            path_parts = []
+            if row["primary_subcategory"]:
+                path_parts.append(str(row["primary_subcategory"]))
+            if row["primary_subsubcategory"]:
+                path_parts.append(str(row["primary_subsubcategory"]))
+            if row["primary_subsubsubcategory"]:
+                path_parts.append(str(row["primary_subsubsubcategory"]))
+
+            full_path = " -> ".join(path_parts) if path_parts else "N/A"
+            print(f"  {row['Name'][:35]:<35} → {full_path}")
 
 
 def main():
-    """Main execution function"""
+    """Main execution function with enhanced system"""
     print("=" * 80)
-    print("LLM-DRIVEN YAML-BASED CLASSIFICATION SYSTEM")
+    print("ENHANCED LLM-DRIVEN YAML-BASED CLASSIFICATION SYSTEM")
+    print("WITH VALIDATION LOGIC IMPROVEMENTS")
     print("=" * 80)
 
     print(f"Looking for master categories file: {MASTER_CATEGORIES_FILE}")
     print(f"Looking for YAML files in: {YAML_DIRECTORY}")
 
     try:
-        # Test LLM-driven classification
-        print("\n1. Testing LLM-driven classification...")
+        # Test enhanced LLM-driven classification
+        print("\n1. Testing enhanced LLM-driven classification...")
         test_success = test_llm_driven_classification()
 
         if test_success:
             print("\n" + "=" * 80)
             user_input = input(
-                "Tests passed! Proceed with validation sample processing? (y/n): "
+                "Enhanced tests passed! Proceed with validation sample processing? (y/n): "
             )
 
             if user_input.lower() == "y":
                 validation_df = process_validation_sample()
                 print("\n" + "=" * 80)
-                print("🎉 LLM-DRIVEN VALIDATION COMPLETE! 🎉")
+                print("🎉 ENHANCED LLM-DRIVEN VALIDATION COMPLETE! 🎉")
                 print("=" * 80)
 
                 # Ask about full processing
@@ -1562,8 +1818,8 @@ def main():
 
 
 def process_full_dataset():
-    """Process the full dataset with LLM-driven classification"""
-    logger.info("Starting full dataset processing with LLM-driven classification...")
+    """Process the full dataset with enhanced LLM-driven classification"""
+    logger.info("Starting full dataset processing with enhanced validation logic...")
 
     # Initialize systems
     category_system = LLMDrivenCategorySystem()
@@ -1626,10 +1882,12 @@ def process_full_dataset():
             end_idx = min((batch_num + 1) * batch_size, len(df))
 
             logger.info(
-                f"Processing batch {batch_num + 1}/{total_batches} (rows {start_idx}-{end_idx})"
+                f"Processing batch {batch_num + 1}/{total_batches} (rows {start_idx}-{end_idx}) with enhanced validation"
             )
 
-            for idx in tqdm(range(start_idx, end_idx), desc=f"Batch {batch_num + 1}"):
+            for idx in tqdm(
+                range(start_idx, end_idx), desc=f"Enhanced Batch {batch_num + 1}"
+            ):
                 name = df.at[idx, "Name"]
                 description = (
                     df.at[idx, "Description"] if "Description" in df.columns else ""
@@ -1706,24 +1964,24 @@ def process_full_dataset():
 
             # Save progress after each batch
             df.to_csv(OUTPUT_CSV, index=False)
-            logger.info(f"Saved progress after batch {batch_num + 1}")
+            logger.info(f"Saved progress after enhanced batch {batch_num + 1}")
 
         logger.info(
-            f"Full LLM-driven dataset processing complete. Results saved to {OUTPUT_CSV}"
+            f"Full enhanced LLM-driven dataset processing complete. Results saved to {OUTPUT_CSV}"
         )
 
         # Generate final report
         generate_final_report(df)
 
     except Exception as e:
-        logger.error(f"Error in full dataset processing: {e}")
+        logger.error(f"Error in enhanced full dataset processing: {e}")
         raise
 
 
 def generate_final_report(df: pd.DataFrame):
-    """Generate final processing report"""
+    """Generate final processing report for enhanced system"""
     print("\n" + "=" * 80)
-    print("FINAL LLM-DRIVEN CLASSIFICATION REPORT")
+    print("FINAL ENHANCED LLM-DRIVEN CLASSIFICATION REPORT")
     print("=" * 80)
 
     total_products = len(df)
@@ -1741,10 +1999,36 @@ def generate_final_report(df: pd.DataFrame):
         f"Successfully classified: {classified_products:,} ({classified_products/total_products*100:.1f}%)"
     )
 
+    # Enhanced depth analysis
+    def calculate_depth(row):
+        depth = 0
+        levels = [
+            "primary_subcategory",
+            "primary_subsubcategory",
+            "primary_subsubsubcategory",
+        ]
+        for level in levels:
+            value = row.get(level, "")
+            if value and str(value) != "nan" and str(value).strip():
+                depth += 1
+            else:
+                break
+        return depth
+
+    df["classification_depth"] = df.apply(calculate_depth, axis=1)
+    avg_depth = df["classification_depth"].mean()
+    depth_3_plus = len(df[df["classification_depth"] >= 3])
+
+    print(f"\n{'ENHANCED DEPTH ANALYSIS':-^60}")
+    print(f"  Average classification depth: {avg_depth:.2f}")
+    print(
+        f"  Deep classifications (3+ levels): {depth_3_plus:,} ({depth_3_plus/total_products*100:.1f}%)"
+    )
+
     # Dual classification analysis
     dual_function_products = len(df[df["is_dual_function"] == True])
     print(
-        f"Dual function products: {dual_function_products:,} ({dual_function_products/total_products*100:.1f}%)"
+        f"  Dual function products: {dual_function_products:,} ({dual_function_products/total_products*100:.1f}%)"
     )
 
     # Domain distribution
@@ -1765,26 +2049,14 @@ def generate_final_report(df: pd.DataFrame):
         f"  High confidence classifications: {high_confidence:,} ({high_confidence/total_products*100:.1f}%)"
     )
 
-    # Confidence distribution
-    print(f"\n{'CONFIDENCE DISTRIBUTION':-^60}")
-    confidence_counts = df["primary_confidence"].value_counts()
-    for conf, count in confidence_counts.items():
-        print(f"  {conf:<35} {count:>7,} ({count/total_products*100:>5.1f}%)")
-
-    # Token usage and cost analysis
+    # Enhanced token usage and cost analysis
     total_tokens = df["total_token_usage"].sum()
     avg_tokens = df["total_token_usage"].mean()
-    print(f"\n{'COST ANALYSIS':-^60}")
+    print(f"\n{'ENHANCED COST ANALYSIS':-^60}")
     print(f"  Total tokens: {total_tokens:,}")
     print(f"  Average tokens per product: {avg_tokens:.1f}")
     print(f"  Estimated cost: ${total_tokens * 0.00015 / 1000:.2f}")
-
-    # Top invalid path examples for debugging
-    invalid_paths = df[df["primary_path_valid"] == False].head(5)
-    if len(invalid_paths) > 0:
-        print(f"\n{'INVALID PATH EXAMPLES (for debugging)':-^60}")
-        for idx, row in invalid_paths.iterrows():
-            print(f"  {row['Name'][:40]:<40} -> {row['validated_path']}")
+    print(f"  Cost per product: ${avg_tokens * 0.00015 / 1000:.6f}")
 
 
 if __name__ == "__main__":

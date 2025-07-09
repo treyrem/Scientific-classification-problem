@@ -14,9 +14,21 @@ categories:
           - Particle Size Analyzer / Particle Shape Analyzers / Particle Counters
           - Thermal Analysis Instruments
 
+      Animal Behavior & Monitoring:
+        subsubcategories:
+          - Analgesia Meters
+          - Animal Blood Pressure Monitoring
+          - Animal Handling Equipment
+          - Animal Monitoring Systems
+          - Catheters
+          - Electronic von Frey
+          - Plethysmometers
+          - Syringe Infusion Pumps
+          - Temperature Probes & Controllers
+
       Cell Analysis:
         subsubcategories:
-          - Flow Cytometers
+          - Flow Cytometry
           - Cell Counters
           - Cell Analysers
           - Automated Cell Culture Systems
@@ -25,6 +37,24 @@ categories:
           - Protein Conjugation and Labeling
           - Single Cell Analysis
           - Spatial Biology
+
+      Cell Culture Equipment:
+        subsubcategories:
+          - Automated Cell Culture Systems
+          - Live Cell Imaging
+          - Single-Use Bioreactors
+          - Stirred-Tank Bioreactors / Fermentors
+          - Tissue Dissociation Instruments
+          - Cell Culture Monitoring Systems
+          - Laboratory Rockers and Shakers
+          - Laboratory Hoods (Laminar Flow Hoods / Biosafety Cabinets)
+          - Laboratory Incubators
+          - Cell Culture Flasks
+          - Cell Culture Inserts
+          - Cell Culture Plates and Dishes
+          - Filters and Filtration Devices
+          - Colony Counters
+          - Colony Pickers / Colony Arrayers
 
       Chromatography Equipment:
         description: "Separation and purification instruments"
@@ -55,11 +85,6 @@ categories:
           - Electrophoresis Supplies
           - Microfluidic Chip / Microchip Electrophoresis Systems
           - Electrophoresis Power Supplies
-          - Gel Imaging Systems:
-              subsubsubcategories:
-                - ChemiDoc Systems           
-                - Gel Documentation Systems
-                - UV Gel Documentation
 
       General Laboratory Equipment:
         subsubcategories:
@@ -67,12 +92,12 @@ categories:
           - Barcode Readers and Scanners
           - Decapper / Crimper
           - Filters and Filtration Devices
-          - Centrifuges
+          - Laboratory Centrifuges
           - Laboratory Hoods (Laminar Flow Hoods / Biosafety Cabinets)
-          - Incubators
-          - Printers
-          - Refrigeration
-          - Rockers and Shakers
+          - Laboratory Incubators
+          - Laboratory Printers
+          - Laboratory Refrigeration
+          - Laboratory Rockers and Shakers
           - Laboratory Water Purification Systems (Lab Water)
           - Magnetic Stirrers
           - Pipettes / Pipettors
@@ -83,6 +108,14 @@ categories:
           - Vacuum Manifolds
           - Vacuum Pumps
           - Vortex Mixers
+
+      Genomics Tools:
+        subsubcategories:
+          - Automated DNA/RNA/Protein Purification Systems
+          - DNA Sequencers / Genetic Analyzers
+          - Mass Spectrometers
+          - Microarray Equipment
+          - PCR Equipment
 
       Laboratory Supplies & Consumables:
         subsubcategories:
@@ -125,34 +158,12 @@ categories:
           - Histology Equipment
 
       PCR Equipment:
-        description: "PCR thermocyclers, real-time PCR systems, qPCR machines"
         subsubcategories:
+          - PCR Thermocyclers
           - Multipurpose Workstations
           - PCR Workstation / PCR Hood
           - PCR Plate Heat Sealers
           - PCR Consumables
-          - PCR Thermocyclers:
-              subsubsubcategories:
-                - Real-Time PCR Systems
-                - qPCR Machines
-                - 7500 Real-Time PCR Systems 
-                - ABI Prism Systems           
-                - Digital PCR Systems (dPCR)
-      
-      Sample_Handling:
-        description: "Equipment for sample manipulation and processing"
-        subsubcategories:
-          - Dispensers
-          - Dilutors
-          - Automated Pipetting
-          - Mixing Devices
-          - Vortex Mixers
-          - Orbital Shakers
-          - Magnetic Stirrers
-          - Homogenizers
-          - Sample Storage
-          - Cryogenic Storage
-          - Sample Tracking Systems
 
       Spectroscopy:
         subsubcategories:
@@ -162,103 +173,19 @@ categories:
           - Raman Spectrophotometers
           - Atomic Absorption Spectrophotometers
           - Mass Spectrometers
-          - Spectrometers
           - Microplate Readers:
             subsubsubcategories:
             - Absorbance Readers
             - Fluorescence Readers
             - Luminescence Readers
             - Multi-Mode Readers
-          
-
-      Safety_Containment:
-        description: "Safety and containment equipment"
-        subsubcategories:
-          - Biosafety Cabinets
-          - Class I Cabinets
-          - Class II Cabinets
-          - Class III Cabinets
-          - Fume Hoods
-          - Chemical Fume Hoods
-          - Biological Safety Hoods
-          - Laminar Flow Hoods
-          - Waste Management
-          - Waste Collection
-          - Decontamination Equipment
-
-      UV Crosslinkers:
+          - Spectrometers
+      Supplies & Consumables:
         subsubcategories: []
-
-      
-      Weighing_Measuring:
-        description: "Precision measurement instruments"
-        subsubcategories:
-          - Analytical Balances
-          - Microbalances
-          - Semi-Micro Balances
-          - Precision Balances
-          - Benchtop pH Meters
-          - Portable pH Meters
-          - pH Electrodes
-          - Conductivity Meters
-          - TDS Meters
-          - Ion Meters
-
+      UV Crosslinkers:
+        subsubsubcategories: []
       Western Blotting Equipment:
-        subsubcategories:
+        subsubsubcategories:
           - Automated Blot Analysis
           - Automated Western Blot Processors / Western Blot Processors
           - Western Blotters
-
-      Animal Behavior & Monitoring:
-        subsubcategories:
-          - Analgesia Meters
-          - Animal Blood Pressure Monitoring
-          - Animal Handling Equipment
-          - Animal Monitoring Systems
-          - Catheters
-          - Electronic von Frey
-          - Plethysmometers
-          - Syringe Infusion Pumps
-          - Temperature Probes & Controllers
-
-      Cell Culture Equipment:
-        subsubcategories:
-          - Automated Cell Culture Systems
-          - Live Cell Imaging
-          - Single-Use Bioreactors
-          - Stirred-Tank Bioreactors / Fermentors
-          - Tissue Dissociation Instruments
-          - Cell Culture Monitoring Systems
-          - Laboratory Rockers and Shakers
-          - Laboratory Hoods (Laminar Flow Hoods / Biosafety Cabinets)
-          - Laboratory Incubators
-          - Cell Culture Flasks
-          - Cell Culture Inserts
-          - Cell Culture Plates and Dishes
-          - Filters and Filtration Devices
-          - Colony Counters
-          - Colony Pickers / Colony Arrayers
-      
-      Genomics Tools:
-        subsubcategories:
-          - Automated DNA/RNA/Protein Purification Systems
-          - DNA Sequencers / Genetic Analyzers
-          - Mass Spectrometers
-          - Microarray Equipment
-
-      
-      Incubation_Environment:
-        description: "Environmental control equipment"
-        subsubcategories:
-          - CO2 Incubators
-          - Shaking Incubators
-          - Hybridization Ovens
-          - BOD Incubators
-          - Environmental Chambers
-          - Temperature Chambers
-          - Humidity Chambers
-          - Stability Chambers
-          - Circulating Water Baths
-          - Shaking Water Baths
-          - Digital Water Baths
