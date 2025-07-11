@@ -40,7 +40,7 @@ domain_mapping:
     yaml_file: "category_structure_lab_equipment.yaml"
     description: "Physical laboratory instruments, analytical equipment, and lab hardware. EXCLUDES reagents, chemicals, stains, membranes, or biological supplies."
     keywords: ["instrument", "equipment", "centrifuge", "incubator", "balance", "reader", "analyzer", "spectrometer", "system", "machine", "thermocycler", "chromatography", "microscope", "scanner"]
-    # CRITICAL: Add exclusion keywords to prevent misclassification
+    consumables_keywords: ["tube", "plate", "filter", "membrane", "tip", "vial", "dish", "cartridge", "column", "insert", "strip", "slide", "paper", "cpt", "whatman", "nuclepore"]
     exclusion_keywords: ["giemsa", "crystal violet", "stain", "dye", "membrane", "pvdf", "nitrocellulose", "immobilon", "buffer", "solution", "medium", "reagent", "chemical", "solvent", "acetonitrile", "methanol"]
     typical_products: ["Microplate reader", " centrifuge", "CO2 incubator", "PCR thermocycler", "HPLC system", "Spectrophotometer", "Flow cytometer","Mass Spectrometers"]
     key_classification_paths:
@@ -49,34 +49,55 @@ domain_mapping:
       - "Cell Analysis -> Flow Cytometry (flow cytometers, cell counters)"
       - "Chromatography Equipment -> Chromatography Systems (HPLC instruments, LC-MS)"
       - "PCR Equipment -> PCR Thermocyclers (real-time PCR, digital PCR)"
+      - "Neuroscience Equipment → Histology Equipment (cryotome, microtome, vibratome, ultracut, sectioning)"
     classification_hints:
       - "Physical instruments and machines that analyze, separate, or process samples"
       - "If it has moving parts, electronics, or measures something = likely equipment"
       - "NEVER classify stains, dyes, membranes, buffers, or chemicals as equipment"
-      - "Reduce use of 'General Laboratory Equipment' - use specific subcategories"
       - "Chromatography columns are equipment (physical separation devices)"
+
+
+  Chemistry:
+    yaml_file: "category_structure_chemistry.yaml"
+    description: "Laboratory chemicals, solvents, acids, salts, and basic chemical reagents for research applications"
+    keywords: ["acetonitrile", "methanol", "DMSO", "solvents", "organic solvents", "chromatography solvents", "hydrochloric acid", "sulfuric acid", "phosphoric acid", "laboratory acids", "sodium chloride", "potassium chloride", "laboratory salts", "tris base", "HEPES", "buffer components", "chelating agents", "EDTA", "reducing agents", "DTT", "urea", "guanidinium chloride", "chemicals", "reagents", "glycogen", "bromophenol blue", "enhancers", "vitamins", "molecular biology chemicals"]
+    typical_products: ["Acetonitrile HPLC grade", "Methanol", "DMSO", "Hydrochloric acid", "Sulfuric acid", "Sodium chloride", "Tris base", "HEPES", "EDTA", "DTT", "Urea", "Guanidinium chloride", "Bromophenol blue", "Glycogen"]
+    key_classification_paths:
+      - "Chemicals -> Laboratory Solvents -> Acetonitrile"
+      - "Chemicals -> Laboratory Solvents -> Methanol"
+      - "Chemicals -> Laboratory Acids -> Hydrochloric Acid (HCl)"
+      - "Chemicals -> Basic Laboratory Salts -> Sodium Chloride (NaCl)"
+      - "Chemicals -> Advanced Molecular Biology Chemicals -> Buffer Components -> Tris Base"
+      - "Chemicals -> Advanced Molecular Biology Chemicals -> Chelating Agents -> EDTA"
+      - "Chemicals -> Advanced Molecular Biology Chemicals -> Reducing Agents -> DTT"
+      - "Chemicals -> Advanced Molecular Biology Chemicals -> Protein Denaturants -> Urea"
+    classification_hints:
+      - "All laboratory solvents (acetonitrile, methanol, DMSO) go to Chemistry domain"
+      - "Laboratory acids and salts belong in Chemistry, not Molecular Biology"
+      - "Buffer components like Tris, HEPES belong in Chemistry under Advanced Molecular Biology Chemicals"
+      - "Chelating agents (EDTA, EGTA) belong in Chemistry domain"
+      - "Chemical reagents used in molecular biology still classify as Chemistry"
+      - "Distinguish between chemicals (Chemistry domain) and biological reagents (Molecular Biology domain)"
 
   Molecular_Biology:
     yaml_file: "category_structure_molecular_biology.yaml"
-    description: "DNA, RNA, protein analysis reagents, enzymes, molecular reagents, organic solvents, and basic laboratory chemicals"
-    keywords: ["DNA", "RNA", "acetonitrile", "Strong acids", "Organic acids","methanol", "DMSO", "solvents", "organic solvents", "chromatography solvents", "enzyme", "buffer", "EDTA", "molecular", "chemicals", "agarose", "sequencing", "restriction", "ligase", "hybridization", "nuclease-free water"]
-    # Emphasize solvents and chemicals
-    solvent_chemicals: ["acetonitrile", "methanol", "ethanol", "DMSO", "chloroform", "isopropanol", "hexane", "dichloromethane"]
-    typical_products: ["T4 DNA ligase", "Acetonitrile", "Methanol", "DMSO", "Restriction enzymes", "EDTA", "Agarose", "Nuclease-free water", "Chromatography solvents"]
+    description: "DNA, RNA, protein analysis reagents, enzymes, molecular reagents, and nucleic acid technologies (excluding basic chemicals and solvents)"
+    keywords: ["DNA", "RNA", "enzyme", "buffer", "molecular", "agarose", "sequencing", "restriction", "ligase", "hybridization", "nuclease-free water", "PCR", "qPCR", "CRISPR", "transfection", "expression analysis", "nucleic acid analysis"]
+    typical_products: ["T4 DNA ligase", "Restriction enzymes", "Agarose", "Nuclease-free water", "PCR master mix", "CRISPR kits", "Transfection reagents"]
     key_classification_paths:
-      - "Chemicals -> Solvents (acetonitrile, methanol, DMSO)"
-      - "Chemicals -> Salts (EDTA, NaCl, buffer components)"
+      - "Expression Analysis -> Quantitative PCR (qPCR)"
+      - "Nucleic Acid Analysis -> DNA Sequencing"
+      - "CRISPR Products -> CRISPR-Cas9"
+      - "Transfection Kits and Reagents -> DNA Transfection Reagents"
       - "Molecular Biology Reagents -> Enzymes"
-      - "Molecular Biology Reagents -> EDTA"
       - "Molecular Biology Reagents -> Nuclease-Free Water"
-      - "Expression Analysis"
-      - "CRISPR Products"
-      - "Chemicals -> Antibiotics (streptomycin, penicillin, cloxacillin)"
     classification_hints:
-      - "Organic solvents (acetonitrile, methanol) = chemicals, not equipment"
-      - "All laboratory chemicals and solvents belong here"
-      - "Basic molecular biology chemicals go to Chemicals subcategory"
-      - "Basic reagents like EDTA, water go to Molecular Biology Reagents"
+      - "Biological enzymes and nuclease-free water belong here"
+      - "CRISPR, PCR, and expression analysis tools belong here"
+      - "Transfection reagents and molecular biology kits belong here"
+      - "Basic chemicals and solvents now belong in Chemistry domain"
+      - "EDTA and buffer salts now belong in Chemistry domain"
+      - "Focus on biological processes and nucleic acid technologies"
 
   Nucleic_Acid_Electrophoresis:
     yaml_file: "category_structure_nucleic_acid_electrophoresis.yaml"
@@ -152,6 +173,12 @@ domain_mapping:
       - "NeuN (neuronal nuclei) antibodies specifically go to Research Area Antibodies -> Neuroscience Antibodies -> Neuronal Marker Antibodies -> NeuN Antibodies"
       - "Loading control antibodies (beta actin, GAPDH) have dedicated subcategory"
       - "Very detailed research area classifications available"
+      - "SECONDARY ANTIBODY PATTERNS: '[Species] anti-[Species]' = Secondary (goat anti-rabbit, mouse anti-human)"
+      - "SECONDARY ANTIBODY PATTERNS: 'anti-[Species] IgG/IgM' = Secondary (anti-rabbit IgG)"
+      - "PRIMARY ANTIBODY PATTERNS: 'anti-[Protein]' = Primary (anti-GFAP, anti-BCL-2)"
+      - "Conjugated anti-species = Secondary Antibodies → Conjugated Secondary Antibodies"
+      - "Application mentioned = Primary → Application-Specific (IHC, Western, Flow)"
+      - "When in doubt about primary vs secondary, check for species-to-species pattern"
     dual_classification_opportunities:
       - "Neuroscience antibodies could also fit Cell_Biology for cellular applications"
       - "Cancer marker antibodies could also fit research-specific domains"

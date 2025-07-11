@@ -18,7 +18,9 @@ from collections import defaultdict, Counter
 # Configuration
 INPUT_CSV = "C:/LabGit/150citations classification/top_50_000_products_in_citations.xlsx - Sheet1.csv"
 OUTPUT_CSV = "products_enhanced_fixed_classification.csv"
-VALIDATION_CSV = "validation_enhanced_fixed_classification_w_tagging.csv"
+VALIDATION_CSV = (
+    "validation_enhanced_fixed_classification_w_tagging_prompt_changes_2.csv"
+)
 YAML_DIRECTORY = "C:/LabGit/150citations classification/category_structures"
 MASTER_CATEGORIES_FILE = (
     "C:/LabGit/150citations classification/master_categories_claude.yaml"
@@ -523,8 +525,11 @@ CLASSIFICATION HIERARCHY RULES:
 
 1. PRODUCT TYPE beats APPLICATION:
 - Instruments, systems, equipment, machines → Lab Equipment domain
+- Physical laboratory consumables → Lab Equipment domain
 - Reagents, chemicals, kits → Appropriate reagent domain
 - Solvents are ALWAYS chemicals, never equipment
+- Microscopes/Cameras/Imaging → Bioimaging/Microscopy
+- Focus on APPLICATION and TECHNIQUE
 
 2. CRITICAL EQUIPMENT vs REAGENT DISTINCTION:
 EQUIPMENT = Physical instruments with moving parts, electronics, or measurement capabilities
@@ -532,6 +537,16 @@ Examples: "spectrophotometer", "centrifuge", "PCR machine", "plate reader", "mic
 
 REAGENTS/SUPPLIES = Chemicals, biological materials, consumables, stains, membranes
 Examples: "giemsa stain", "PVDF membrane", "acetonitrile", "cell culture medium"
+
+Only classify as Chemistry if it's an actual chemical compound
+Examples: "UPLC column" = Lab Equipment, "acetonitrile" = Chemistry
+
+3. MANDATORY CONSUMABLES RULES :
+CPT tubes, sample tubes, microcentrifuge tubes → Lab Equipment domain
+Filter paper (Whatman, etc.), membrane filters → Lab Equipment domain
+Microplates, cell culture plates, ELISA plates → Lab Equipment domain
+Chromatography columns, C18 cartridges → Lab Equipment domain
+Pipette tips, disposable pipettes → Lab Equipment domain
 
 3. **NEW: ENHANCED KIT CLASSIFICATION RULES**:
 
@@ -1385,6 +1400,45 @@ TASK: Classify this product to the DEEPEST possible level within the specified d
 Product: "{product_name}"
 Description: "{description}"
 
+CRITICAL ANTIBODY CLASSIFICATION RULES:
+1. **SECONDARY ANTIBODY PATTERNS** (highest priority):
+   - "[Species] anti-[Target Species]" = Secondary Antibody (e.g., "goat anti-rabbit", "mouse anti-human")
+   - "anti-[Species] IgG/IgM" = Secondary Antibody (e.g., "anti-rabbit IgG")
+   - Conjugated anti-species products = Secondary Antibodies → Conjugated Secondary Antibodies
+   - Examples: "alexa fluor goat anti-rabbit" → Secondary Antibodies → Conjugated Secondary Antibodies
+
+2. **PRIMARY ANTIBODY PATTERNS**:
+   - "anti-[Protein/Target]" = Primary Antibody (e.g., "anti-GFAP", "anti-BCL-2")
+   - Target-specific without species reference = Primary Antibody
+
+CRITICAL CHEMISTRY CLASSIFICATION RULES:
+1. **SPECIFIC CHEMICAL TYPES**:
+   - Histological stains (Fast Red, Methylene Blue) → Histological Stains and Dyes
+   - Fluorescent compounds (fluorescein, rhodamine) → Fluorescent Compounds
+   - Pharmaceutical compounds → Therapeutic Agents (NOT solvents)
+
+2. **DEPTH REQUIREMENTS FOR SALTS**:
+   - All salts must reach "Other Laboratory Salts" level minimum
+   - Common salts: NaCl, KCl, MgSO4 → Basic Laboratory Salts → Specific salt type
+
+3. **BUFFER COMPONENTS SPECIFICITY**:
+   - Buffer solutions → Advanced Molecular Biology Chemicals → Buffer Components
+   - Always try to reach Buffer Components level for buffer-related products
+
+   
+CRITICAL SOFTWARE CLASSIFICATION RULES:
+
+1. **SPECIFIC SOFTWARE NAME PRIORITY**:
+   - ALWAYS check for specific software subcategories FIRST
+   - Examples: "STATA" → Statistical Analysis Software → STATA
+   - Examples: "SPSS" → Statistical Analysis Software → SPSS
+   - Examples: "Origin" → Laboratory Management Software → Origin Software
+
+2. **SOFTWARE FUNCTION HIERARCHY**:
+   - Image Analysis/Processing software → Image Analysis Software / Image Processing Software
+   - Statistical software → Statistical Analysis Software → [Specific Name]
+   - Data analysis → Data Analysis Software (only if no specific category)
+   
 REQUIREMENTS:
 1. Domain Fit Score (0-100): How well does this product fit?
 2. MANDATORY: Provide subcategory (exact name from paths above)

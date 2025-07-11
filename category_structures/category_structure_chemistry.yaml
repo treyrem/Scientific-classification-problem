@@ -123,6 +123,18 @@ categories:
                 subsubsubcategories:
                   - Specialty Solvents
                   - Solvent Mixtures
+          - Histological Stains and Dyes:
+            subsubcategories:
+              - Fast Red Stains
+              - Methylene Blue Stains
+              - Hematoxylin Stains
+              - Other Histological Stains
+          - Fluorescent Compounds:
+            subsubcategories:
+              - Fluorescein Derivatives
+              - Rhodamine Compounds
+              - DAPI and DNA Stains
+              - Other Fluorescent Tracers
           - Advanced Molecular Biology Chemicals:
             subsubcategories:
               Buffer Components:
