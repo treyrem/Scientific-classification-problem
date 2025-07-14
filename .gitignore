@@ -4,6 +4,7 @@
 /csv results
 /checkpoints_Claude
 /checkpints
-
+/enhanced_classification_checkpoints
 checkpoints/checkpoint_50000.csv
 .csv
+top_50_000_products_in_citations.xlsx - Sheet1.csv
