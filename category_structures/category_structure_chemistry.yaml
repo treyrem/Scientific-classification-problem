@@ -8,7 +8,12 @@ categories:
           - Fluorescent Dextran
           - Glycogen
           - Vitamins
-          - Antibiotics
+          - Antibiotics:
+            subsubcategories:
+              - Laboratory Antibiotics:
+                subsubsubcategories:
+                  - Streptomycin
+                  - Penicillin
           - Herbicides
           - Therapeutic Agents
           - Research Compounds

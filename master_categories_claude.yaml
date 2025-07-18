@@ -4,10 +4,10 @@ domain_mapping:
   Cell_Biology:
     yaml_file: "category_structure_cell_biology.yaml"
     description: "Cell culture systems, cell analysis tools, staining reagents, cell lines, cellular manipulation products, and biological molecules"
-    keywords: ["cell", "giemsa", "crystal violet", "trypan blue", "staining", "culture", "medium", "media", "transfection", "cell line", "viability", "flow cytometry", "FACS", "matrigel", "ECM", "extracellular matrix", "animal models", "transgenic", "knockout", "fluorescent dyes", "dylight"]
+    keywords: ["cell", "giemsa", "crystal violet", "trypan blue","mice","rat", "staining", "culture", "medium", "media", "transfection", "cell line", "viability", "flow cytometry", "FACS", "matrigel", "ECM", "extracellular matrix", "animal models", "transgenic", "knockout", "fluorescent dyes", "dylight"]
     # Add staining reagents as primary indicators
     staining_reagents: ["giemsa", "crystal violet", "methylene blue", "trypan blue", "neutral red", "congo red"]
-    typical_products: ["HeLa cells", "Giemsa stain", "Cell culture media", "Flow cytometry buffer", "Trypan blue", "Crystal violet stain", "Matrigel matrix", "Mouse models", "DyLight dyes"]
+    typical_products: ["HeLa cells", "mice","animal models","Giemsa stain", "Cell culture media", "Flow cytometry buffer", "Trypan blue", "Crystal violet stain", "Matrigel matrix", "Mouse models", "DyLight dyes"]
     key_classification_paths:
       - "Cell Analysis -> Flow Cytometry -> Flow Cytometry Stains (for giemsa, trypan blue)"
       - "Cell Culture -> Cell Culture Media (for RPMI, DMEM)"
@@ -20,6 +20,7 @@ domain_mapping:
       - "Cell culture stains and dyes have dedicated categories"
       - "Biological proteins (gelatin, fibronectin) go to Biomolecules -> Proteins & Peptides"
       - "Research antibiotics (streptomycin, penicillin) should go to Inhibitors"
+      - "Animal models"
 
   Cloning_And_Expression:
     yaml_file: "category_structure_cloning_expression.yaml"

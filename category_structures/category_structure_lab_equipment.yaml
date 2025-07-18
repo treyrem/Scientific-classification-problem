@@ -94,10 +94,21 @@ categories:
           - Cell Culture Plates and Dishes
           - Ultra-Low Attachment Plates
           - Cryogenic Tubes and Vials
-          - Filters and Filtration Devices
+          - Filters
+          - Filtration Devices
           - Strip Tubes
           - 96-Well Microplates
-          - PCR Consumables
+          - Deep Well Plates
+          - Plates and Dishes
+          - Pipette tips
+          - PCR Consumables:
+            subsubsubcategories:
+            - PCR Tubes
+            - 96-Well PCR Plates
+            - 384-Well PCR Plates
+            - qPCR Plates
+            - Strip Tubes
+            - Plate Seals
 
       Liquid Handling:
         subsubcategories:
