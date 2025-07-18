@@ -4,32 +4,57 @@ Automated 3-stage AI classification system for life science products with hierar
 📚 Table of Contents
 
 🎯 What This System Does
+
 🏗️ Architecture Overview
+
 ⚡ Quick Start
+
 📁 File Structure
+
 🔄 How Classification Works
+
 ⚙️ Configuration
+
 🚀 Usage Examples
+
 🔍 Web Search Reclassification
+
 💾 Checkpointing System
+
 📊 Output Format
+
 🛠️ Development Guide
+
 ❓ Troubleshooting
 
 
+
+
 🎯 What This System Does
+
 This system automatically classifies life science products (lab equipment, reagents, antibodies, kits, etc.) into:
+
 ✅ 19 specialized domains (Cell Biology, Lab Equipment, Antibodies, etc.)
+
 ✅ Deep hierarchical categories (up to 4 levels: Domain → Subcategory → Subsubcategory → Subsubsubcategory)
+
 ✅ 4 types of cross-cutting tags (Technique, Research, Functional, Specimen)
+
 ✅ Dual classifications for products that fit multiple domains
+
 ✅ Web search enhancement for difficult cases
+
 Example Output:
 Product: "Anti-NeuN monoclonal antibody"
+
 Primary: Antibodies → Research Area Antibodies → Neuroscience Antibodies → Neuronal Marker Antibodies
+
 Tags: Technique=[Immunofluorescence, Western Blot], Research=[Neuroscience], Functional=[Research Use Only], Specimen=[Human, Mouse]
 
+
 🏗️ Architecture Overview
+
+
 mermaidgraph TD
     A[Product Input] --> B[Stage 1: Domain Selection]
     B --> C[Stage 2a: Primary Classification]
@@ -45,17 +70,25 @@ mermaidgraph TD
     F --> K{Problematic?}
     K -->|Yes| I
     K -->|No| L[Complete]
+
+    
 Core Components
+
 ComponentPurposeFileMaster ControllerMaps domains to YAML files, provides classification rulesmaster_categories_claude.yamlClassification Engine3-stage AI classification pipelineenhanced_classification_full_checkpoint.pyWeb Search ModuleReclassifies problematic cases using real web dataweb_search_integration.pyDomain StructuresDetailed hierarchical category treescategory_structure_*.yaml files
 
+
 ⚡ Quick Start
+
 Prerequisites
+
 bashpip install pandas openai pyyaml tqdm python-dotenv
+
 Environment Setup
 
 Create API key file: api_keys/OPEN_AI_KEY.env
 
 envOPENAI_API_KEY=your_openai_api_key_here
+
 
 Ensure YAML files are in place:
 
@@ -64,7 +97,9 @@ category_structures/
 ├── category_structure_cell_biology.yaml
 ├── category_structure_lab_equipment.yaml
 └── ... (17 more domain YAML files)
+
 Basic Usage
+
 pythonfrom enhanced_classification_full_checkpoint import *
 
 # Initialize the system
@@ -88,7 +123,9 @@ process_enhanced_validation_sample()
 # For full dataset (50K+ products)  
 process_full_dataset()
 
+
 📁 File Structure
+
 project/
 ├── enhanced_classification_full_checkpoint.py    # Main classification engine
 ├── web_search_integration.py                     # Web search reclassification
@@ -106,11 +143,17 @@ project/
     └── products_enhanced_fixed_classification.csv # Output
 
 🔄 How Classification Works
+
 Stage 1: Smart Domain Selection 🎯
+
 Input: Product name + description
+
 Output: 1-2 best domains with confidence scores
+
 AI Model: GPT-4o-mini
+
 Key Rules:
+
 
 Product Type beats Application - Microscopes go to Lab Equipment, not by what they analyze
 Equipment vs Reagent Distinction - Physical instruments vs chemicals/biologicals
@@ -140,14 +183,21 @@ Output: 4 categories of tags
 AI Model: GPT-4o-mini
 Tag Categories:
 
+
 Technique Tags: HOW it's used (Western Blot, Flow Cytometry, PCR)
+
 Research Tags: WHAT research it supports (Cancer Research, Neuroscience)
+
 Functional Tags: WHAT TYPE it is (Kit, Instrument, High-Throughput)
+
 Specimen Tags: WHAT species it works with (Human, Mouse, Rat)
 
 
+
 ⚙️ Configuration
+
 Master Categories File
+
 The master_categories_claude.yaml is the control center:
 yamldomain_mapping:
   Cell_Biology:
@@ -185,6 +235,7 @@ yamlNew_Domain:
   typical_products: ["Example product 1", "Example product 2"]
 
 🚀 Usage Examples
+
 Classify Single Product
 pythonfrom enhanced_classification_full_checkpoint import *
 
@@ -224,6 +275,7 @@ for domain in category_system.available_domains:
     print(f"  - {domain}")
 
 🔍 Web Search Reclassification
+
 For products with problematic classifications, the system can use web search to get better information:
 When It's Triggered
 
@@ -232,6 +284,7 @@ Generic classifications like "Analytical Instrumentation"
 Misclassified antibiotics (e.g., streptomycin as acid instead of antibiotic)
 
 How to Use
+
 pythonfrom web_search_integration import *
 
 # Process problematic products with web search
@@ -239,7 +292,9 @@ complete_df, problematic_df = process_corrected_real_web_search_reclassification
     input_csv="products_enhanced_fixed_classification.csv",
     output_csv="products_real_web_search_reclassified.csv"
 )
+
 What It Does
+
 
 Identifies problematic products from previous classification runs
 Performs real web search using OpenAI's web search API
@@ -249,6 +304,7 @@ Updates original classifications if successful
 
 
 💾 Checkpointing System
+
 The system automatically saves progress to handle large datasets and API failures:
 Checkpoint Types
 
@@ -274,6 +330,7 @@ print(f"Latest checkpoint: {checkpoint_file}")
 df = pd.read_csv("enhanced_validation_checkpoint_150.csv")
 
 📊 Output Format
+
 CSV Columns Structure
 Primary Classification
 primary_domain                    # Main domain (e.g., "Antibodies")
@@ -305,7 +362,9 @@ Example Output Row
 csvName,primary_domain,primary_subcategory,primary_subsubcategory,technique_tags,research_tags,total_tags
 "Anti-CD3 antibody",Antibodies,Primary Antibodies,Monoclonal Antibodies,"Flow Cytometry|Western Blot","Immunology|Cell Biology",4
 
+
 🛠️ Development Guide
+
 Adding New Tag Categories
 python# In EnhancedTagSystem class
 class EnhancedTagSystem:
@@ -323,7 +382,9 @@ class EnhancedTagSystem:
             self.specimen_tags |
             self.new_category_tags  # Add here
         )
+
 Modifying Classification Rules
+
 python# In master_categories_claude.yaml, add domain-specific rules:
 Cell_Biology:
   classification_hints:
@@ -348,9 +409,15 @@ def test_new_feature():
         result = classifier.classify_product(product["name"], product["description"])
         print(f"Result: {result}")
 
+
 ❓ Troubleshooting
+
+
 Common Issues
+
+
 🔴 "Domain not found" Error
+
 python# Check available domains
 category_system = LLMDrivenCategorySystem()
 print(category_system.available_domains)
@@ -362,20 +429,11 @@ for domain in category_system.available_domains:
     yaml_file = f"category_structure_{domain.lower()}.yaml"
     path = os.path.join(yaml_dir, yaml_file)
     print(f"{domain}: {os.path.exists(path)}")
-🔴 OpenAI API Errors
-python# Check API key
-from pathlib import Path
-from dotenv import load_dotenv
-import os
 
-env_path = Path("api_keys/OPEN_AI_KEY.env")
-if env_path.exists():
-    load_dotenv(env_path)
-    key = os.getenv("OPENAI_API_KEY")
-    print(f"API key loaded: {'Yes' if key else 'No'}")
-else:
-    print("API key file not found")
+
+
 🔴 Memory Issues with Large Datasets
+
 python# Reduce checkpoint frequency
 CHECKPOINT_FREQ = 25  # Save more frequently
 
@@ -383,7 +441,9 @@ CHECKPOINT_FREQ = 25  # Save more frequently
 df_chunks = [df[i:i+1000] for i in range(0, len(df), 1000)]
 for chunk in df_chunks:
     process_chunk(chunk)
+    
 🔴 Classification Quality Issues
+
 python# Check validation report
 validation_df = process_enhanced_validation_sample()
 generate_enhanced_dual_validation_report(validation_df)
@@ -407,6 +467,7 @@ def process_parallel(products, max_workers=3):
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         results = list(executor.map(classify_single_product, products))
     return results
+    
 Getting Help
 
 Check logs - All operations are logged with timestamps
